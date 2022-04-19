@@ -1,5 +1,19 @@
 html, body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: none;
+}
+
+.main {
+  background-color: red;
+  display: none;
+}
+
+.top {
+  background-color: purple;
+}
+
+.top__text__title {
+  color: green;
 }
 /*# sourceMappingURL=main.css.map */

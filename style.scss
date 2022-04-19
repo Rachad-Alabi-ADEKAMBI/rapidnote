@@ -10,20 +10,35 @@ $black: black;
 }
 
 @mixin button{
-    background-color: blue;
+    background-color: rgb(186, 186, 218);
     color: white;
     border: 1px solid;
     border-radius: 30px;
-    height: 30px;
+    height: 35px;
+
     width: auto;
     cursor: pointer;
     transition: 500ms ease-in-out;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: $blue;
 }
 
 
 
 html, body{
     box-sizing: border-box;
+    line-height: 1.5em;
+    font-size: 1.1em;
 }
 
 button{
@@ -39,7 +54,8 @@ button:hover{
 }
 
 .nav{
-    width: 90%;
+    width: 100%;
+    background-color: aliceblue;
 
     @include flex();
 
@@ -47,7 +63,7 @@ button:hover{
         float: left;
         img{
             float: left;
-            margin: 10px auto;
+            margin: 10px auto auto 20px;
         }
     }
 
@@ -94,14 +110,20 @@ button:hover{
 
     &__text{
         text-align: left;
-        
         flex: 1;
+        width: 80%;
+        margin: auto;
+        padding-right: 30px;
+        
+        
         &__title{
             color: $blue;
+            font-size: 2.2em;
+            font-weight: bold;
         }
 
         &__text{
-            font-size: 0.9em;
+            font-size: 1em;
         }
 
         &__subtitle{
@@ -110,7 +132,7 @@ button:hover{
 
         &__items{
             text-align: left;
-            background-color: green;
+            margin: auto 0;
             li{
                 display: inline;
                 margin: 10px;
@@ -139,11 +161,12 @@ button:hover{
     @include flex(column);
     text-align: center;
     width: 100%;
-    margin: 0px auto;
+    margin: 70px auto;
 
     &__title{
         color: purple;
         text-align: center;
+        font-size: 1.9em;
     }
 
     &__sections{
@@ -152,6 +175,27 @@ button:hover{
 
         &__box{
             flex: 1;
+            text-align: center;
+
+            .box-img{
+                background-color: rgb(212, 194, 212);
+                width: 50px;
+                height: 50px;
+                border-radius: 40px;
+                margin: auto;
+                text-align: center;
+                position: relative;
+
+                p{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                }
+            }
+
+            p{
+
+            }
 
 
         }
@@ -169,6 +213,16 @@ button:hover{
     width: 100%;
     margin: 30px auto;
 
+    h3{
+        font-size: 1.9em;
+    }
+
+    &__text{
+        margin: -30px auto;
+    }
+
+    
+
     &__buttons{
         @include flex;
         
@@ -180,21 +234,34 @@ button:hover{
 }
 
 .about{
-    @include flex(column);
+    @include flex();
     text-align: center;
 
-    &__title{
-        color: purple;
+    &__left{
+        padding-top: 50px;
+        flex: 1;
+        &__title{
+            color: purple;
+            font-size: 1.9em;
+        }
+    
+        &__text{
+            width: 80%;
+            margin: auto;
+            text-align: left;
+        }
+    
+        &__btn{
+            @include button;
+            margin: 20px auto;
+    }
     }
 
-    &__text{
-        width: 80%;
-        margin: auto;
-    }
-
-    &__btn{
-        @include button;
-        margin: 20px auto;
+    &__img{
+        flex: 1;
+        img{
+            width: 80%;
+        }
     }
 }
 
@@ -206,6 +273,30 @@ button:hover{
         flex: 1;
         margin: auto;
         @include flex;
+
+        &__icon{
+            text-align: center;
+            position: relative;
+            i{
+                font-size: 3em;
+                width: 30%;
+                position: absolute;
+                left: 0;
+                right: 0;;
+            }
+        }
+
+        &__text{
+            width: 70%;
+            &__title{
+
+            }
+
+            &__text{
+                width: 80%;
+                text-align: left;
+            }
+        }
     }
 }
 

@@ -1,14 +1,28 @@
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
 html, body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  line-height: 1.5em;
+  font-size: 1.1em;
 }
 
 button {
-  background-color: blue;
+  background-color: #babada;
   color: white;
   border: 1px solid;
   border-radius: 30px;
-  height: 30px;
+  height: 35px;
   width: auto;
   cursor: pointer;
   -webkit-transition: 500ms ease-in-out;
@@ -25,7 +39,8 @@ button:hover {
 }
 
 .nav {
-  width: 90%;
+  width: 100%;
+  background-color: aliceblue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,7 +62,7 @@ button:hover {
 
 .nav__logo img {
   float: left;
-  margin: 10px auto;
+  margin: 10px auto auto 20px;
 }
 
 .nav__menu {
@@ -106,14 +121,19 @@ button:hover {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  width: 80%;
+  margin: auto;
+  padding-right: 30px;
 }
 
 .top__text__title {
   color: blue;
+  font-size: 2.2em;
+  font-weight: bold;
 }
 
 .top__text__text {
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .top__text__subtitle {
@@ -122,7 +142,7 @@ button:hover {
 
 .top__text__items {
   text-align: left;
-  background-color: green;
+  margin: auto 0;
 }
 
 .top__text__items li {
@@ -182,12 +202,13 @@ button:hover {
   margin: auto;
   text-align: center;
   width: 100%;
-  margin: 0px auto;
+  margin: 70px auto;
 }
 
 .reasons__title {
   color: purple;
   text-align: center;
+  font-size: 1.9em;
 }
 
 .reasons__sections {
@@ -211,6 +232,23 @@ button:hover {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  text-align: center;
+}
+
+.reasons__sections__box .box-img {
+  background-color: #d4c2d4;
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.reasons__sections__box .box-img p {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .simulator {
@@ -234,6 +272,14 @@ button:hover {
   padding-top: 30px;
   width: 100%;
   margin: 30px auto;
+}
+
+.simulator h3 {
+  font-size: 1.9em;
+}
+
+.simulator__text {
+  margin: -30px auto;
 }
 
 .simulator__buttons {
@@ -263,10 +309,10 @@ button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: justify;
@@ -276,26 +322,45 @@ button:hover {
   text-align: center;
 }
 
-.about__title {
-  color: purple;
+.about__left {
+  padding-top: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
-.about__text {
+.about__left__title {
+  color: purple;
+  font-size: 1.9em;
+}
+
+.about__left__text {
   width: 80%;
   margin: auto;
+  text-align: left;
 }
 
-.about__btn {
-  background-color: blue;
+.about__left__btn {
+  background-color: #babada;
   color: white;
   border: 1px solid;
   border-radius: 30px;
-  height: 30px;
+  height: 35px;
   width: auto;
   cursor: pointer;
   -webkit-transition: 500ms ease-in-out;
   transition: 500ms ease-in-out;
   margin: 20px auto;
+}
+
+.about__img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.about__img img {
+  width: 80%;
 }
 
 .care {
@@ -333,6 +398,28 @@ button:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: auto;
+}
+
+.care .card__icon {
+  text-align: center;
+  position: relative;
+}
+
+.care .card__icon i {
+  font-size: 3em;
+  width: 30%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.care .card__text {
+  width: 70%;
+}
+
+.care .card__text__text {
+  width: 80%;
+  text-align: left;
 }
 
 .payments {
