@@ -7,7 +7,7 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: #1b1b7e;
 }
 
 html, body {
@@ -18,7 +18,7 @@ html, body {
 }
 
 button {
-  background-color: #babada;
+  background-color: rgba(128, 152, 204, 0.534);
   color: white;
   border: 1px solid;
   border-radius: 30px;
@@ -29,6 +29,18 @@ button {
   transition: 500ms ease-in-out;
 }
 
+input {
+  width: 120px;
+  height: 25px;
+  border: 1px solid black;
+}
+
+select {
+  width: 120px;
+  height: 25px;
+  border: 1px solid black;
+}
+
 button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -36,6 +48,7 @@ button:hover {
 
 .main {
   display: block;
+  background-color: rgba(128, 152, 204, 0.534);
 }
 
 .nav {
@@ -79,7 +92,7 @@ button:hover {
 }
 
 .nav__menu li a:hover {
-  color: blue;
+  color: #1b1b7e;
 }
 
 .nav__login {
@@ -127,7 +140,7 @@ button:hover {
 }
 
 .top__text__title {
-  color: blue;
+  color: #1b1b7e;
   font-size: 2.2em;
   font-weight: bold;
 }
@@ -341,7 +354,7 @@ button:hover {
 }
 
 .about__left__btn {
-  background-color: #babada;
+  background-color: rgba(128, 152, 204, 0.534);
   color: white;
   border: 1px solid;
   border-radius: 30px;
@@ -471,6 +484,137 @@ button:hover {
   height: 150px;
   border-radius: 50px;
   margin: auto;
+}
+
+.login {
+  margin: 35px auto;
+  width: 500px;
+  display: block;
+  background-color: #1b1b7e;
+  text-align: center;
+}
+
+.login__top {
+  width: 120px;
+  height: 70px;
+  margin: auto;
+}
+
+.login__text {
+  color: white;
+  font-weight: bold;
+}
+
+.login__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+  width: 80%;
+  flex-direction: row;
+  margin: 20px auto;
+}
+
+.login__items input {
+  width: 100%;
+}
+
+.login__items select {
+  width: 120px;
+  height: 25px;
+  border: 1px solid black;
+}
+
+.login__items label {
+  text-align: left;
+}
+
+.dashboard {
+  display: block;
+}
+
+.dashboard__top {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+.dashboard__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+.dashboard__main__menu {
+  width: 25%;
+  float: left;
+  background-color: #221a1a;
+  display: block;
+}
+
+.dashboard__main__menu ul li {
+  display: block;
+}
+
+.dashboard__main__menu ul li a {
+  color: white;
+}
+
+.dashboard__content .infos {
+  width: 350px;
+  margin: 20px auto auto 0;
+  border: 1px solid black;
+  display: block;
+}
+
+.dashboard__content .infos__top {
+  text-align: left;
+}
+
+.dashboard__content .infos__curr {
+  display: block;
+}
+
+.dashboard__content .infos__curr .curr-top {
+  color: red;
+}
+
+.dashboard__content .infos__curr .curr-top span {
+  float: right;
+}
+
+.dashboard__content .history {
+  width: 80%;
 }
 
 .footer {

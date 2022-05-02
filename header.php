@@ -25,7 +25,7 @@
         <ul class="nav__login__link">
         <li>
                 <button>
-                <a href="" >
+                <a href="inscription.php" >
                     Inscription
                 </a>
                 </button>
@@ -33,7 +33,7 @@
             
             <li>
                 <button>
-                <a href="" class='login-link'>
+                <a href="connexion.php" class='login-link'>
                     Connexion
                 </a>
                 </button>

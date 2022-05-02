@@ -1,5 +1,8 @@
-$blue: blue;
+$blue: rgb(27, 27, 126);
 $black: black;
+$bg: rgba(128, 152, 204, 0.534);
+$white: white;
+$grey: rgb(34, 26, 26);
 
 @mixin flex($flex-direction: row){
     display: flex;
@@ -10,7 +13,7 @@ $black: black;
 }
 
 @mixin button{
-    background-color: rgb(186, 186, 218);
+    background-color: $bg;
     color: white;
     border: 1px solid;
     border-radius: 30px;
@@ -19,6 +22,18 @@ $black: black;
     width: auto;
     cursor: pointer;
     transition: 500ms ease-in-out;
+}
+
+@mixin input{
+    width: 120px;
+    height: 25px;
+    border: 1px solid $black;
+}
+
+@mixin select{
+    width: 120px;
+    height: 25px;
+    border: 1px solid $black;
 }
 
 li{
@@ -45,12 +60,21 @@ button{
     @include button();
 }
 
+input{
+    @include input();
+}
+
+select{
+    @include select();
+}
+
 button:hover{
     transform: scale(1.1);
 }
 
 .main{
     display: block;
+    background-color: $bg;
 }
 
 .nav{
@@ -323,6 +347,105 @@ button:hover{
                 border-radius: 50px;
                 margin: auto;
             }
+        }
+    }
+}
+
+.login{
+    margin:35px auto;
+    width: 500px;
+    display: block;
+    background-color: $blue;
+    text-align: center;
+
+    &__top{
+        width: 120px;
+        height: 70px;
+        margin: auto;
+    }
+
+    &__text{
+        color: $white;
+        font-weight: bold;
+    }
+
+    &__items{
+        @include flex();
+        width: 80%;
+        flex-direction: row;
+        margin: 20px auto;
+        
+        input{
+            width: 100%;
+        }
+
+        select{
+            @include select;
+        }
+
+        label{
+            text-align: left;
+        }
+    }
+}
+
+.dashboard{
+    display: block;
+    &__top{
+        background-color: $white;
+        @include flex();
+    }
+
+    &__main{
+        @include flex();
+
+        &__menu{
+            width: 25%;
+            float: left;
+            background-color: $grey;
+            display: block;
+
+            ul{
+                li{
+                    display: block;
+
+                    a{
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content{
+        .infos{
+            width: 350px;
+            margin: 20px auto auto 0;
+            border: 1px solid $black;
+            display: block;
+
+            &__top{
+                text-align: left;
+                h2{
+                    
+                }
+            }
+
+            &__curr{
+                display: block;
+
+                .curr-top{
+                    color: red;
+
+                    span{
+                        float: right;
+                    }
+                }
+            }
+        }
+
+        .history{
+            width: 80%
         }
     }
 }
