@@ -2,14 +2,10 @@
        
         <form action="model/functions.php?action=register" method="POST">
              <div class="login" >
-            <img src="public/images/logo.png" alt="" class="login__top">
+          
 
             <p class="login__text">
-                Achat et revente de cryptos
-            </p>
-
-            <p>
-              Message: "{{ message }}"
+               Inscription
             </p>
 
            <div class="login__items"> Email: <br>
@@ -48,24 +44,6 @@
                 </label>
             </div>
 
-           <hr>
-
-           <div class="login__items">
-          Pseudo <br>
-               <input type="text"  v-model="newUser.username" name="username">
-        
-           </div>
-
-           <div class="login__items">
-                <label for="">Mot de passe: <br>
-                    <input type="password"  v-model="newUser.password1" name="pass1">
-                </label>
-
-                <label for="">Confirmer le mot de passe<br>
-                    <input type="password"  v-model="newUser.password2" name="pass2">
-                </label>
-            </div>
-            
             <div class="login__items">
                <input type="checkbox" required>
                         J'accepte les conditions d'utilisation et 
@@ -92,7 +70,7 @@ export default {
           errorMsg: "",
           successMsg:"",
           error: false,
-          message: 'oklm'
+          message: ''
       }
       },
      
@@ -101,15 +79,16 @@ export default {
                 var FormData = app.toFormData(app.newUser);
                 axios.post("http://127.0.0.1:8080/model/functions.php?action=register").then(function(response){
                   app.newUser = {email: "", first_name:"", last_name:"", email:"", 
-                phone_code: "", phone_number: "", city: "", country: "",
-                username: "", pass:""}
+                phone_code: "", phone_number: "", city: "", country: ""}
 
                   if(response.data.error){
                       app.errorMsg = response.data.message;
                   }
                   else{
                       app.successMsg= response.data.message;
-                       this.message = 'fait';
+                       this.message = 'Inscription réussie, un email de confirmation vous sera envoyé pour la création de votre compte';
+                        $router. push({ name: "/"})
+                       
                   }
               });
             },

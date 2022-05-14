@@ -33,8 +33,8 @@
             </div>
             <div class="top__image">
                 <div class="top__image__box">
-                    <img src="public/images/bitcoin.jpg" alt="">
-                    <img src="public/images/ghc.jpg" alt="">
+                    <img src="public/img/bitcoin.jpg" alt="">
+                    <img src="public/img/ghc.jpg" alt="">
                 </div>
             </div>
             
@@ -124,7 +124,7 @@
                </div>
 
                <div class="about__img">
-                   <img src="public/images/statue-accra.jpg" alt="">
+                   <img src="public/img/statue-accra.jpg" alt="">
                </div>
             </div>
 
@@ -183,19 +183,19 @@
 
             <div class="payments__items">
                 <div class="payments__items__item">
-                <img src="/@/public/img/img-mtn.png" alt="">
+                <img src="public/img/img-mtn.png" alt="">
                 </div>
                 <div class="payments__items__item">`
-                    <img src="/@public/img/mastercard.png" alt="">
+                    <img src="public/img/mastercard.png" alt="">
                 </div>
                 <div class="payments__items__item">`
-                    <img src="/@/public/img/visa.png" alt="">
+                    <img src="public/img/visa.png" alt="">
                 </div>
                 <div class="payments__items__item">`
-                    <img src="/@/public/img/paypal-rond.png" alt="">
+                    <img src="public/img/paypal-rond.png" alt="">
                 </div>
                 <div class="payments__items__item">`
-                    <img src="/@/public/images/btc.png" alt="">
+                    <img src="public/images/btc.png" alt="">
                 </div>
             </div>
         </div>
@@ -204,9 +204,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
   props: {
-    msg: String
   }
 }
 </script>
