@@ -98,33 +98,3 @@ export default {
 
 </script>
  
-
-<style scoped>
-
-.users{
-    height: 70vh;
-    text-align: center;
-}
-table{
-    border: 1px solid black;
-    widows: 700px;
-    margin: 15px auto;
-}
-
-tr{
-    border: 1px solid black;
-    width: 200px;
-}
-
-th{
-    border: 1px solid black;
-    width: 150px;
-    height: 50px;
-}
-
-td{
-    border: 1px solid black;
-    width: 150px;
-    height: 50px;
-}
-</style>
