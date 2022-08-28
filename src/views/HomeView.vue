@@ -1,21 +1,15 @@
 <template>
-  <div class="home">
-    <Home/>
-    <Footer/>
-  </div>
+    <Home message="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
 // @ is an alias to /src
 import Home from '@/components/Home.vue'
-import Footer from '@/components/Footer.vue'
-
 
 export default {
   name: 'HomeView',
   components: {
-    Home,
-    Footer
+    Home
   }
 }
 </script>

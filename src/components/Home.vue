@@ -1,5 +1,10 @@
 <template>
-    <main class="main">
+    <div class="container">
+        <div class="row">
+            <button class="btn btn-primary">
+                click me
+            </button>
+        </div>
         <div class="top">
 
             <div class="top__text">
@@ -12,7 +17,7 @@
                 </p>
 
                 <h2 class="top__text__subtitle">
-                    Notre plateforme vous permet d'échanger Lorem ipsum dolor sit, 
+                    Notre plateforme vous permet d'échanger Lorem ipsum dolor sit,
                     amet consectetur adipisicing elit. Ea laudantium totam
                      minima dolore enim. Id, numquam blanditiis perferendis
                 </h2>
@@ -33,11 +38,11 @@
             </div>
             <div class="top__image">
                 <div class="top__image__box">
-                    <img src="public/img/bitcoin.jpg" alt="">
-                    <img src="public/img/ghc.jpg" alt="">
+                    <img src="../../public/img/bitcoin.jpg" alt="">
+                    <img src="../../public/img/ghc.jpg" alt="">
                 </div>
             </div>
-            
+
         </div>
 
         <div class="reasons">
@@ -79,7 +84,7 @@
 
                 </div>
 
-               
+
             </div>
         </div>
 
@@ -111,12 +116,12 @@
                         </h2>
 
                         <p class="about__left__text">
-                        Nous sommes convaincus  que garantir la sécurité et le un faible taux de change 
-                        des devises commes le bitcoin et le ghc sont des mesures à prendre en considération 
-                        pour le bien etre de l'econonmie et des citoyens. Notre entreprise vous accompagne dans 
+                        Nous sommes convaincus  que garantir la sécurité et le un faible taux de change
+                        des devises commes le bitcoin et le ghc sont des mesures à prendre en considération
+                        pour le bien etre de l'econonmie et des citoyens. Notre entreprise vous accompagne dans
                         l'échange des devises précitées tout en vous promettant ces deux garanties. Plusieurs autres
                         avantages vous attendent...
-                        </p> 
+                        </p>
 
                         <button class="about__left__btn">
                             En savoir plus
@@ -124,7 +129,7 @@
                </div>
 
                <div class="about__img">
-                   <img src="public/img/statue-accra.jpg" alt="">
+                   <img src="../../public/img/statue-accra.jpg" alt="">
                </div>
             </div>
 
@@ -152,7 +157,7 @@
             </div>
 
             <div class="card">
-                    
+
             <div class="card__icon">
                     <i class="fas fa-headset"></i>
                 </div>
@@ -183,28 +188,41 @@
 
             <div class="payments__items">
                 <div class="payments__items__item">
-                <img src="public/img/img-mtn.png" alt="">
+                <img src="../../public/img/img-mtn.png" alt="">
                 </div>
-                <div class="payments__items__item">`
-                    <img src="public/img/mastercard.png" alt="">
+                <div class="payments__items__item">
+                    <img src="../../public/img/mastercard.png" alt="">
                 </div>
-                <div class="payments__items__item">`
-                    <img src="public/img/visa.png" alt="">
+                <div class="payments__items__item">
+                    <img src="../../public/img/visa.png" alt="">
                 </div>
-                <div class="payments__items__item">`
-                    <img src="public/img/paypal-rond.png" alt="">
+                <div class="payments__items__item">
+                    <img src="../../public/img/paypal-rond.png" alt="">
                 </div>
-                <div class="payments__items__item">`
-                    <img src="public/images/btc.png" alt="">
+                <div class="payments__items__item">
+                    <img src="../../public/img/btc.png" alt="">
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <script>
 export default {
-  props: {
-  }
-}
+  name: 'Home',
+  data() {
+      return{
+          message: 'ok'
+      }
+      },
+
+      methods: {
+           do (){
+                alert('yep');
+           }
+          }
+      }
+
+
+
 </script>

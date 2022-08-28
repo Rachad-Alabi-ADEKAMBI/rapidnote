@@ -1,0 +1,420 @@
+
+$blue: rgb(27, 27, 126);
+$bg: rgba(128, 152, 204, 0.534);
+$white: white;
+$grey: rgb(34, 26, 26);
+$black: #202022;
+
+@mixin flex($flex-direction: row){
+    display: flex;
+    flex-direction: $flex-direction ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+/*
+@mixin button{
+    background-color: $bg;
+    color: white;
+    border: 1px solid;
+    border-radius: 30px;
+    height: 35px;
+
+    width: auto;
+    cursor: pointer;
+    transition: 500ms ease-in-out;
+}
+
+@mixin input{
+    width: 120px;
+    height: 25px;
+    border: 1px solid $black;
+}
+
+@mixin select{
+    width: 120px;
+    height: 25px;
+    border: 1px solid $black;
+}
+*/
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: $blue;
+}
+
+
+
+html, body{
+    box-sizing: border-box;
+    line-height: 1.5em;
+    font-size: 1.1em;
+}
+
+.main{
+    display: block;
+}
+
+.container{
+}
+
+.menu{
+    width: 200px;
+    height: 60vh;
+    background-color: $black;
+    border-radius: 10px;
+    border: 1px $black solid;
+    display: block;
+
+    &__items{
+        li{
+            display: block;
+
+            a{
+                color: $white;
+            }
+        }
+    }
+
+}
+
+.content{
+    display: block;
+
+    &__title{
+        margin: auto 0;
+
+    }
+
+    &__infos{
+        margin: auto 10px auto auto;
+        @include flex();
+    }
+
+    &__boxes{
+        margin: 5px auto;
+        .box{
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background-color: red;
+        }
+    }
+
+}
+
+.top{
+    height: 350px;
+    margin: 30px auto;
+    @include flex();
+    width: 80%;
+    text-align: left;
+    padding-top: 90px;
+
+
+    &__text{
+        text-align: left;
+        flex: 1;
+        width: 80%;
+        margin: auto;
+        padding-right: 30px;
+
+
+        &__title{
+            color: $blue;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+
+        &__text{
+            font-size: 1em;
+        }
+
+        &__subtitle{
+            font-size: 1.2em;
+        }
+
+        &__items{
+            text-align: left;
+            margin: auto 0;
+            li{
+                display: inline;
+                margin: 10px;
+                text-align: left;
+            }
+        }
+    }
+
+    &__image{
+        flex: 1;
+        &__box{
+            @include flex;
+            justify-content: no;
+            margin: 90px auto;
+            img{
+                width: 150px;
+                height: auto;
+                margin: auto;
+                flex: 1;
+            }
+        }
+    }
+}
+
+.reasons{
+    @include flex(column);
+    text-align: center;
+    width: 100%;
+    margin: 70px auto;
+
+    &__title{
+        color: purple;
+        text-align: center;
+        font-size: 1.9em;
+    }
+
+    &__sections{
+        @include flex();
+        width: 80%;
+
+        &__box{
+            flex: 1;
+            text-align: center;
+
+            .box-img{
+                background-color: rgb(212, 194, 212);
+                width: 50px;
+                height: 50px;
+                border-radius: 40px;
+                margin: auto;
+                text-align: center;
+                position: relative;
+
+                p{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                }
+            }
+
+            p{
+
+            }
+
+
+        }
+
+    }
+}
+
+.simulator{
+    @include flex(column);
+    text-align: center;
+    height: 190px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    width: 100%;
+    margin: 30px auto;
+
+    h3{
+        font-size: 1.9em;
+    }
+
+    &__text{
+        margin: -30px auto;
+    }
+
+
+
+    &__buttons{
+        @include flex;
+
+        form{
+            flex: 1;
+            margin: 10px;
+        }
+    }
+}
+
+.about{
+    @include flex();
+    text-align: center;
+
+    &__left{
+        padding-top: 50px;
+        flex: 1;
+        &__title{
+            color: purple;
+            font-size: 1.9em;
+        }
+
+        &__text{
+            width: 80%;
+            margin: auto;
+            text-align: left;
+        }
+
+        &__btn{
+            margin: 20px auto;
+    }
+    }
+
+    &__img{
+        flex: 1;
+        img{
+            width: 80%;
+        }
+    }
+}
+
+.care{
+    @include flex();
+    width: 80%;
+
+    .card{
+        flex: 1;
+        margin: auto;
+        @include flex;
+
+        &__icon{
+            text-align: center;
+            position: relative;
+            i{
+                font-size: 3em;
+                width: 30%;
+                position: absolute;
+                left: 0;
+                right: 0;;
+            }
+        }
+
+        &__text{
+            width: 70%;
+            &__title{
+
+            }
+
+            &__text{
+                width: 80%;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.payments{
+    @include flex(column);
+    height: 300px;
+    width: 100%;
+
+    &__title{
+        text-align: center;
+    }
+
+    &__items{
+        text-align: center;
+        @include flex;
+        width: 100%;
+
+        &__item{
+            margin: auto;
+
+            img{
+                width: 150px;
+                height: 150px;
+                border-radius: 50px;
+                margin: auto;
+            }
+        }
+    }
+}
+
+
+
+
+
+.dashboard{
+    display: block;
+    &__top{
+        background-color: $white;
+        @include flex();
+    }
+
+    &__main{
+        @include flex();
+
+        &__menu{
+            width: 25%;
+            float: left;
+            background-color: $grey;
+            display: block;
+
+            ul{
+                li{
+                    display: block;
+
+                    a{
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content{
+        .infos{
+            width: 350px;
+            margin: 20px auto auto 0;
+            border: 1px solid $black;
+            display: block;
+
+            &__top{
+                text-align: left;
+                h2{
+
+                }
+            }
+
+            &__curr{
+                display: block;
+
+                .curr-top{
+                    color: red;
+
+                    span{
+                        float: right;
+                    }
+                }
+            }
+        }
+
+        .history{
+            width: 80%
+        }
+    }
+}
+
+.footer{
+    @include flex();
+
+    &__item{
+        flex: 1;
+
+        ul{
+            li{
+                display: block;
+
+                h4{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,4 @@
-# rapidnote
-web app for bitcoin exchange
+# rn
 
 ## Project setup
 ```
