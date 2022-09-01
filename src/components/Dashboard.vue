@@ -1,35 +1,46 @@
 <template>
-    <div class="container">
-            <div class="row">
-                <div class="col lg-3">
+    <div class="dashboard">
                     <div class="menu">
                         <ul class="menu__items">
 
                                 <li>
-                                    <a href="/wallet">
-                                        Wallet
-                                    </a>
+                                    <div class="link">
+                                        <a href="/wallet">
+                                            Wallet
+                                        </a>
+                                    </div>
                                 </li>
 
                                 <li>
-                                    Referals
+                                    <div class="link">
+                                        <a href="/history">
+                                            Historical
+                                        </a>
+                                    </div>
                                 </li>
 
                                 <li>
-                                    Transactions
+                                    <div class="link">
+                                        <a href="/transactions">
+                                            Transactions
+                                        </a>
+                                    </div>
                                 </li>
 
                                 <li>
-                                    Support
+                                    <div class="link">
+                                            <a href="/help">
+                                                Help
+                                            </a>
+                                    </div>
                                 </li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="col lg-9">
                     <div class="content">
                         <div class="content__infos">
-                            <div class="search"></div>
+                            <div class="icon">
+                                search
+                            </div>
                             <div class="icon">
                                 param
                             </div>
@@ -44,37 +55,30 @@
 
                         </div>
 
-
-
                         <div class="content__boxes">
 
                             <div class="box">
-                                <div class="box icon">
-
-                                </div>
-
-                                <h3 class="box__title">
+                                <a href="/wallet">
                                     Wallet
-                                </h3>
-
-                                <span class="box__value">
-                                    40 ghc
-                                </span>
-
-                                <button>
-                                    Load
-                                </button>
-                            </div>
-                            <div class="box">
-                                Buy
+                                </a>
                             </div>
 
                             <div class="box">
-                                Sell
+                                <a href="/sell">
+                                    Sell
+                                </a>
                             </div>
 
                             <div class="box">
-                                Refer
+                                <a href="/buy">
+                                    Buy
+                                </a>
+                            </div>
+
+                            <div class="box">
+                                <a href="/refer">
+                                    Refer
+                                </a>
                             </div>
                         </div>
 
@@ -96,9 +100,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-            </div>
     </div>
 </template>
 
