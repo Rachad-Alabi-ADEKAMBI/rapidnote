@@ -12,7 +12,7 @@
 
          <div class="form__infos">
             <p class="blue">
-                95 Ghc
+                {{ balance }}
             </p>
 
             <p>
@@ -86,18 +86,18 @@
         name: 'Wallet',
       data(){
         return{
-            details:[]
+            details:[],
+            balance: 0
         }
       },
       mounted: function(){
-          //this.getCurrentMarketcap();
-         // this.getDetails();
+          this.getMyBalance();
       },
       methods:{
-        getCurrentMarketcap() {
-                axios.get('https://fineblock.eu/api/tfbk').then(
+        getMyBalance() {
+                axios.get('http://127.0.0.1/rapidnote/api/myBalance/2').then(
                     response =>
-                    this.tfbk_marketcap = response.data), 1000
+                    this.balance = response.data)
             }
       }
     }

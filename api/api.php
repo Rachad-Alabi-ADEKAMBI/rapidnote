@@ -89,7 +89,11 @@ function login(){
                 $user_username = $queryy->fetch();
 
                 if(!$user_username){
-                     $errors['email'] = 'Utilisateur/mot de passe incorrect';
+                     ?>
+                            <script>
+                                alert('Error')
+                            </script>
+                     <?php
 
                 }
 
@@ -118,7 +122,11 @@ function login(){
                             "token" => $user['token']
                         ];
 
-                        header("Location: tableau-de-bord.php");
+                       ?>
+                            <script>
+                                window.location.replace('http://127.0.0.1:8080/dashboard');
+                            </script>
+                       <?php
                     }
                 }
 
@@ -143,7 +151,11 @@ function login(){
                         "token" => $user['token']
                     ];
 
-                    header("tableau-de-bord.php");
+                    ?>
+                        <script>
+                                 window.location.replace('http://127.0.0.1:8080/dashboard');
+                            </script>
+                    <?php
                 } else{
                     ?>
                         <script>
@@ -154,7 +166,6 @@ function login(){
             }
         }
     }
-
 }
 
 function contact(){
@@ -219,14 +230,12 @@ alert("Votre message a été envoyé, nous vous répondrons dans les plus brefs 
 }
 
 
-function getBtobByEmail($email){
+function getMyBalance($user_id){
     $pdo = getConnexion();
-     $stmt = $pdo->prepare("SELECT *
+     $stmt = $pdo->prepare("SELECT balance
         FROM users
-        INNER JOIN btob
-        ON btob.user_id = users.id
-        WHERE users.email  LIKE ?");
-    $stmt->execute(array("%$email%"));
+        WHERE id = ?");
+    $stmt->execute(array($user_id));
     $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
     sendJSON($datas);

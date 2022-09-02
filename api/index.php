@@ -14,15 +14,14 @@ try{
                     getUsers();
             break;
 
-              /*  case "userInfos":
+                case "myBalance":
                     if (!empty($url[1])){
-                        getBtobInfos($url[1]);
+                        getMyBalance($url[1]);
                     } else{
-                        throw new Exception ("Vous n'avez pas renseigné l'id de l'adhérant");
+                        throw new Exception ("Vous n'avez pas renseigné l'id");
                     }
 
                     break;
-                    */
             default: throw new Exception ("La demande n'est pas valide");
         }
     } else{

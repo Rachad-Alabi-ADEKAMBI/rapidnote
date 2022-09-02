@@ -1,0 +1,330 @@
+%!PS-Adobe-3.0
+%%Creator: (GraphicsMagick)
+%%Title: (vue-axios)
+%%CreationDate: (Fri Sep  2 10:46:10 2022)
+%%BoundingBox: 785 682 936 686
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 1
+%%Orientation: Portrait
+%%PageOrder: Ascend
+%%Pages: 1
+%%EndComments
+
+%%BeginDefaults
+%%EndDefaults
+
+%%BeginProlog
+%
+% Display a color image.  The image is displayed in color on
+% Postscript viewers or printers that support color, otherwise
+% it is displayed as grayscale.
+%
+/DirectClassPacket
+{
+  %
+  % Get a DirectClass packet.
+  %
+  % Parameters:
+  %   red.
+  %   green.
+  %   blue.
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile color_packet readhexstring pop pop
+  compression 0 eq
+  {
+    /number_pixels 3 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add 3 mul def
+  } ifelse
+  0 3 number_pixels 1 sub
+  {
+    pixels exch color_packet putinterval
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/DirectClassImage
+{
+  %
+  % Display a DirectClass image.
+  %
+  systemdict /colorimage known
+  {
+    columns rows 8
+    [
+      columns 0 0
+      rows neg 0 rows
+    ]
+    { DirectClassPacket } false 3 colorimage
+  }
+  {
+    %
+    % No colorimage operator;  convert to grayscale.
+    %
+    columns rows 8
+    [
+      columns 0 0
+      rows neg 0 rows
+    ]
+    { GrayDirectClassPacket } image
+  } ifelse
+} bind def
+
+/GrayDirectClassPacket
+{
+  %
+  % Get a DirectClass packet;  convert to grayscale.
+  %
+  % Parameters:
+  %   red
+  %   green
+  %   blue
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile color_packet readhexstring pop pop
+  color_packet 0 get 0.299 mul
+  color_packet 1 get 0.587 mul add
+  color_packet 2 get 0.114 mul add
+  cvi
+  /gray_packet exch def
+  compression 0 eq
+  {
+    /number_pixels 1 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add def
+  } ifelse
+  0 1 number_pixels 1 sub
+  {
+    pixels exch gray_packet put
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/GrayPseudoClassPacket
+{
+  %
+  % Get a PseudoClass packet;  convert to grayscale.
+  %
+  % Parameters:
+  %   index: index into the colormap.
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile byte readhexstring pop 0 get
+  /offset exch 3 mul def
+  /color_packet colormap offset 3 getinterval def
+  color_packet 0 get 0.299 mul
+  color_packet 1 get 0.587 mul add
+  color_packet 2 get 0.114 mul add
+  cvi
+  /gray_packet exch def
+  compression 0 eq
+  {
+    /number_pixels 1 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add def
+  } ifelse
+  0 1 number_pixels 1 sub
+  {
+    pixels exch gray_packet put
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/PseudoClassPacket
+{
+  %
+  % Get a PseudoClass packet.
+  %
+  % Parameters:
+  %   index: index into the colormap.
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile byte readhexstring pop 0 get
+  /offset exch 3 mul def
+  /color_packet colormap offset 3 getinterval def
+  compression 0 eq
+  {
+    /number_pixels 3 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add 3 mul def
+  } ifelse
+  0 3 number_pixels 1 sub
+  {
+    pixels exch color_packet putinterval
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/PseudoClassImage
+{
+  %
+  % Display a PseudoClass image.
+  %
+  % Parameters:
+  %   class: 0-PseudoClass or 1-Grayscale.
+  %
+  currentfile buffer readline pop
+  token pop /class exch def pop
+  class 0 gt
+  {
+    currentfile buffer readline pop
+    token pop /depth exch def pop
+    /grays columns 8 add depth sub depth mul 8 idiv string def
+    columns rows depth
+    [
+      columns 0 0
+      rows neg 0 rows
+    ]
+    { currentfile grays readhexstring pop } image
+  }
+  {
+    %
+    % Parameters:
+    %   colors: number of colors in the colormap.
+    %   colormap: red, green, blue color packets.
+    %
+    currentfile buffer readline pop
+    token pop /colors exch def pop
+    /colors colors 3 mul def
+    /colormap colors string def
+    currentfile colormap readhexstring pop pop
+    systemdict /colorimage known
+    {
+      columns rows 8
+      [
+        columns 0 0
+        rows neg 0 rows
+      ]
+      { PseudoClassPacket } false 3 colorimage
+    }
+    {
+      %
+      % No colorimage operator;  convert to grayscale.
+      %
+      columns rows 8
+      [
+        columns 0 0
+        rows neg 0 rows
+      ]
+      { GrayPseudoClassPacket } image
+    } ifelse
+  } ifelse
+} bind def
+
+/DisplayImage
+{
+  %
+  % Display a DirectClass or PseudoClass image.
+  %
+  % Parameters:
+  %   x & y translation.
+  %   x & y scale.
+  %   label pointsize.
+  %   image label.
+  %   image columns & rows.
+  %   class: 0-DirectClass or 1-PseudoClass.
+  %   compression: 0-none or 1-RunlengthEncoded.
+  %   hex color packets.
+  %
+  gsave
+  /buffer 512 string def
+  /byte 1 string def
+  /color_packet 3 string def
+  /pixels 768 string def
+
+  currentfile buffer readline pop
+  token pop /x exch def
+  token pop /y exch def pop
+  x y translate
+  currentfile buffer readline pop
+  token pop /x exch def
+  token pop /y exch def pop
+  currentfile buffer readline pop
+  token pop /pointsize exch def pop
+  /Times-Roman findfont pointsize scalefont setfont
+  x y scale
+  currentfile buffer readline pop
+  token pop /columns exch def
+  token pop /rows exch def pop
+  currentfile buffer readline pop
+  token pop /class exch def pop
+  currentfile buffer readline pop
+  token pop /compression exch def pop
+  class 0 gt { PseudoClassImage } { DirectClassImage } ifelse
+  grestore
+  showpage
+} bind def
+%%EndProlog
+%%Page:  1 1
+%%PageBoundingBox: 785 682 936 686
+DisplayImage
+785 682
+151 4
+12.000000
+151 4
+0
+0
+1E1E1E1E1E1E1E1E1E1E1E1E4141411E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E274011BC73134F1E1E1E1E1E1E1E1E1E1E1E2F90358EEA3B7C97
+1E1E1E1E1E1E1E3DA3388EEA3A6E701E1E1E1E28371E1E1E1F283D212C44255DCA3B8EEA
+36594A1E1E442A79EA3B8ED03041371E1E1E1E1E1E1E1E1E1E1E1E1E1E1E276BDD3B8EE3
+3148311E1E512E80EA3B8ECA2B2F1E1E1E512E80EA3B8EEA3B8EEA37649D318AEA3B8EEA
+3B8ED630416A3083EA3B8EEA3B8EEA3B8EEA324B311E1E1E1E1E1E214FC33B8ED62F3A2A
+2667DD3B8EBD28283D2A79EA3B80971E1E1E276BDD3B8EE33148311E1E512E80EA3B8ECA
+2B2F1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E2667DD3B8EEA
+37645D1E1E1E1E1E1E1E213D1E1E1E1E2C8A348EEA3B87B01E1E1E1E1E1E2564D03B8EEA
+376051214FC33B8ED62F3A2A2667DD3B8EBD28283D1E1E1E1E1E1E1E1E1E1E1E1E414141
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1195620DBC790DBC790DBC790DBC790DBC790DBC790DBC790DBC790DBC790DBC790DBC79
+0DBC790DBC790DBC790DBC790DBC790DBC790DBC790DBC791E1E1E1E1E1E1E2C4211BC73
+134A1E1E1E1E1E1E1E1E1E1E1E44B03A8EEA3B8EEA3B8EEA3B8EEA3B8EEA3B8EEA3B7C97
+1E1E1E244FB03687EA3B8EEA3B8EEA3B8EEA3B8EEA3860571E1E1E2352C33A8EEA3B8EEA
+3A83CA326790272F2A1E1E1E1E1E1E1E41AA388EEA3A6E70203697368EEA3B798A1E1E1E
+1E1E1E202F4A23334A23334A222C70318AEA3B75AA3180EA3B80AA283A4A23334A234BB0
+398EDD303D241E1E1E1E1E1E214FC33B8ED02E362A2564D63B8EB72725372975EA3B809D
+1E1E1E1E41AA388EEA3A6E70203697368EEA3B798A1E1E1E1E1E1E1E1E5D3087EA3B8EEA
+3B8EEA3B8EEA3248311E1E1E1E1E442B79EA3B8ED62E3A241E1E1E1E1E1E1E1E1E1E1E1E
+1E41AA398EEA3B72701E1E1E1E1E1E1E3DAA398EEA3B7277214FC33B8ED02E362A2564D6
+3B8EB72725371E1E1E1E1E1E1E1E1E1E1E1E4141411E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E0DBC791E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E223D12B7761254201E1E1E1E1E1E1E1E1E1E44B0
+3A8EEA3B80B72E5D972E5D972E5D972E5D972D525D1E3697368EEA3B8ED6325D7D28446A
+2967D03B8EEA38645D1E1E1E1E1E1E213D7D2E67B73483E33B8EEA3B87B01E1E1E1E1E1E
+1E215D2F83EA3B8AB72E64D03B8EEA334F3D1E1E1E1E1E1E224FB03479B0292F241E2164
+318AEA3A6E702041AA388EEA37645D1E1E1E235DD03B8ABD1E1E1E1E1E1E1E1E1E214FC3
+3B8ED02E362A2564D63B8EB72725372975EA3B839D1E1E1E1E215D2F83EA3B8AB72E64D0
+3B8EEA334F3D1E1E1E1E1E1E1E1E5D3087EA3B8EEA3B8EEA3B8EEA3248311E1E1E1E1E44
+2B79EA3B8ED62E36241E1E1E1E1E1E1E1E1E1E1E1E1E41AA398EEA3B72701E1E1E1E1E1E
+1E3DAA398EEA3B7277214FC33B8ED02E362A2564D63B8EB72725371E1E1E1E1E1E1E1E1E
+1E1E1E4141411E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E0DBC791E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E16A37610712C1E1E1E1E1E1E1E1E1E1E3390368EEA3B80A31E1E1E1E1E1E1E1E1E
+1E21442433311E44B03A8EEA3B7C901E1E1E1E1E1E2460D63B8EEA38645D1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E286EE33B8EDD303D241E1E1E1E1E1E2460D03B8EEA3B8EEA3B8ABD
+1E1E1E1E1E1E1E1E1E1E2C7D338AEA3A758A1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E
+1E2F7D3387EA396E701E1E1E1E1E1E1E1E1E214FC33B8ED02E362A2564D63B8EB7272537
+2975EA3B839D1E1E1E1E1E1E2460D03B8EEA3B8EEA3B8ABD1E1E1E1E1E1E1E1E1E1E1E1E
+1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E2667DD3B8EEA37605D1E1E1E1E1E1E
+1E25441E1E1E1E2C8A348EEA3B87B01E1E1E1E1E1E2564D03B8EEA376057214FC33B8ED0
+2E362A2564D63B8EB7272537
+
+%%PageTrailer
+%%Trailer
+%%EOF

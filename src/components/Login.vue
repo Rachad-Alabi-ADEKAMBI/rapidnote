@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <form method="POST" action="api/api.php?action=login">
+        <form method="POST" action="http://127.0.0.1/rapidnote/api/api.php?action=login">
             <div class="row">
                 <div class="col-6 mx">
                     <div class="form-outline mb-4">
