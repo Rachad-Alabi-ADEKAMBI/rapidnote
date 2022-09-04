@@ -1,3 +1,4 @@
+@import url("http://fonts.cdnfonts.com/css/montserrat");
 /*
 @mixin button{
     background-color: $bg;
@@ -39,6 +40,7 @@ html, body {
   box-sizing: border-box;
   line-height: 1.5em;
   font-size: 1.1em;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main {
@@ -47,14 +49,44 @@ html, body {
 }
 
 .form {
-  margin: auto;
+  margin: 90px auto;
   width: 500px;
   text-align: center;
   border-radius: 15px;
-  background-color: wheat;
+  background-color: rgb(207, 205, 201);
+  display: block;
 }
-.form__Close {
+.form__close {
   float: right;
+  height: 40px;
+  margin: 10px 0 10px auto;
+}
+.form__close i {
+  margin: auto 10px auto auto;
+}
+.form__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  margin: 50px auto;
+}
+.form__items__item {
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.form__items__item img {
+  width: 70px;
+  height: 70px;
+}
+.form__items__item p {
+  text-align: center;
+  font-size: 0.9em;
 }
 
 .container {
@@ -68,15 +100,17 @@ button a {
 }
 
 .dashboard {
+  width: 99%;
+  background-color: green;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  width: 95%;
+  margin: auto;
   margin: auto;
 }
 .dashboard .menu {
-  width: 25%;
-  margin: auto 0;
+  width: 15%;
   height: 80vh;
   background-color: #202022;
   border-radius: 10px;
@@ -114,8 +148,9 @@ button a {
   justify-content: space-between;
   margin: auto;
   width: 70%;
-  margin: 10px;
   border-radius: 10px;
+  background-color: aqua;
+  margin: auto;
 }
 .dashboard .content__title {
   margin: auto 0;
@@ -172,9 +207,6 @@ button a {
   border-radius: 10px;
   flex: 1;
   margin: 10px;
-}
-.dashboard .form {
-  background-color: r;
 }
 
 .top {

@@ -3,7 +3,7 @@
         action="" class='form'>
         <div class="form__close">
            <a href="/dashboard">
-               *
+            <i class="fas fa-times"></i>
            </a>
         </div>
         <p class="form__title">
@@ -15,15 +15,18 @@
         </p>
 
         <div class="form-outline mb-4">
-                        <input type="number" id="form2Example2" class="form-control" name="pass"
+            <label class="form-label" for="form2Example2">Amount to sell</label>
+                        <input type="number" id="form2Example2" class="form-control"
+                        v-model="amount"
                             required/>
-                        <label class="form-label" for="form2Example2">Amount to sell</label>
+
         </div>
 
         <div class="form-outline mb-4">
-                        <input type="number" id="form2Example2" class="form-control" name="pass"
-                            required/>
-                        <label class="form-label" for="form2Example2">Amount to receive </label>
+            <label class="form-label" for="form2Example2">Amount to receive </label>
+                        <input type="number" id="form2Example2" class="form-control"
+                            v-model='converted' >
+
         </div>
 
 
@@ -49,7 +52,10 @@
        name: 'sell',
      data(){
        return{
-           details:[]
+           details:[],
+           amount: 0,
+           converted: 0,
+           usd: 9.5
        }
      },
      mounted: function(){
@@ -57,11 +63,9 @@
         // this.getDetails();
      },
      methods:{
-       getCurrentMarketcap() {
-               axios.get('https://fineblock.eu/api/tfbk').then(
-                   response =>
-                   this.tfbk_marketcap = response.data), 1000
-           }
+        convert(){
+            this.converted = this.amount * 2;
+        }
      }
    }
    </script>

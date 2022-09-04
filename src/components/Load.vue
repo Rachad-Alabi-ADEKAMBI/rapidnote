@@ -3,7 +3,7 @@
         action="" class='form'>
         <div class="form__close">
            <a href="/dashboard">
-               *
+            <i class="fas fa-times"></i>
            </a>
         </div>
         <p class="form__title">

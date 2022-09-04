@@ -1,3 +1,4 @@
+@import url('http://fonts.cdnfonts.com/css/montserrat');
 
 $blue: rgb(27, 27, 126);
 $bg: rgba(128, 152, 204, 0.534);
@@ -56,6 +57,8 @@ html, body{
     box-sizing: border-box;
     line-height: 1.5em;
     font-size: 1.1em;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .main{
@@ -64,15 +67,48 @@ html, body{
 }
 
 .form{
-    margin: auto;
+    margin: 90px auto;
     width: 500px;
     text-align: center;
     border-radius: 15px;
-    background-color: wheat;
+    background-color: rgb(207, 205, 201);
+    display: block;
 
-    &__Close{
+    &__close{
         float: right;
+        height: 40px;
+        margin: 10px 0 10px auto;
+
+        i{
+            margin: auto 10px auto auto;
+        }
     }
+
+    &__items{
+        @include flex();
+        margin: 50px auto;
+
+        &__item{
+            margin: auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+
+            img{
+                width: 70px;
+                height: 70px;
+            }
+
+            p{
+                text-align: center;
+                font-size: 0.9em;
+            }
+        }
+    }
+
+
 }
 
 .container{
@@ -86,15 +122,13 @@ button a{
 }
 
 .dashboard{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 95%;
+    width: 99%;
+    background-color: green;
+    @include flex();
     margin: auto;
 
     .menu{
-        width: 25%;
-        margin: auto 0;
+        width: 15%;
         height: 80vh;
         background-color: $black;
         border-radius: 10px;
@@ -134,8 +168,9 @@ button a{
     .content{
         @include flex(column);
         width: 70%;
-        margin: 10px;
         border-radius: 10px;
+        background-color: aqua;
+        margin: auto;
 
         &__title{
             margin: auto 0;
@@ -191,10 +226,6 @@ button a{
             }
         }
 
-    }
-
-    .form{
-        background-color: r;
     }
 }
 
