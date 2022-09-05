@@ -11,19 +11,11 @@
                                     </div>
                                 </li>
 
-                                <li>
-                                    <div class="link">
-                                        <a href="/history">
-                                            Historical
-                                        </a>
-                                    </div>
-                                </li>
+
 
                                 <li>
                                     <div class="link">
-                                        <a href="/transactions">
-                                            Transactions
-                                        </a>
+                                        <i class="fas fa-history"></i> Transactions
                                     </div>
                                 </li>
 
@@ -39,20 +31,19 @@
                     <div class="content">
                         <div class="content__infos">
                             <div class="icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                                 search
                             </div>
                             <div class="icon">
-                                param
+                                <i class="fas fa-cogs"></i>
                             </div>
                             <div class="icon">
-                            Account
-                        </div>
+                                <i class="fas fa-user"></i>
+                            </div>
 
-                        <div class="icon">
-                            logout
-                        </div>
-
-
+                            <div class="icon">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </div>
                         </div>
 
                         <div class="content__boxes">
@@ -71,6 +62,7 @@
 
                             <div class="box">
                                 <a href="/buy">
+                                    <i class="fa-solid fa-cart-shopping"></i>
                                     Buy
                                 </a>
                             </div>
@@ -104,6 +96,9 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
   name: 'Dashboard',
   data() {

@@ -1,15 +1,11 @@
 <template>
     <div class="container">
-        <div class="row">
-            <button class="btn btn-primary">
-                click me
-            </button>
-        </div>
+
         <div class="top">
 
             <div class="top__text">
                 <h1 class="top__text__title">
-                    RAPID TRANSFER
+                    RAPID NOTE
                 </h1>
 
                 <p class="top__text__text">
@@ -36,14 +32,37 @@
                     </li>
                 </ul>
             </div>
-            <div class="top__image">
-                <div class="top__image__box">
-                    <img src="../../public/img/bitcoin.jpg" alt="">
-                    <img src="../../public/img/ghc.jpg" alt="">
-                </div>
+
+        </div><br>
+
+        <div class="about">
+                    <h2 class="about__title">
+                            ABOUT US
+                        </h2>
+
+                        <p class="about__text">
+                      lorem ipsumtext
+                        </p>
+
+                        <div class="about__items">
+                            <div class="about__items__item green">
+                                <i class="far fa-clock"></i>
+                                Fast
+                            </div>
+
+                            <div class="about__items__item green">
+                                <i class="fa-regular fa-clock"></i>
+                                Price
+                            </div>
+                        </div>
+
+
+
+                        <button  >
+                            More....
+                        </button>
             </div>
 
-        </div>
 
         <div class="reasons">
             <h2 class="reasons__title">
@@ -109,29 +128,6 @@
                 </div>
         </div>
 
-            <div class="about">
-               <div class="about__left">
-                    <h2 class="about__left__title">
-                            Pourquoi nous choisir ?
-                        </h2>
-
-                        <p class="about__left__text">
-                        Nous sommes convaincus  que garantir la sécurité et le un faible taux de change
-                        des devises commes le bitcoin et le ghc sont des mesures à prendre en considération
-                        pour le bien etre de l'econonmie et des citoyens. Notre entreprise vous accompagne dans
-                        l'échange des devises précitées tout en vous promettant ces deux garanties. Plusieurs autres
-                        avantages vous attendent...
-                        </p>
-
-                        <button class="about__left__btn">
-                            En savoir plus
-                        </button>
-               </div>
-
-               <div class="about__img">
-                   <img src="../../public/img/statue-accra.jpg" alt="">
-               </div>
-            </div>
 
         <div class="care">
             <div class="card">

@@ -4,13 +4,13 @@ $blue: rgb(27, 27, 126);
 $bg: rgba(128, 152, 204, 0.534);
 $white: white;
 $grey: rgb(34, 26, 26);
+$grey-light: #40312C;
 $black: #202022;
 
 @mixin flex($flex-direction: row){
     display: flex;
     flex-direction: $flex-direction ;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin: auto;
 }
 
@@ -107,13 +107,10 @@ html, body{
             }
         }
     }
-
-
 }
 
 .container{
     width: 100%;
-    margin: auto;
 }
 
 button a{
@@ -121,19 +118,139 @@ button a{
     font-weight: bold;
 }
 
+nav{
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.67);
+    z-index: 99999;
+  }
+
+  label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 50px;
+    font-weight: bold;
+  }
+
+  label.logo img{
+      margin: 10px auto;
+      height: 50px;
+      width: 170px;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    color: red;
+  }
+
+
+
+  .login-link{
+    border-radius: 3px;
+    height: 40px;
+    background-color: $grey-light;
+    color: white;
+  }
+
+  .login-link:hover{
+    color: $blue;
+    background-color: $blue;
+  }
+  a.active,a:hover{
+    color: $blue;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 1279px){
+    .checkbtn{
+      display: block;
+    }
+
+    .checkbtn i{
+      color: white;
+    }
+
+    nav{
+        position: fixed;
+        z-index: 9999;
+        background-color:  $grey-light;
+    }
+
+    nav label img{
+      top: 5px;
+      left: 5px;
+      position: absolute;
+    }
+
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      top: 80px;
+      padding-top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 10px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color:  #D1AF52;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+
 .dashboard{
-    width: 99%;
-    background-color: green;
-    @include flex();
+    width: 95%;
+    display: flex;
     margin: auto;
 
     .menu{
-        width: 15%;
+        width: 20%;
         height: 80vh;
         background-color: $black;
         border-radius: 10px;
         border: 1px $black solid;
         display: block;
+        text-align: center;
 
         &__items{
             text-align: center;
@@ -151,6 +268,10 @@ button a{
                 text-align: center;
                 margin: auto;
                 cursor: pointer;
+
+                a{
+                    margin: auto;
+                }
                }
 
                .link:hover{
@@ -167,24 +288,26 @@ button a{
 
     .content{
         @include flex(column);
-        width: 70%;
+        width: 75%;
         border-radius: 10px;
-        background-color: aqua;
         margin: auto;
+        padding-top: 0;
 
         &__title{
             margin: auto 0;
         }
 
         &__infos{
-            margin: auto 0 10px auto;
+            margin: 0 0 10px auto;
             @include flex();
+            text-align: right;
             float: right;
             height: 50px;
             background-color: white;
 
             .icon{
-                margin: 5px;
+                margin: 10px;
+                text-align: right;
             }
 
         }
@@ -231,61 +354,93 @@ button a{
 
 .top{
     height: 350px;
-    margin: 30px auto;
+    margin: 70px auto 40px auto;
     @include flex();
-    width: 80%;
-    text-align: left;
-    padding-top: 90px;
+    width: 100%;
+    text-align: center;
+    padding-top: 140px;
 
 
     &__text{
-        text-align: left;
-        flex: 1;
-        width: 80%;
+        text-align: center;
+        width: 70%;
         margin: auto;
-        padding-right: 30px;
-
 
         &__title{
             color: $blue;
             font-size: 2.2em;
             font-weight: bold;
+            margin: 20px auto;
         }
 
         &__text{
             font-size: 1em;
+            margin: 20px auto;
         }
 
         &__subtitle{
             font-size: 1.2em;
+            margin: 20px auto;
         }
 
         &__items{
             text-align: left;
-            margin: auto 0;
+            margin: 40px auto;
             li{
                 display: inline;
                 margin: 10px;
                 text-align: left;
-            }
-        }
-    }
-
-    &__image{
-        flex: 1;
-        &__box{
-            @include flex;
-            justify-content: no;
-            margin: 90px auto;
-            img{
-                width: 150px;
-                height: auto;
-                margin: auto;
-                flex: 1;
+                font-weight: bold;
             }
         }
     }
 }
+
+.about{
+    @include flex();
+    text-align: center;
+    height: auto;
+    flex-direction: column;
+    margin: 60px auto;
+
+    &__title{
+        margin: 15px auto;
+    }
+
+        &__text{
+            width: 80%;
+            margin: auto;
+            text-align: left;
+        }
+
+        &__items{
+            @include flex();
+            &__item{
+                margin: 15px;
+                height: 170px;
+                width: 150px;
+                border: 1px solid;
+                i{
+                    color: white;
+                }
+            }
+
+            .green{
+                background-color: rgb(53, 233, 53);
+                border: 1px green solid;
+            }
+
+            .background{
+                background: #f47032;
+                border: 1px #f47032 solid;
+            }
+        }
+
+        &__btn{
+            margin: 20px auto;
+    }
+}
+
 
 .reasons{
     @include flex(column);
@@ -362,36 +517,6 @@ button a{
     }
 }
 
-.about{
-    @include flex();
-    text-align: center;
-
-    &__left{
-        padding-top: 50px;
-        flex: 1;
-        &__title{
-            color: purple;
-            font-size: 1.9em;
-        }
-
-        &__text{
-            width: 80%;
-            margin: auto;
-            text-align: left;
-        }
-
-        &__btn{
-            margin: 20px auto;
-    }
-    }
-
-    &__img{
-        flex: 1;
-        img{
-            width: 80%;
-        }
-    }
-}
 
 .care{
     @include flex();
@@ -455,66 +580,6 @@ button a{
     }
 }
 
-.dashboard{
-    display: block;
-    &__top{
-        background-color: $white;
-        @include flex();
-    }
-
-    &__main{
-        @include flex();
-
-        &__menu{
-            width: 25%;
-            float: left;
-            background-color: $grey;
-            display: block;
-
-            ul{
-                li{
-                    display: block;
-
-                    a{
-                        color: $white;
-                    }
-                }
-            }
-        }
-    }
-
-    &__content{
-        .infos{
-            width: 350px;
-            margin: 20px auto auto 0;
-            border: 1px solid $black;
-            display: block;
-
-            &__top{
-                text-align: left;
-                h2{
-
-                }
-            }
-
-            &__curr{
-                display: block;
-
-                .curr-top{
-                    color: red;
-
-                    span{
-                        float: right;
-                    }
-                }
-            }
-        }
-
-        .history{
-            width: 80%
-        }
-    }
-}
 
 .footer{
     @include flex();
