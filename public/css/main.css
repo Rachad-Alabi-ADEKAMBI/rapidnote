@@ -365,12 +365,11 @@ a.active, a:hover {
 
 .about {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   margin: auto;
   text-align: center;
   height: auto;
-  flex-direction: column;
   margin: 60px auto;
 }
 .about__title {
@@ -379,7 +378,6 @@ a.active, a:hover {
 .about__text {
   width: 80%;
   margin: auto;
-  text-align: left;
 }
 .about__items {
   display: flex;
@@ -389,8 +387,8 @@ a.active, a:hover {
 }
 .about__items__item {
   margin: 15px;
-  height: 170px;
-  width: 150px;
+  height: 140px;
+  width: 100px;
   border: 1px solid;
 }
 .about__items__item i {
@@ -400,7 +398,7 @@ a.active, a:hover {
   background-color: rgb(53, 233, 53);
   border: 1px green solid;
 }
-.about__items .background {
+.about__items .orange {
   background: #f47032;
   border: 1px #f47032 solid;
 }

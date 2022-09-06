@@ -51,14 +51,21 @@
                             </div>
 
                             <div class="about__items__item green">
-                                <i class="fa-regular fa-clock"></i>
+                                <i class="fas fa-money-bill"></i>
                                 Price
                             </div>
+
+                            <div class="about__items__item orange">
+                                <i class="fas fa-money-bill"></i>
+                                Customer care
+                            </div>
+
+
                         </div>
 
 
 
-                        <button  >
+                        <button class="about__btn">
                             More....
                         </button>
             </div>

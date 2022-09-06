@@ -397,10 +397,9 @@ nav{
 }
 
 .about{
-    @include flex();
+    @include flex(column);
     text-align: center;
     height: auto;
-    flex-direction: column;
     margin: 60px auto;
 
     &__title{
@@ -410,15 +409,14 @@ nav{
         &__text{
             width: 80%;
             margin: auto;
-            text-align: left;
         }
 
         &__items{
             @include flex();
             &__item{
                 margin: 15px;
-                height: 170px;
-                width: 150px;
+                height: 140px;
+                width: 100px;
                 border: 1px solid;
                 i{
                     color: white;
@@ -430,7 +428,7 @@ nav{
                 border: 1px green solid;
             }
 
-            .background{
+            .orange{
                 background: #f47032;
                 border: 1px #f47032 solid;
             }
