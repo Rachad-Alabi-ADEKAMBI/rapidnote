@@ -1,6 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
-$blue: rgb(27, 27, 126);
+$blue: #4884B7;
 $bg: rgba(128, 152, 204, 0.534);
 $white: white;
 $grey: rgb(34, 26, 26);
@@ -11,10 +11,37 @@ $black: #202022;
     display: flex;
     flex-direction: $flex-direction ;
     flex-wrap: wrap;
+    justify-content: space-between;
     margin: auto;
 }
 
-/*
+@mixin link($bdC:$blue, $bgC: $blue){
+    height: 40px;
+    width: auto;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-weight: bold;
+    padding-right: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: $bdC;
+    color: $white;
+    background-color: $bgC;
+}
+
+@mixin title{
+    color: $blue;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+@mixin subtitle{
+    color: $blue;
+    font-size: 1.8em;
+    text-align: center;
+}
+
 @mixin button{
     background-color: $bg;
     color: white;
@@ -28,17 +55,17 @@ $black: #202022;
 }
 
 @mixin input{
-    width: 120px;
-    height: 25px;
+    width: 220px;
+    height: 30px;
     border: 1px solid $black;
 }
 
 @mixin select{
-    width: 120px;
-    height: 25px;
+    width: 220px;
+    height: 30px;
     border: 1px solid $black;
 }
-*/
+
 li{
     list-style: none;
 }
@@ -51,6 +78,18 @@ a:hover{
     color: $blue;
 }
 
+.link{
+    @include link;
+    transition: 500ms ease-in-out;
+}
+
+.link a{
+    color: white;
+}
+
+.link:hover{
+    transform: scale(1);
+}
 
 
 html, body{
@@ -67,21 +106,111 @@ html, body{
 }
 
 .form{
-    margin: 90px auto;
+    margin: 20px 30px auto auto;
+    padding-bottom: 20px;
     width: 500px;
     text-align: center;
     border-radius: 15px;
     background-color: rgb(207, 205, 201);
-    display: block;
+    @include flex(column);
+
+
+    h1{
+        @include title();
+    }
+
+    span{
+        color: $blue;
+        font-size: 2em;
+        font-weight: bold;
+
+        .gh{
+            font-size: 1em;
+            font-weight: 400;
+        }
+    }
+
+    .details{
+        @include flex(row);
+        width: 65%;
+        margin: auto;
+
+        label{
+            flex: 1;
+            @include flex;
+            justify-content: start;
+
+            .sm{
+                width: 15px;
+                height: 15px;
+                margin: 5px 5px auto 0;
+            }
+
+            img{
+                width: 25px;
+                height: 25px;
+            }
+
+            p{
+                font-size: 1em;
+                font-weight: 400;
+
+            }
+        }
+
+
+    }
+
+    label{
+        margin: 10px auto;
+        width: 330px;
+
+        input{
+            @include input();
+            position: relative;
+        }
+
+        .blue{
+            color: $blue;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .black{
+            color: $grey;
+            font-weight: 600;
+        }
+
+        .currency{
+            position: absolute;
+            margin: -30px  auto auto 60px;
+            color: $blue;
+            font-weight: bold;
+        }
+
+        .flag{
+            position: absolute;
+            margin: 2px 50px auto -40px;
+            color: $blue;
+            font-weight: bold;
+            height: 30px;
+            width: 30px;
+        }
+    }
 
     &__close{
         float: right;
         height: 40px;
         margin: 10px 0 10px auto;
-
         i{
             margin: auto 10px auto auto;
         }
+    }
+
+    .items{
+        @include flex();
+        width: 70%;
+        margin: 20px auto;
     }
 
     &__items{
@@ -95,6 +224,7 @@ html, body{
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
+            transition: 500ms ease-in-out;
 
             img{
                 width: 70px;
@@ -106,6 +236,15 @@ html, body{
                 font-size: 0.9em;
             }
         }
+
+    &__item:hover{
+        transform: scale(1.1);
+    }
+    }
+
+    .link{
+        margin: 20px auto;
+        width: 150px;
     }
 }
 
@@ -148,10 +287,11 @@ nav{
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
-    color: red;
   }
 
-
+nav ul li a{
+    color: $white;
+}
 
   .login-link{
     border-radius: 3px;
@@ -189,6 +329,7 @@ nav{
       font-size: 16px;
     }
   }
+
   @media (max-width: 1279px){
     .checkbtn{
       display: block;
@@ -242,6 +383,7 @@ nav{
     width: 95%;
     display: flex;
     margin: auto;
+    padding-top: 110px;
 
     .menu{
         width: 20%;
@@ -252,37 +394,18 @@ nav{
         display: block;
         text-align: center;
 
-        &__items{
-            text-align: center;
-            width: 100%;
-            li{
-                display: block;
-                margin: 5px auto;
-                text-align: center;
-                width: 100%;
+        padding-top: 0;
+       li{
+        margin: 0px auto 10px auto;
 
-               .link{
-                height: 50px;
-                width: 100%;
-                color: $white;
-                text-align: center;
-                margin: auto;
-                cursor: pointer;
-
+            .link{
                 a{
-                    margin: auto;
+                    color: $white;
+                    font-weight: bold;
                 }
-               }
-
-               .link:hover{
-                background-color: purple;
-               }
             }
+       }
 
-            li:hover{
-                background-color: red;
-            }
-        }
 
     }
 
@@ -292,47 +415,95 @@ nav{
         border-radius: 10px;
         margin: auto;
         padding-top: 0;
+        background-color: gray;;
 
         &__title{
-            margin: auto 0;
+            margin: 20px auto auto 10px;
+            @include subtitle();
         }
 
         &__infos{
-            margin: 0 0 10px auto;
             @include flex();
             text-align: right;
             float: right;
             height: 50px;
-            background-color: white;
+            margin: auto 0;
 
+           .icons{
+            margin: auto 0 auto auto;
+           float: right;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
             .icon{
                 margin: 10px;
                 text-align: right;
+                cursor: pointer;
+                transition: 500ms ease-in-out;
             }
+
+            .icon:hover{
+                transform: scaleX(1);
+            }
+           }
 
         }
 
         &__boxes{
-            margin: 5px auto;
+            margin: 5px auto auto 0;
             @include flex();
             cursor: pointer;
+            text-align: left;
 
             .box{
-                width: 200px;
-                height: 100px;
+                width: 250px;
+                margin: 15px;
+                height: 150px;
                 border-radius: 10px;
+                position: relative;
                 flex: 1;
                 margin: 15px;
-                background-color: orange;
-                text-align: center;
+                background-color: whitesmoke;
+                padding-left: 5px;
+                padding-top: 5px;
                 display: grid;
 
-                a{
-                    display: table-cell;
-                    vertical-align: middle;
+               p{
+                text-align: center;
+                margin: 5px auto;
+                width: 100%;
+                strong{
+                    color: $blue;
                     margin: auto;
-                }
+                    text-align: center;
+                    width: 100%;
+                    font-size: 2em;
 
+                    .gh{
+                        font-weight: 400;
+                        font-size: 1.5em;
+                        margin: auto;
+                        text-align: center;
+                        color: $blue;
+                    }
+                }
+               }
+
+               span{
+                text-align: center;
+                margin: 5px auto;
+                color: $black;
+                width: 100%;
+               }
+
+               .note{
+                margin: 5px auto auto 5px;
+                text-align: left;
+                span{
+                    color: $blue;
+                    font-weight: bold;
+                }
+               }
             }
         }
 
@@ -346,6 +517,7 @@ nav{
                 border-radius: 10px;
                 flex: 1;
                 margin: 10px;
+                display: block;
             }
         }
 
@@ -359,7 +531,11 @@ nav{
     width: 100%;
     text-align: center;
     padding-top: 140px;
-
+ /*   background-image:
+    linear-gradient(rgba(36, 35, 117, 0.794),
+     rgba(23, 19, 71, 0.589)),
+            url("");
+*/
 
     &__text{
         text-align: center;
@@ -384,12 +560,12 @@ nav{
         }
 
         &__items{
-            text-align: left;
             margin: 40px auto;
+            width: 80%;
             li{
                 display: inline;
                 margin: 10px;
-                text-align: left;
+                text-align: center;
                 font-weight: bold;
             }
         }
@@ -397,87 +573,160 @@ nav{
 }
 
 .about{
-    @include flex(column);
+    @include flex;
     text-align: center;
-    height: auto;
-    margin: 60px auto;
+    height: 60vh;
+    margin: 90px auto;
+    width: 80%;
 
-    &__title{
-        margin: 15px auto;
-    }
+    &__item{
+        flex: 1;
+        margin: auto;
+        @include flex(column);
+
+        &__title{
+            @include subtitle();
+        }
 
         &__text{
+            text-align: justify;
             width: 80%;
             margin: auto;
         }
 
-        &__items{
+        .link{
+            margin: auto;
+        }
+
+        &__boxes{
             @include flex();
-            &__item{
+            width: 80%;
+            margin: auto;
+            height: 80%;
+
+            .box{
+                width: 200px;
+                height: 120px;
+                background-color: purple;
+                display: table;
                 margin: 15px;
-                height: 140px;
-                width: 100px;
-                border: 1px solid;
-                i{
-                    color: white;
-                }
+                color: $white;
             }
 
-            .green{
-                background-color: rgb(53, 233, 53);
-                border: 1px green solid;
+            .purple{
+                background-color: purple;
+                border-color: purple;
+            }
+
+            .wheat{
+                background: wheat;
+                border-color: wheat;
             }
 
             .orange{
-                background: #f47032;
-                border: 1px #f47032 solid;
+                background-color: orange;
+                border-color: orange;
             }
+
+            .green{
+                background-color: green;
+                border-color: green;
+            }
+
+
         }
 
-        &__btn{
-            margin: 20px auto;
-    }
-}
+        &__boxes{
+                @include flex();
+                .box{
+                    margin: 15px;
+                    height: 140px;
+                    width: 170px;
+                    border: 1px solid;
+                    cursor: pointer;
+                    display: table;
+                    i{
+                        color: white;
+                    }
 
+                    p{
+                        display: table-cell;
+                        vertical-align: middle;
+                    }
+                }
+
+                .green{
+                    background-color: rgb(53, 233, 53);
+                    border: 1px green solid;
+                }
+
+                .orange{
+                    background: #f47032;
+                    border: 1px #f47032 solid;
+                }
+
+
+        }
+        .link{
+            @include link();
+            margin: 20px auto;
+
+            a{
+                color: $white;
+            }
+    }
+    }
+
+
+}
 
 .reasons{
     @include flex(column);
+    background-color: rgb(55, 71, 82);
     text-align: center;
     width: 100%;
-    margin: 70px auto;
+    margin: auto;
+    padding-top: 20px;
 
     &__title{
-        color: purple;
-        text-align: center;
-        font-size: 1.9em;
+       @include subtitle();
+       color: $white;
     }
 
     &__sections{
         @include flex();
-        width: 80%;
+        width: 90%;
 
         &__box{
             flex: 1;
             text-align: center;
+            margin: 15px auto;
+
 
             .box-img{
                 background-color: rgb(212, 194, 212);
                 width: 50px;
                 height: 50px;
                 border-radius: 40px;
-                margin: auto;
+                margin: 15px auto;
                 text-align: center;
                 position: relative;
+                display: table;
 
                 p{
-                    position: absolute;
-                    left: 0;
-                    right: 0;
+                    display: table-cell;
+                    vertical-align: middle;
+                    color: $white;
+                    color: $black;
                 }
             }
 
             p{
+                color: $white;
 
+                a{
+                    color: $white;
+                }
             }
 
 
@@ -489,32 +738,30 @@ nav{
 .simulator{
     @include flex(column);
     text-align: center;
-    height: 190px;
-    padding-bottom: 30px;
-    padding-top: 30px;
+    height: 250px;
     width: 100%;
-    margin: 30px auto;
+    margin: 30px auto 10px auto;
 
-    h3{
-        font-size: 1.9em;
+    h2{
+        @include subtitle();
     }
 
     &__text{
-        margin: -30px auto;
+        margin: 15px auto;
     }
-
-
 
     &__buttons{
         @include flex;
+        .link{
+            margin: 15px;
+            @include link();
 
-        form{
-            flex: 1;
-            margin: 10px;
+            a{
+                color: $white;
+            }
         }
     }
 }
-
 
 .care{
     @include flex();
@@ -548,6 +795,12 @@ nav{
                 text-align: left;
             }
         }
+
+        img{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
     }
 }
 
@@ -555,9 +808,10 @@ nav{
     @include flex(column);
     height: 300px;
     width: 100%;
+    margin: 60px auto;
 
     &__title{
-        text-align: center;
+        @include subtitle;
     }
 
     &__items{
@@ -578,9 +832,12 @@ nav{
     }
 }
 
-
 .footer{
     @include flex();
+    background-color: rgba(56, 54, 54, 0.952);
+    padding-top: 20px;
+    margin: 80px auto 0 auto;
+    bottom: 0;
 
     &__item{
         flex: 1;
@@ -591,6 +848,12 @@ nav{
 
                 h4{
                     font-weight: bold;
+                    color: $blue;
+                }
+
+                a{
+                    margin: auto 0;
+                    color: $white;
                 }
             }
         }
@@ -621,7 +884,6 @@ nav{
 }
 
 /*responsive*/
-
 @media(max-width: 500px){
     .table{
         width: 100%;

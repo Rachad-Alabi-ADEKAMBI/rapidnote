@@ -27,4 +27,6 @@
         </ul>
     </nav>
   <router-view/>
+
+
 </template>

@@ -1,29 +1,4 @@
 @import url("http://fonts.cdnfonts.com/css/montserrat");
-/*
-@mixin button{
-    background-color: $bg;
-    color: white;
-    border: 1px solid;
-    border-radius: 30px;
-    height: 35px;
-
-    width: auto;
-    cursor: pointer;
-    transition: 500ms ease-in-out;
-}
-
-@mixin input{
-    width: 120px;
-    height: 25px;
-    border: 1px solid $black;
-}
-
-@mixin select{
-    width: 120px;
-    height: 25px;
-    border: 1px solid $black;
-}
-*/
 li {
   list-style: none;
 }
@@ -33,7 +8,30 @@ a {
 }
 
 a:hover {
-  color: rgb(27, 27, 126);
+  color: #4884B7;
+}
+
+.link {
+  height: 40px;
+  width: auto;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-weight: bold;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #4884B7;
+  color: white;
+  background-color: #4884B7;
+  transition: 500ms ease-in-out;
+}
+
+.link a {
+  color: white;
+}
+
+.link:hover {
+  transform: scale(1);
 }
 
 html, body {
@@ -49,12 +47,96 @@ html, body {
 }
 
 .form {
-  margin: 90px auto;
+  margin: 20px 30px auto auto;
+  padding-bottom: 20px;
   width: 500px;
   text-align: center;
   border-radius: 15px;
   background-color: rgb(207, 205, 201);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+}
+.form h1 {
+  color: #4884B7;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+.form span {
+  color: #4884B7;
+  font-size: 2em;
+  font-weight: bold;
+}
+.form span .gh {
+  font-size: 1em;
+  font-weight: 400;
+}
+.form .details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 65%;
+  margin: auto;
+}
+.form .details label {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  justify-content: start;
+}
+.form .details label .sm {
+  width: 15px;
+  height: 15px;
+  margin: 5px 5px auto 0;
+}
+.form .details label img {
+  width: 25px;
+  height: 25px;
+}
+.form .details label p {
+  font-size: 1em;
+  font-weight: 400;
+}
+.form label {
+  margin: 10px auto;
+  width: 330px;
+}
+.form label input {
+  width: 220px;
+  height: 30px;
+  border: 1px solid #202022;
+  position: relative;
+}
+.form label .blue {
+  color: #4884B7;
+  font-weight: bold;
+  padding-left: 20px;
+}
+.form label .black {
+  color: rgb(34, 26, 26);
+  font-weight: 600;
+}
+.form label .currency {
+  position: absolute;
+  margin: -30px auto auto 60px;
+  color: #4884B7;
+  font-weight: bold;
+}
+.form label .flag {
+  position: absolute;
+  margin: 2px 50px auto -40px;
+  color: #4884B7;
+  font-weight: bold;
+  height: 30px;
+  width: 30px;
 }
 .form__close {
   float: right;
@@ -64,10 +146,20 @@ html, body {
 .form__close i {
   margin: auto 10px auto auto;
 }
+.form .items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 70%;
+  margin: 20px auto;
+}
 .form__items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   margin: 50px auto;
 }
@@ -78,6 +170,7 @@ html, body {
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+  transition: 500ms ease-in-out;
 }
 .form__items__item img {
   width: 70px;
@@ -86,6 +179,13 @@ html, body {
 .form__items__item p {
   text-align: center;
   font-size: 0.9em;
+}
+.form__items__item:hover {
+  transform: scale(1.1);
+}
+.form .link {
+  margin: 20px auto;
+  width: 150px;
 }
 
 .container {
@@ -128,7 +228,10 @@ nav ul li {
   display: inline-block;
   line-height: 80px;
   margin: 0 5px;
-  color: red;
+}
+
+nav ul li a {
+  color: white;
 }
 
 .login-link {
@@ -139,12 +242,12 @@ nav ul li {
 }
 
 .login-link:hover {
-  color: rgb(27, 27, 126);
-  background-color: rgb(27, 27, 126);
+  color: #4884B7;
+  background-color: #4884B7;
 }
 
 a.active, a:hover {
-  color: rgb(27, 27, 126);
+  color: #4884B7;
   transition: 0.5s;
 }
 
@@ -219,6 +322,7 @@ a.active, a:hover {
   width: 95%;
   display: flex;
   margin: auto;
+  padding-top: 110px;
 }
 .dashboard .menu {
   width: 20%;
@@ -228,89 +332,121 @@ a.active, a:hover {
   border: 1px #202022 solid;
   display: block;
   text-align: center;
+  padding-top: 0;
 }
-.dashboard .menu__items {
-  text-align: center;
-  width: 100%;
+.dashboard .menu li {
+  margin: 0px auto 10px auto;
 }
-.dashboard .menu__items li {
-  display: block;
-  margin: 5px auto;
-  text-align: center;
-  width: 100%;
-}
-.dashboard .menu__items li .link {
-  height: 50px;
-  width: 100%;
+.dashboard .menu li .link a {
   color: white;
-  text-align: center;
-  margin: auto;
-  cursor: pointer;
-}
-.dashboard .menu__items li .link a {
-  margin: auto;
-}
-.dashboard .menu__items li .link:hover {
-  background-color: purple;
-}
-.dashboard .menu__items li:hover {
-  background-color: red;
+  font-weight: bold;
 }
 .dashboard .content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   width: 75%;
   border-radius: 10px;
   margin: auto;
   padding-top: 0;
+  background-color: gray;
 }
 .dashboard .content__title {
-  margin: auto 0;
+  margin: 20px auto auto 10px;
+  color: #4884B7;
+  font-size: 1.8em;
+  text-align: center;
 }
 .dashboard .content__infos {
-  margin: 0 0 10px auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   text-align: right;
   float: right;
   height: 50px;
-  background-color: white;
+  margin: auto 0;
 }
-.dashboard .content__infos .icon {
+.dashboard .content__infos .icons {
+  margin: auto 0 auto auto;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.dashboard .content__infos .icons .icon {
   margin: 10px;
   text-align: right;
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+}
+.dashboard .content__infos .icons .icon:hover {
+  transform: scaleX(1);
 }
 .dashboard .content__boxes {
-  margin: 5px auto;
+  margin: 5px auto auto 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   cursor: pointer;
+  text-align: left;
 }
 .dashboard .content__boxes .box {
-  width: 200px;
-  height: 100px;
+  width: 250px;
+  margin: 15px;
+  height: 150px;
   border-radius: 10px;
+  position: relative;
   flex: 1;
   margin: 15px;
-  background-color: orange;
-  text-align: center;
+  background-color: whitesmoke;
+  padding-left: 5px;
+  padding-top: 5px;
   display: grid;
 }
-.dashboard .content__boxes .box a {
-  display: table-cell;
-  vertical-align: middle;
+.dashboard .content__boxes .box p {
+  text-align: center;
+  margin: 5px auto;
+  width: 100%;
+}
+.dashboard .content__boxes .box p strong {
+  color: #4884B7;
   margin: auto;
+  text-align: center;
+  width: 100%;
+  font-size: 2em;
+}
+.dashboard .content__boxes .box p strong .gh {
+  font-weight: 400;
+  font-size: 1.5em;
+  margin: auto;
+  text-align: center;
+  color: #4884B7;
+}
+.dashboard .content__boxes .box span {
+  text-align: center;
+  margin: 5px auto;
+  color: #202022;
+  width: 100%;
+}
+.dashboard .content__boxes .box .note {
+  margin: 5px auto auto 5px;
+  text-align: left;
+}
+.dashboard .content__boxes .box .note span {
+  color: #4884B7;
+  font-weight: bold;
 }
 .dashboard .content__graphs {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
 }
 .dashboard .content__graphs .graph {
@@ -320,6 +456,7 @@ a.active, a:hover {
   border-radius: 10px;
   flex: 1;
   margin: 10px;
+  display: block;
 }
 
 .top {
@@ -328,10 +465,16 @@ a.active, a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   width: 100%;
   text-align: center;
   padding-top: 140px;
+  /*   background-image:
+      linear-gradient(rgba(36, 35, 117, 0.794),
+       rgba(23, 19, 71, 0.589)),
+              url("");
+  */
 }
 .top__text {
   text-align: center;
@@ -339,7 +482,7 @@ a.active, a:hover {
   margin: auto;
 }
 .top__text__title {
-  color: rgb(27, 27, 126);
+  color: #4884B7;
   font-size: 2.2em;
   font-weight: bold;
   margin: 20px auto;
@@ -353,131 +496,234 @@ a.active, a:hover {
   margin: 20px auto;
 }
 .top__text__items {
-  text-align: left;
   margin: 40px auto;
+  width: 80%;
 }
 .top__text__items li {
   display: inline;
   margin: 10px;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
 }
 
 .about {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   text-align: center;
-  height: auto;
-  margin: 60px auto;
+  height: 60vh;
+  margin: 90px auto;
+  width: 80%;
 }
-.about__title {
-  margin: 15px auto;
+.about__item {
+  flex: 1;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
 }
-.about__text {
+.about__item__title {
+  color: #4884B7;
+  font-size: 1.8em;
+  text-align: center;
+}
+.about__item__text {
+  text-align: justify;
   width: 80%;
   margin: auto;
 }
-.about__items {
+.about__item .link {
+  margin: auto;
+}
+.about__item__boxes {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
+  width: 80%;
+  margin: auto;
+  height: 80%;
 }
-.about__items__item {
+.about__item__boxes .box {
+  width: 200px;
+  height: 120px;
+  background-color: purple;
+  display: table;
   margin: 15px;
-  height: 140px;
-  width: 100px;
-  border: 1px solid;
-}
-.about__items__item i {
   color: white;
 }
-.about__items .green {
+.about__item__boxes .purple {
+  background-color: purple;
+  border-color: purple;
+}
+.about__item__boxes .wheat {
+  background: wheat;
+  border-color: wheat;
+}
+.about__item__boxes .orange {
+  background-color: orange;
+  border-color: orange;
+}
+.about__item__boxes .green {
+  background-color: green;
+  border-color: green;
+}
+.about__item__boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+}
+.about__item__boxes .box {
+  margin: 15px;
+  height: 140px;
+  width: 170px;
+  border: 1px solid;
+  cursor: pointer;
+  display: table;
+}
+.about__item__boxes .box i {
+  color: white;
+}
+.about__item__boxes .box p {
+  display: table-cell;
+  vertical-align: middle;
+}
+.about__item__boxes .green {
   background-color: rgb(53, 233, 53);
   border: 1px green solid;
 }
-.about__items .orange {
+.about__item__boxes .orange {
   background: #f47032;
   border: 1px #f47032 solid;
 }
-.about__btn {
+.about__item .link {
+  height: 40px;
+  width: auto;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-weight: bold;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #4884B7;
+  color: white;
+  background-color: #4884B7;
   margin: 20px auto;
+}
+.about__item .link a {
+  color: white;
 }
 
 .reasons {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
+  background-color: rgb(55, 71, 82);
   text-align: center;
   width: 100%;
-  margin: 70px auto;
+  margin: auto;
+  padding-top: 20px;
 }
 .reasons__title {
-  color: purple;
+  color: #4884B7;
+  font-size: 1.8em;
   text-align: center;
-  font-size: 1.9em;
+  color: white;
 }
 .reasons__sections {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
-  width: 80%;
+  width: 90%;
 }
 .reasons__sections__box {
   flex: 1;
   text-align: center;
+  margin: 15px auto;
 }
 .reasons__sections__box .box-img {
   background-color: rgb(212, 194, 212);
   width: 50px;
   height: 50px;
   border-radius: 40px;
-  margin: auto;
+  margin: 15px auto;
   text-align: center;
   position: relative;
+  display: table;
 }
 .reasons__sections__box .box-img p {
-  position: absolute;
-  left: 0;
-  right: 0;
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+  color: #202022;
 }
+.reasons__sections__box p {
+  color: white;
+}
+.reasons__sections__box p a {
+  color: white;
+}
+
 .simulator {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   text-align: center;
-  height: 190px;
-  padding-bottom: 30px;
-  padding-top: 30px;
+  height: 250px;
   width: 100%;
-  margin: 30px auto;
+  margin: 30px auto 10px auto;
 }
-.simulator h3 {
-  font-size: 1.9em;
+.simulator h2 {
+  color: #4884B7;
+  font-size: 1.8em;
+  text-align: center;
 }
 .simulator__text {
-  margin: -30px auto;
+  margin: 15px auto;
 }
 .simulator__buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
 }
-.simulator__buttons form {
-  flex: 1;
-  margin: 10px;
+.simulator__buttons .link {
+  margin: 15px;
+  height: 40px;
+  width: auto;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-weight: bold;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #4884B7;
+  color: white;
+  background-color: #4884B7;
+}
+.simulator__buttons .link a {
+  color: white;
 }
 
 .care {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   width: 80%;
 }
@@ -487,6 +733,7 @@ a.active, a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
 }
 .care .card__icon {
@@ -507,16 +754,25 @@ a.active, a:hover {
   width: 80%;
   text-align: left;
 }
+.care .card img {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
 
 .payments {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   height: 300px;
   width: 100%;
+  margin: 60px auto;
 }
 .payments__title {
+  color: #4884B7;
+  font-size: 1.8em;
   text-align: center;
 }
 .payments__items {
@@ -524,6 +780,7 @@ a.active, a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
   width: 100%;
 }
@@ -541,7 +798,12 @@ a.active, a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
+  background-color: rgba(56, 54, 54, 0.952);
+  padding-top: 20px;
+  margin: 80px auto 0 auto;
+  bottom: 0;
 }
 .footer__item {
   flex: 1;
@@ -551,6 +813,11 @@ a.active, a:hover {
 }
 .footer__item ul li h4 {
   font-weight: bold;
+  color: #4884B7;
+}
+.footer__item ul li a {
+  margin: auto 0;
+  color: white;
 }
 
 .table {
@@ -568,7 +835,7 @@ a.active, a:hover {
 }
 
 .table th {
-  background-color: rgb(27, 27, 126);
+  background-color: #4884B7;
   color: #ffffff;
 }
 

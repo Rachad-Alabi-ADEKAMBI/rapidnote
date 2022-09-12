@@ -1,112 +1,160 @@
-<template>
-    <div class="dashboard">
-                    <div class="menu">
-                        <ul class="menu__items">
+<template> <br><br><br><br>
+    <form method="POST"
+        action="" class='form' v-if="showBuy">
 
-                                <li>
-                                    <div class="link">
-                                        <a href="/wallet">
-                                            Wallet
-                                        </a>
-                                    </div>
-                                </li>
+        <div class="form__close">
+           <a href="/dashboard">
+               back
+               <i class="fas fa-times"></i>
+           </a> <br>
+        </div>
+        <h1 class="form__title">
+           Buy
+        </h1>
 
-                                <li>
-                                    <div class="link">
-                                        Referals
-                                    </div>
-                                </li>
+        <div class="details">
 
-                                <li>
-                                    <div class="link">
-                                        Transactions
-                                    </div>
-                                </li>
+          <label for="Mr" @click='btc()'>
+                        <input type="radio" class='sm' id="genderChoice1" name="gender" value="Mr" required>
+                        <img src="../../public/images/btc.png" alt="">
+                        <p>BTC</p>
+                    </label>
 
-                                <li>
-                                    <div class="link">
-                                        Support
-                                    </div>
-                                </li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <div class="content__infos">
-                            <div class="icon">
-                                search
-                            </div>
-                            <div class="icon">
-                                param
-                            </div>
-                            <div class="icon">
-                            Account
-                        </div>
+                    <label for="Mr" @click='pf()'>
+                        <input type="radio" id="genderChoice1" class="sm" name="gender" value="Mr" required>
+                        <p>
+                          Perfect Money
+                        </p>
+                    </label>
+        </div>
 
-                        <div class="icon">
-                            logout
-                        </div>
+        <label for="">
+          Buying Rate: <br>
+          <div class="black">
+            1 USD = {{ bRate}} ₵
+          </div>
+        </label>
+
+        <label for="">
+           Amount you need: <br>
+            <input type="number" v-model="amount"
+              @click="getNeed(amount, bRate)"
+             class="blue">
+            <div class="currency">
+              $
+            </div>
+
+            <img src="../../public/img/visa.png" alt="" class="flag">
+        </label>
+
+        <label for="">
+            Amount you pay <br>
+            <input type="number" v-model="need" class="blue"
+            @click="getAmount(need, bRate)"
+            placeholder=""
+            >
+            <div class="currency">
+              ₵
+            </div>
+            <img src="../../public/img/visa.png" alt="" class="flag">
+        </label>
+
+        <label for="">
+          Your bitcoin adress: <br>
+          <input type="number"  class="blue"
+            placeholder=""
+            >
+        </label>
+
+            <div class="link" @click="displayPayment()">
+                Proceed
+            </div>
+
+   </form>
+
+   <form  v-if="showPayment" class="form">
+
+        <div class="form__close">
+           <a href="/sell">
+               Previous
+               <i class="fas fa-times"></i>
+           </a>
+           |
+           <a href="/dashboard">
+               Back
+               <i class="fas fa-times"></i>
+           </a> <br>
+        </div>
+        <h1 class="form__title">
+          Payment Methods
+        </h1>
+
+        <div class="form__items">
+          <div class="form__items__item">
+            <img src="../../public/img/img-mtn.png" alt="">
+            <p>
+              MTN
+            </p>
+          </div>
+
+          <div class="form__items__item">
+            <img src="../../public/img/paypal-rond.png" alt="">
+            <p>PAYPAL</p>
+          </div>
+
+          <div class="form__items__item">
+            <img src="../../public/img/btc.png" alt="">
+            <p>BTC</p>
+          </div>
+        </div>
 
 
-                        </div>
 
-                        <div class="content__boxes">
 
-                            <div class="box">
-                                <a href="/sell">
-                                    Sell
-                                </a>
-                            </div>
+        <label for="">
+            <button type="submit"  class="link">
+                Next
+            </button>
+        </label>
 
-                            <div class="box">
-                                <a href="/buy">
-                                    Buy
-                                </a>
-                            </div>
-
-                            <div class="box">
-                                <a href="/refer">
-                                    Refer
-                                </a>
-                            </div>
-                        </div>
-
-                        <h2 class="content__title">
-                            Summary
-                        </h2>
-
-                        <div class="content__graphs">
-                            <div class="graph">
-                                My sales
-                            </div>
-
-                            <div class="graph">
-                                My purchases
-                            </div>
-
-                            <div class="graph">
-                                My refers
-                            </div>
-                        </div>
-                    </div>
-    </div>
+   </form>
 </template>
 
+
 <script>
-export default {
-  name: 'Buy',
-  data() {
-      return{
-          message: 'ok'
-      }
-      },
+   export default {
+       name: 'Buy',
+     data(){
+       return{
+           details:[],
+           amount: '',
+           showPayment: false,
+           showBuy: true,
+           bRate: 10,
+           asset: '',
+           need: ''
+       }
+     },
+     mounted: function(){
+       //  this.getMyBalance();
+     },
+     methods:{
+        displayPayment(){
+            this.showBuy = false;
+            this.showPayment = true;
+        },
+        getNeed(amount, bRate) {
+                this.need = amount * bRate;
+            },
+        getAmount(need, bRate) {
+                this.amount = need / bRate;
+            }
+        }
 
-      methods: {
-           do (){
-                alert('yep');
-           }
-          }
-      }
+     }
+   </script>
 
+   <!-- Add "scoped" attribute to limit CSS to this component only -->
+   <style scoped>
 
-
-</script>
+   </style>

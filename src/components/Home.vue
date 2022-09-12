@@ -1,6 +1,4 @@
 <template>
-    <div class="container">
-
         <div class="top">
 
             <div class="top__text">
@@ -8,27 +6,22 @@
                     RAPID NOTE
                 </h1>
 
-                <p class="top__text__text">
-                    Nous vous échangeons vos crypto-actifs en quelques clics
-                </p>
 
                 <h2 class="top__text__subtitle">
-                    Notre plateforme vous permet d'échanger Lorem ipsum dolor sit,
-                    amet consectetur adipisicing elit. Ea laudantium totam
-                     minima dolore enim. Id, numquam blanditiis perferendis
-                </h2>
+                   Buy and sell your crypto-currencies Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae veritatis vero at officiis dolor aliquid optio iure cupiditate autem, voluptatum quod dolorum quaerat ducimus consequatur, hic repellat quidem. Nam, eum.
+               </h2>
 
                 <ul class="top__text__items">
                     <li>
-                        Facile à utiliser
+                        Easy to use
                     </li>
 
                     <li>
-                        Sécurisé
+                        Secure
                     </li>
 
                     <li>
-                        Vous etes rémunéré pour vos opérations
+                        Get paid for referals
                     </li>
                 </ul>
             </div>
@@ -36,44 +29,55 @@
         </div><br>
 
         <div class="about">
-                    <h2 class="about__title">
+                    <div class="about__item">
+                        <h2 class="about__item__title">
                             ABOUT US
                         </h2>
 
-                        <p class="about__text">
-                      lorem ipsumtext
+                        <p class="about__item__text">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quas doloribus veniam ut vero, iusto voluptatem, explicabo debitis natus, porro officia totam perferende!
                         </p>
 
-                        <div class="about__items">
-                            <div class="about__items__item green">
-                                <i class="far fa-clock"></i>
-                                Fast
-                            </div>
-
-                            <div class="about__items__item green">
-                                <i class="fas fa-money-bill"></i>
-                                Price
-                            </div>
-
-                            <div class="about__items__item orange">
-                                <i class="fas fa-money-bill"></i>
-                                Customer care
-                            </div>
-
-
+                        <div class="link">
+                            <a href="/">
+                                More
+                            </a>
                         </div>
+                    </div>
+                        <div class="about__item">
+                                <div class="about__item__boxes">
+                                    <div class="box green">
+                                <p>
+                                    Quick services
+                                </p>
+                            </div>
 
+                            <div class="box orange">
+                                <p>
+                                    Small rates
+                                </p>
+                            </div>
 
+                            <div class="box purple">
+                               <p>
+                                Customer care
+                               </p>
+                            </div>
 
-                        <button class="about__btn">
-                            More....
-                        </button>
+                            <div class="box wheat">
+                                <p>
+                                    Business
+                                    participation
+                                </p>
+                            </div>
+                                </div>
+                        </div>
             </div>
 
 
         <div class="reasons">
             <h2 class="reasons__title">
-                Comment ca marche ?
+                How does it work ?
             </h2>
             <div class="reasons__sections">
                 <div class="reasons__sections__box">
@@ -82,7 +86,7 @@
                     </div>
 
                     <p>
-                        <a href="">Connectez vous</a> à votre compte
+                        <a href="/login">Login/Create your account</a>
                     </p>
 
 
@@ -90,22 +94,26 @@
 
                 <div class="reasons__sections__box">
                     <div class="box-img">
-                        2
+                        <p>
+                            2
+                        </p>
                     </div>
 
-                    <h4>
-                        Choisissez <a href="">Acheter</a> ou <a href="">Vendre </a>
-                    </h4>
+                   <p>
+                    Select an option
+                   </p>
                 </div>
 
                 <div class="reasons__sections__box">
                     <div class="box-img">
-                        3
+                        <p>
+                            3
+                        </p>
                     </div>
 
-                    <h4>
-                      Le solde est transféré sur votre portefeuille  Mobile money ou Bitcoin
-                    </h4>
+                   <p>
+                    Perfom and get paid within 2 hours
+                   </p>
 
 
                 </div>
@@ -116,22 +124,26 @@
 
         <div class="simulator">
             <img src="" alt="" class="simulator__image">
-            <h3 class="simulator__title">
-                Et si vous faisiez une simulation ?
-            </h3>
+            <h2 class="simulator__title">
+                What if you try ?
+            </h2>
 
             <p class="simulator__text">
-                Découvrez en quelques clics nos solutions
+                Choose an option for your a trial
             </p>
 
             <div class="simulator__buttons">
-                    <form action="">
-                        <button> Simuler achat</button>
-                    </form>
+                  <div class="link">
+                    <a href="">
+                        Buy
+                    </a>
+                  </div>
 
-                    <form action="">
-                        <button> Simuler vente</button>
-                    </form>
+                  <div class="link">
+                    <a href="/sell">
+                        Sell
+                    </a>
+                  </div>
                 </div>
         </div>
 
@@ -143,50 +155,33 @@
                 </div>
                     <div class="card__text">
                         <h3 class="card__text__title">
-                            Nous sommes à votre écoute
+                            Refer Rapid Note and get huge discounts
                         </h3>
 
                         <p class="card__text__text">
-                            <span>Contactez-nous</span> <br>
+                           Refer to a friend and get 1 PV.
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                             Quibusdam, vero? Dolorum quis
+                             Dolorum quis
+                             </p>
 
-                            Quel que soit votre préoccupation, notre équipe disponible
-                            24/7 vous aidera dans la marche à suivre
-                        </p>
-
-                        <button>
-                            Contact
-                        </button>
+                        <div class="link">
+                            <a href="/refer">
+                                Refer Now
+                            </a>
+                        </div>
                     </div>
             </div>
 
             <div class="card">
-
-            <div class="card__icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                    <div class="card__text">
-                        <h3 class="card__text__title">
-                            Nous sommes à votre écoute
-                        </h3>
-
-                        <p class="card__text__text">
-                            <span>Vous etes rémunéré</span> <br>
-
-                        Vous appréciez notre service ? Parlez-en à votre entourege et gagnez 10%
-                        de la 1ere transaction de votre filleul. Votre interet est également le notre.
-                        </p>
-
-                        <button>
-                            Contact
-                        </button>
-                    </div>
-
-                </div>
+                <img src="../../public/img/ghc.jpg" alt="">
+            </div>
         </div>
 
         <div class="payments">
             <h2 class="payments__title">
-                Nos différents moyens de paiement
+                Payments methods
             </h2>
 
             <div class="payments__items">
@@ -207,7 +202,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

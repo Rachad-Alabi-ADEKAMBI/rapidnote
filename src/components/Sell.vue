@@ -1,76 +1,151 @@
-<template>
-    <form method="POST"
-        action="" class='form'>
-        <div class="form__close">
-           <a href="/dashboard">
-            <i class="fas fa-times"></i>
-           </a>
+<template> <br><br><br><br>
+  <form method="POST"
+      action="" class='form' v-if="showSell">
+
+      <div class="form__close">
+         <a href="/dashboard">
+             back
+             <i class="fas fa-times"></i>
+         </a> <br>
+      </div>
+      <h1 class="form__title">
+         Sell
+      </h1>
+
+      <div class="details">
+
+        <label for="Mr" @click='btc()'>
+                      <input type="radio" class='sm' id="genderChoice1" name="gender" value="Mr" required>
+                      <img src="../../public/images/btc.png" alt="">
+                      <p>BTC</p>
+                  </label>
+
+                  <label for="Mr" @click='pf()'>
+                      <input type="radio" id="genderChoice1" class="sm" name="gender" value="Mr" required>
+                      <p>
+                        Perfect Money
+                      </p>
+                  </label>
+      </div>
+
+      <label for="">
+        Selling Rate: <br>
+        <div class="black">
+          1 USD = {{ sRate}} ₵
         </div>
-        <p class="form__title">
-           Sell
-        </p>
+      </label>
 
-        <p class="form__infos">
-            Daily rate: 10 Ghc
-        </p>
+      <label for="">
+         Amount you sell: <br>
+          <input type="number" v-model="amount"
+            @click="getNeed(amount, sRate)"
+           class="blue">
+          <div class="currency">
+            $
+          </div>
 
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form2Example2">Amount to sell</label>
-                        <input type="number" id="form2Example2" class="form-control"
-                        v-model="amount"
-                            required/>
+          <img src="../../public/img/visa.png" alt="" class="flag">
+      </label>
 
+      <label for="">
+          Amount you receive <br>
+          <input type="number" v-model="need" class="blue"
+          @click="getAmount(need, sRate)"
+          placeholder=""
+          >
+          <div class="currency">
+            ₵
+          </div>
+          <img src="../../public/img/visa.png" alt="" class="flag">
+      </label>
+
+          <div class="link" @click="displayPayment()">
+             Next
+          </div>
+
+ </form>
+
+ <form  v-if="showPayment" class="form">
+
+      <div class="form__close">
+         <a href="/sell">
+             Previous
+             <i class="fas fa-times"></i>
+         </a>
+         |
+         <a href="/dashboard">
+             Back
+             <i class="fas fa-times"></i>
+         </a> <br>
+      </div>
+      <h1 class="form__title">
+        Payment Methods
+      </h1>
+
+      <div class="form__items">
+        <div class="form__items__item">
+          <img src="../../public/img/img-mtn.png" alt="">
+          <p>
+            MTN MOBILE MONEY
+          </p>
         </div>
 
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form2Example2">Amount to receive </label>
-                        <input type="number" id="form2Example2" class="form-control"
-                            v-model='converted' >
-
+        <div class="form__items__item">
+          <img src="../../public/img/paypal-rond.png" alt="">
+          <p>VODAFONE CASH</p>
         </div>
 
+        <div class="form__items__item">
+          <img src="../../public/img/btc.png" alt="">
+          <p>BANK DESPOSIT</p>
+        </div>
+      </div>
 
 
-        <div class="row">
-                        <div class="col-6 mx">
+      <label for="">
+          <button type="submit"  class="link">
+              Next
+          </button>
+      </label>
 
-                                <button type="submit"
-                                class="btn btn-primary
-                                btn-block mb-4">Sell</button>
-                        </div>
-                    </div>
-            </form>
-
-            <h2>
-                History
-            </h2>
-    </template>
+ </form>
+</template>
 
 
 <script>
-   export default {
-       name: 'sell',
-     data(){
-       return{
-           details:[],
-           amount: 0,
-           converted: 0,
-           usd: 9.5
-       }
-     },
-     mounted: function(){
-         //this.getCurrentMarketcap();
-        // this.getDetails();
-     },
-     methods:{
-        convert(){
-            this.converted = this.amount * 2;
-        }
+ export default {
+     name: 'Buy',
+   data(){
+     return{
+         details:[],
+         amount: '',
+         showPayment: false,
+         showSell: true,
+         sRate: 9,
+         asset: '',
+         need: ''
      }
+   },
+   mounted: function(){
+     //  this.getMyBalance();
+   },
+   methods:{
+      displayPayment(){
+          this.showSell = false;
+          this.showPayment = true;
+      },
+      getNeed(amount, sRate) {
+              this.need = amount * sRate;
+          },
+      getAmount(need, sRate) {
+              this.amount = need / sRate;
+          }
+      }
+
    }
-   </script>
+ </script>
 
-   <!-- Add "scoped" attribute to limit CSS to this component only -->
-   <style scoped>
+ <!-- Add "scoped" attribute to limit CSS to this component only -->
+ <style scoped>
 
-   </style>
+ </style>

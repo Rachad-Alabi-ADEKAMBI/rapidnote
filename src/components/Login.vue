@@ -1,63 +1,49 @@
-<template>
-    <div class="container">
-        <form method="POST" action="http://127.0.0.1/rapidnote/api/api.php?action=login">
+<template> <br><br> <br> <br>
+
+        <form method="POST" class="form"
+        action="http://127.0.0.1/rapidnote/api/api.php?action=login">
 
             <div class="form__close">
                 <i class="fas fa-times"></i>
             </div>
 
-            <div class="row">
-                <div class="col-6 mx">
-                    <div class="form-outline mb-4">
-                        <input type="text" id="form2Example1" class="form-control" name="email"
-                            required/>
-                        <label class="form-label" for="form2Example1">Email address</label>
-                    </div>
+            <h1>
+                Login
+            </h1>
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" name="pass"
-                            required/>
-                        <label class="form-label" for="form2Example2">Password</label>
-                    </div>
+            <label for=""> Email/Login: <br>
+                <input type="text" name="email">
+            </label>
 
-                    <!-- 2 column grid layout for inline styling -->
-                    <div class="row mb-4">
-                        <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                            <label class="form-check-label" for="form2Example31"> Remember me </label>
-                        </div>
-                        </div>
 
-                        <div class="col">
-                        <!-- Simple link -->
-                        <a href="">Forgot password?</a>
-                        </div>
-                    </div>
+            <label for=""> Mot de passe: <br>
+                <input type="text" name="pass">
+            </label>
 
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <label for="">
+                <button type="submit" class="link">
+                    Login
+                </button>
+            </label>
 
-                    <!-- Register buttons -->
-                    <div class="text-center">
-                        <p>Not a member? <a href="#!">Register</a></p>
-                        <p>or sign up with:</p>
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                        </button>
+            <p>
+                <strong>
+                    <a href="/for">
+                Forgot password ?
+               </a>
+                </strong>
+                <br>
+               or
+               <br>
+               <span>
+                <a href="">
+                    Create account
+                </a>
+               </span>
+            </p>
 
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                        <i class="fab fa-google"></i>
-                        </button>
-
-                    </div>
-                </div>
-            </div>
 
         </form>
-    </div>
 </template>
 
 <script>

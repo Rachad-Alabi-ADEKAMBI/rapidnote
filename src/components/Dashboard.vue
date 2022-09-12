@@ -1,76 +1,93 @@
+
+
 <template>
     <div class="dashboard">
                     <div class="menu">
-                        <ul class="menu__items">
+                        <li>
+                            <div class="link">
+                                <a href="/sell">
+                                    Sell
+                                </a>
+                            </div>
+                        </li>
 
-                                <li>
-                                    <div class="link">
-                                        <a href="/wallet">
-                                            Wallet
-                                        </a>
-                                    </div>
-                                </li>
+                        <li>
+                            <div class="link">
+                                <a href="/buy">
+                                    Buy
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="link">
+                                <a href="/wallet">
+                                    Wallet
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="link">
+                                <a href="/transactions">
+                                    Transactions                                </a>
+                            </div>
+                        </li>
 
 
-
-                                <li>
-                                    <div class="link">
-                                        <i class="fas fa-history"></i> Transactions
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="link">
-                                            <a href="/help">
-                                                Help
-                                            </a>
-                                    </div>
-                                </li>
-                        </ul>
                     </div>
                     <div class="content">
                         <div class="content__infos">
-                            <div class="icon">
+                            <div class="icons">
+                                <div class="icon">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 search
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-user"></i>
-                            </div>
-
-                            <div class="icon">
-                                <i class="fas fa-sign-out-alt"></i>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-user"></i>
+                                    user name
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    logout
+                                </div>
                             </div>
                         </div>
 
                         <div class="content__boxes">
 
                             <div class="box">
-                                <a href="/wallet">
-                                    Wallet
-                                </a>
+                                Your balance:
+
+                                <p>
+                                   <strong>
+                                    300
+                                   </strong>
+                                   <div class="gh">
+                                        gh
+                                    </div>
+                                </p>
+
                             </div>
 
                             <div class="box">
-                                <a href="/sell">
-                                    Sell
-                                </a>
-                            </div>
+                                <div class="note">
+                                    Date: <span> 15/11/2022</span>
+                                </div>
+                                <div class="note">
+                                    Btc: <span> 1 300 gh</span>
+                                </div>
 
-                            <div class="box">
-                                <a href="/buy">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    Buy
-                                </a>
-                            </div>
+                                <div class="note">
+                                    Btc: <span> 1 300 gh</span>
+                                </div>
 
-                            <div class="box">
-                                <a href="/refer">
-                                    Refer
-                                </a>
+                                <div class="note">
+                                    Rate today: <span>100 Gh</span>
+                                </div>
                             </div>
                         </div>
 
@@ -80,15 +97,15 @@
 
                         <div class="content__graphs">
                             <div class="graph">
-                                My sales
+                                <div class="grapht__top">
+                                    My sales
+                                </div>
                             </div>
 
                             <div class="graph">
-                                My purchases
-                            </div>
-
-                            <div class="graph">
-                                My refers
+                                <div class="graph__top">
+                                    My purchases
+                                </div>
                             </div>
                         </div>
                     </div>

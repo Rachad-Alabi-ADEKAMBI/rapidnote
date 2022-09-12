@@ -1,83 +1,34 @@
-<template>
+<template> <br><br><br><br>
      <form method="POST"
          action="" class='form'>
+
          <div class="form__close">
             <a href="/dashboard">
+                back
                 <i class="fas fa-times"></i>
-            </a>
+            </a> <br>
          </div>
-         <p class="form__title">
+         <h1 class="form__title">
             My wallet
-         </p>
+         </h1>
 
-         <div class="form__infos">
-            <p class="blue">
-                {{ balance }}
-            </p>
+         <span>
+            300 <div class="gh">
+                Gh
+            </div>
+         </span>
 
-            <p>
-                Your balance
-            </p>
-         </div>
-            <div class="row">
-                <div class="col-6 mx">
-                    <button
-                     class="btn btn-primary
-                     btn-block mb-4">
-                        <a href="/load">
-                            Load
-                        </a>
-                    </button> <br>
+         <div class="items">
+                <div class="link" @click="load()">
+                    Load
+                </div>
 
-                     <button
-                     class="btn btn-primary
-                     btn-block mb-4">
-                        <a href="/withdraw">
-                            Withdraw
-                        </a>
-                    </button>
+                <div class="link" @clik="withdraw()">
+                    Withdraw
                 </div>
             </div>
 
     </form>
-
-    <h2>
-        History
-    </h2>
-<!--
-    <table class="table" v-if='0<1'>
-                            <thead>
-                                <th>
-                                    Date
-                                </th>
-
-                                <th>
-                                    Comment
-                                </th>
-
-                                <th>
-                                    Value
-                                </th>
-                            </thead>
-
-                            <tr v-for='user in usersByEmail' :key="user.id">
-
-                                <td data-label="Noms et prénoms">
-                                    {{ user.first_name }} {{ user.last_name}}
-                                </td>
-
-                                <td data-label="Email">
-                                    {{ user.email }}
-                                </td>
-
-                                <td>
-                                    <button @click='getUserByEmail(user.email)'>
-                                        Fiche
-                                    </button>
-                                </td>
-                            </tr>
-     </table>
-     -->
 </template>
 
 

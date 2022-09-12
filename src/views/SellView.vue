@@ -1,15 +1,15 @@
 <template>
-    <Payment/>
+  <Sell/>
 </template>
 
 <script>
 // @ is an alias to /src
-import Payment from '@/components/Payment.vue'
+import Sell from '@/components/Sell.vue'
 
 export default {
-  name: 'PaymentView',
-  components: {
-    PaymentView
+name: 'SellView',
+components: {
+  Sell
 }
 }
 </script>
