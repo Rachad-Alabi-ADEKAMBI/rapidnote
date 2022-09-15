@@ -9,11 +9,9 @@
                         </li>
 
                         <li>
-                            <div class="link">
-                                <a href="/users">
-                                    Users
-                                </a>
-                            </div>
+                               <button @clik="displayUsers()">
+                                Users
+                               </button>
                         </li>
 
                         <li>

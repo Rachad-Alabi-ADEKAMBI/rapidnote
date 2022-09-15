@@ -1,24 +1,5 @@
 <template>
     <div class="content">
-                        <div class="content__infos">
-                            <div class="icons">
-                                <div class="icon">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                search
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-user"></i>
-                                    admin name
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                    logout
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="content__boxes">
 
@@ -58,26 +39,14 @@
                             Summary
                         </h2>
 
-                        <div class="content__graphs">
-                            <div class="graph">
-                                <div class="grapht__top">
-                                     Transactions
-                                </div>
-                            </div>
-
-                            <div class="graph">
-                                <div class="graph__top">
-                                    Users
-                                </div>
-                            </div>
-                        </div>
+                      
                     </div>
 </template>
 
 
 <script>
     export default {
-        name: 'DashboardAdmin',
+        name: 'MainAdmin',
       data(){
         return{
             details:[]

@@ -1,7 +1,7 @@
 <template>
     <div class="content">
                         <h2 class="content__title">
-                            Summary
+                            Users
                         </h2>
 
                        <div class="content__table">
@@ -41,21 +41,20 @@
 
 <script>
     export default {
-        name: 'DashboardAdmin',
+        name: 'Users',
       data(){
         return{
-            details:[]
+            users:[]
         }
       },
       mounted: function(){
-          //this.getCurrentMarketcap();
-         // this.getDetails();
+        //  this.getUsers();
       },
       methods:{
-        getCurrentMarketcap() {
-                axios.get('https://fineblock.eu/api/tfbk').then(
+        getUsers() {
+                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
                     response =>
-                    this.tfbk_marketcap = response.data), 1000
+                    this.users = response.data)
             }
       }
     }

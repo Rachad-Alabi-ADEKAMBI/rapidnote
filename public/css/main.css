@@ -201,7 +201,7 @@ nav {
   height: 80px;
   width: 100%;
   position: fixed;
-  background: rgba(0, 0, 0, 0.67);
+  background: rgb(4, 5, 53);
   z-index: 99999;
 }
 
@@ -336,9 +336,16 @@ a.active, a:hover {
 }
 .dashboard .menu li {
   margin: 0px auto 10px auto;
+  background-color: #4884B7;
 }
 .dashboard .menu li .link a {
   color: white;
+  font-weight: bold;
+}
+.dashboard .menu li button {
+  background-color: #4884B7;
+  color: white;
+  border: 1px #4884B7 solid;
   font-weight: bold;
 }
 .dashboard .content {
@@ -525,6 +532,39 @@ a.active, a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
+  /*
+          &__boxes{
+                  @include flex();
+                  .box{
+                      margin: 15px;
+                      height: 140px;
+                      width: 170px;
+                      border: 1px solid;
+                      cursor: pointer;
+                      display: table;
+                      i{
+                          color: white;
+                      }
+
+                      p{
+                          display: table-cell;
+                          vertical-align: middle;
+                      }
+                  }
+
+                  .green{
+                      background-color: rgb(53, 233, 53);
+                      border: 1px green solid;
+                  }
+
+                  .orange{
+                      background: #f47032;
+                      border: 1px #f47032 solid;
+                  }
+
+
+          }
+          */
 }
 .about__item__title {
   color: #4884B7;
@@ -572,36 +612,6 @@ a.active, a:hover {
 .about__item__boxes .green {
   background-color: green;
   border-color: green;
-}
-.about__item__boxes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: auto;
-}
-.about__item__boxes .box {
-  margin: 15px;
-  height: 140px;
-  width: 170px;
-  border: 1px solid;
-  cursor: pointer;
-  display: table;
-}
-.about__item__boxes .box i {
-  color: white;
-}
-.about__item__boxes .box p {
-  display: table-cell;
-  vertical-align: middle;
-}
-.about__item__boxes .green {
-  background-color: rgb(53, 233, 53);
-  border: 1px green solid;
-}
-.about__item__boxes .orange {
-  background: #f47032;
-  border: 1px #f47032 solid;
 }
 .about__item .link {
   height: 40px;
@@ -874,5 +884,12 @@ a.active, a:hover {
     font-size: 15px;
     font-weight: bold;
     text-align: left;
+  }
+}
+/*responsive*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .about {
+    width: 95%;
+    background-color: red;
   }
 }/*# sourceMappingURL=main.css.map */
