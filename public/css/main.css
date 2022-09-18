@@ -358,7 +358,7 @@ a.active, a:hover {
   border-radius: 10px;
   margin: auto;
   padding-top: 0;
-  background-color: gray;
+  background-color: rgb(122, 140, 179);
 }
 .dashboard .content__title {
   margin: 20px auto auto 10px;
@@ -441,13 +441,42 @@ a.active, a:hover {
   color: #202022;
   width: 100%;
 }
+.dashboard .content__boxes .box .devise {
+  width: 80%;
+  margin: auto 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+}
+.dashboard .content__boxes .box .devise .small {
+  color: #4884B7;
+  font-size: 0.8em;
+  font-weight: 400;
+}
 .dashboard .content__boxes .box .note {
   margin: 5px auto auto 5px;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
 }
 .dashboard .content__boxes .box .note span {
   color: #4884B7;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+}
+.dashboard .content__boxes .box-form {
+  width: 320px;
+  height: 320px;
 }
 .dashboard .content__graphs {
   display: flex;
@@ -522,7 +551,7 @@ a.active, a:hover {
   text-align: center;
   height: 60vh;
   margin: 90px auto;
-  width: 80%;
+  width: 70%;
 }
 .about__item {
   flex: 1;
@@ -590,11 +619,11 @@ a.active, a:hover {
   height: 80%;
 }
 .about__item__boxes .box {
-  width: 200px;
-  height: 120px;
+  width: 150px;
+  height: 90px;
   background-color: purple;
   display: table;
-  margin: 15px;
+  margin: 10px;
   color: white;
 }
 .about__item__boxes .purple {
@@ -746,27 +775,20 @@ a.active, a:hover {
   justify-content: space-between;
   margin: auto;
 }
-.care .card__icon {
-  text-align: center;
-  position: relative;
-}
-.care .card__icon i {
-  font-size: 3em;
-  width: 30%;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
 .care .card__text {
-  width: 70%;
+  width: 100%;
 }
 .care .card__text__text {
-  width: 80%;
+  width: 90%;
   text-align: left;
+}
+.care .card__text .link {
+  width: 150px;
+  margin: auto;
 }
 .care .card img {
   width: 300px;
-  height: 300px;
+  height: 250px;
   margin: auto;
 }
 
@@ -798,8 +820,8 @@ a.active, a:hover {
   margin: auto;
 }
 .payments__items__item img {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50px;
   margin: auto;
 }
@@ -814,6 +836,7 @@ a.active, a:hover {
   padding-top: 20px;
   margin: 80px auto 0 auto;
   bottom: 0;
+  height: auto;
 }
 .footer__item {
   flex: 1;
@@ -888,8 +911,142 @@ a.active, a:hover {
 }
 /*responsive*/
 @media (min-width: 768px) and (max-width: 1024px) {
+  .top__text {
+    width: 85%;
+  }
+  .top__text__title {
+    font-size: 1.9em;
+  }
   .about {
     width: 95%;
-    background-color: red;
+    margin: 20px auto;
+  }
+  .about__item__boxes {
+    width: 90%;
+  }
+  .about__item__boxes .box {
+    width: 130px;
+    height: 80px;
+  }
+  .care {
+    width: 95%;
+  }
+  .care .card img {
+    width: 270px;
+    height: 230px;
+  }
+  .payments {
+    margin: 50px auto;
+    height: 200px;
+  }
+  .payments__items {
+    margin: 5px auto;
+  }
+  .payments__items__item img {
+    width: 110px;
+    height: 110px;
+  }
+  .footer {
+    flex-direction: column;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .top {
+    height: auto;
+    margin-bottom: 5px;
+  }
+  .top__text {
+    width: 90%;
+  }
+  .top__text__title {
+    font-size: 2em;
+  }
+  .about {
+    height: auto;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .about__item__text {
+    width: 90%;
+  }
+  .about__item__boxes {
+    width: 70%;
+  }
+  .about__item__boxes .box {
+    width: 130px;
+    height: 80px;
+    margin: 10px;
+  }
+  .care {
+    flex-direction: column-reverse;
+  }
+  .care .card img {
+    width: 300px;
+    height: 200px;
+    margin: 10px auto 10px auto;
+  }
+  .payments {
+    height: auto;
+  }
+  .payments__items {
+    width: 70%;
+  }
+  .payments__items__item img {
+    width: 90px;
+    height: 90px;
+  }
+  .footer {
+    flex-direction: column;
+  }
+}
+@media (min-width: 350px) and (max-width: 480px) {
+  .top {
+    height: auto;
+    margin-bottom: 5px;
+  }
+  .top__text {
+    width: 90%;
+  }
+  .top__text__title {
+    font-size: 1.8em;
+  }
+  .about {
+    height: auto;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .about__item__text {
+    width: 90%;
+  }
+  .about__item__boxes {
+    width: 70%;
+  }
+  .about__item__boxes .box {
+    width: 130px;
+    height: 80px;
+    margin: 10px;
+  }
+  .care {
+    flex-direction: column-reverse;
+  }
+  .care .card img {
+    width: 300px;
+    height: 200px;
+    margin: 10px auto 10px auto;
+  }
+  .payments {
+    height: auto;
+  }
+  .payments__items {
+    width: 70%;
+  }
+  .payments__items__item img {
+    width: 90px;
+    height: 90px;
+  }
+  .footer {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=main.css.map */

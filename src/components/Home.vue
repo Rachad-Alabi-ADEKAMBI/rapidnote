@@ -150,9 +150,7 @@
 
         <div class="care">
             <div class="card">
-                <div class="card__icon">
-                    <i class="fas fa-headset"></i>
-                </div>
+
                     <div class="card__text">
                         <h3 class="card__text__title">
                             Refer Rapid Note and get huge discounts

@@ -15,19 +15,15 @@
                         </li>
 
                         <li>
-                            <div class="link">
-                                <a href="/wallet">
-                                    Payments
-                                </a>
-                            </div>
+                            <button @clik="displayPayments()">
+                                Payments
+                               </button>
                         </li>
 
                         <li>
-                            <div class="link">
-                                <a href="/transactions">
-                                    Transactions
-                                  </a>
-                            </div>
+                            <button @clik="displayTransactions()">
+                                Transactions
+                               </button>
                         </li>
 
 

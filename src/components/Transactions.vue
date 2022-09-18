@@ -1,89 +1,82 @@
 <template>
-    <div class="dashboard">
-                    <div class="menu">
-                        <ul class="menu__items">
+    <div class="content">
+                        <h2 class="content__title">
+                            Transactions
+                        </h2>
 
-                                <li>
-                                    <div class="link">
-                                        <a href="/dashboard">
-                                            Dashboard
-                                        </a>
-                                    </div>
-                                </li>
+                       <div class="content__table">
+                        <table class="table">
+                            <thead>
+                                <td>
+                                   Reference
+                                </td>
 
-                                <li>
-                                    <div class="link">
-                                        <a href="/history">
-                                            Historical
-                                        </a>
-                                    </div>
-                                </li>
+                                <td>
+                                    Date
+                                </td>
 
-                                <li>
-                                    <div class="link">
-                                        <a href="/transactions">
-                                            Transactions
-                                        </a>
-                                    </div>
-                                </li>
+                                <td>
+                                    Operation
+                                </td>
 
-                                <li>
-                                    <div class="link">
-                                            <a href="/help">
-                                                Help
-                                            </a>
-                                    </div>
-                                </li>
-                        </ul>
+                                <td>
+                                    Seller
+                                </td>
+
+                                <td>
+                                    Amount
+                                </td>
+                            </thead>
+
+                            <tr>
+                                <td data-label="Reference">
+                                        547856
+                                </td>
+
+                                <td data-label='Date'>
+                                    21/08/2022
+                                </td>
+
+                                <td data-label="Operation">
+                                    Operation
+                                </td>
+
+                                <td data-label="Seller">
+                                    John Doe
+                                </td>
+
+                                <td data-label="Amount">
+                                    100
+                                </td>
+                            </tr>
+                        </table>
+                       </div>
                     </div>
-                    <div class="content">
-                        <div class="content__infos">
-                            <div class="icon">
-                                search
-                            </div>
-                            <div class="icon">
-                                param
-                            </div>
-                            <div class="icon">
-                            Account
-                        </div>
-
-                        <div class="icon">
-                            logout
-                        </div>
-
-
-                        </div>
-
-                        <div class="content">
-                            <h1>
-                                Orders
-                            </h1>
-
-                            <table class="table">
-                                table
-                            </table>
-                        </div>
-                    </div>
-    </div>
 </template>
 
+
 <script>
-export default {
-  name: 'Transactions',
-  data() {
-      return{
-          message: 'ok'
-      }
+    export default {
+        name: 'Transactions',
+      data(){
+        return{
+            details:[]
+        }
       },
-
-      methods: {
-           do (){
-                alert('yep');
-           }
-          }
+      mounted: function(){
+        //  this.getUsers();
+      },
+      methods:{
+        getUsers() {
+                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
+                    response =>
+                    this.users = response.data)
+            }
       }
+    }
+    </script>
 
+    <!-- Add "scoped" attribute to limit CSS to this component only -->
+    <style scoped>
 
-
-</script>
+    </style>

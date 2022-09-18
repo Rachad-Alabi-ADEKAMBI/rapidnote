@@ -30,6 +30,14 @@
                                   </button>
                             </li>
 
+                            <li>
+                              <button>
+                                    <a href="">
+                                      Webmail
+                                    </a>
+                                  </button>
+                            </li>
+
 
                         </div>
 
@@ -55,7 +63,10 @@
                           </div>
           <MainAdmin v-if="showMainAdmin"></MainAdmin>
           <GraphsAdmin v-if="showGraphsAdmin"></GraphsAdmin>
+          <PendingValidations v-if="showPendingValidations"></PendingValidations>
+          <Transactions v-if="showTransactions"></Transactions>
           <Users v-if="showUsers"></Users>
+          <Payments v-if="showPayments"></Payments>
           </div>
         </div>
   </template>
@@ -65,15 +76,23 @@
   import MainAdmin from '@/components/MainAdmin.vue'
  // import UserOptions from '@/components/UserOptions';
   import Users from '@/components/Users.vue'
+  import PendingValidations from '@/components/PendingValidations'
 import GraphsAdmin from '../components/GraphsAdmin.vue'
+import Transactions from '@/components/Transactions.vue'
+import Payments from '@/components/Payments.vue'
 
   export default {
     name: 'DashboardView',
     components: {
     MainAdmin,
     //    UserOptions,
+    PendingValidations,
+    Transactions,
     Users,
-    GraphsAdmin
+    GraphsAdmin,
+    Transactions,
+    Payments,
+    Payments
 },
   data(){
     return{
@@ -81,7 +100,10 @@ import GraphsAdmin from '../components/GraphsAdmin.vue'
         details: [],
         showUsers: false,
         showMainAdmin: true,
-        showGraphsAdmin: false
+        showGraphsAdmin: true,
+        showPendingValidations: false,
+        showTransactions: false,
+        showPayments: false
     }
   },
     methods:{
@@ -89,16 +111,49 @@ import GraphsAdmin from '../components/GraphsAdmin.vue'
             this.showUsers = true;
             this.showMainAdmin = false;
             this.showGraphsAdmin = false;
+            this.showPendingValidations= false;
+            this.showPayments = false;
+            this.showTransactions= false;
         },
         displayGraphsAdmin(){
           this.showGraphsAdmin = true;
           this.showUsers = false;
           this.showMainAdmin = false;
+          this.showPendingValidations= false;
+          this.showPayments = false;
+          this.showTransactions= false;
         },
         displayDashboard(){
           this.showGraphsAdmin = true;
           this.showUsers = false;
           this.showMainAdmin = true;
+          this.showTransactions= false;
+          this.showPendingValidations= false;
+          this.showPayments = false;
+        },
+        displayPendingValidations(){
+          this.showGraphsAdmin = false;
+          this.showUsers = false;
+          this.showMainAdmin = false;
+          this.showPendingValidations= true;
+          this.showTransactions= false;
+          this.showPayments = false
+        },
+        displayTransactions(){
+          this.showGraphsAdmin = false;
+          this.showUsers = false;
+          this.showMainAdmin = false;
+          this.showPendingValidations= false;
+          this.showTransactions= true;
+          this.showPayments = false
+        },
+        displayPayments(){
+          this.showGraphsAdmin = false;
+          this.showUsers = false;
+          this.showMainAdmin = false;
+          this.showPendingValidations= false;
+          this.showTransactions= false
+          this.showPayments = true;
         }
     }
   }
