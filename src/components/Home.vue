@@ -29,7 +29,7 @@
         </div><br>
 
         <div class="about">
-                    <div class="about__item">
+                    <div class="about__item item-left">
                         <h2 class="about__item__title">
                             ABOUT US
                         </h2>
@@ -44,7 +44,7 @@
                             </a>
                         </div>
                     </div>
-                        <div class="about__item">
+                        <div class="about__item item-right">
                                 <div class="about__item__boxes">
                                     <div class="box green">
                                 <p>
@@ -149,7 +149,7 @@
 
 
         <div class="care">
-            <div class="card">
+            <div class="card cardL">
 
                     <div class="card__text">
                         <h3 class="card__text__title">
@@ -172,7 +172,7 @@
                     </div>
             </div>
 
-            <div class="card">
+            <div class="card cardR">
                 <img src="../../public/img/ghc.jpg" alt="">
             </div>
         </div>
@@ -193,13 +193,59 @@
                     <img src="../../public/img/visa.png" alt="">
                 </div>
                 <div class="payments__items__item">
-                    <img src="../../public/img/paypal-rond.png" alt="">
-                </div>
-                <div class="payments__items__item">
                     <img src="../../public/img/btc.png" alt="">
                 </div>
             </div>
         </div>
+
+        <div class="contact">
+            <h2 class="contact__title">
+                Contact us
+            </h2>
+
+            <p>
+                Kindly send us a message,
+            </p>
+
+           <form action="" method="POST">
+                    <div class="contact__details">
+                        <label for=""> First_name <br>
+                        <input type="text" name="email" placeholder="John">
+                    </label>
+
+
+                    <label for=""> Last_name: <br>
+                        <input type="text" name="pass" placeholder="Doe">
+                    </label>
+                </div>  <br>
+
+                <div class="contact__details">
+                        <label for=""> Email <br>
+                        <input type="text" name="email" placehoder="johndoe@gmailcom">
+                    </label>
+
+
+                    <label for=""> Phone number: <br>
+                        <input type="text" name="pass"
+                        placeholder="+XXX XXXXXXXXX">
+                    </label>
+                </div>  <br>
+
+                <div class="contact__details">
+
+
+                    <label for=""> Message: <br>
+                        <input type="text" name="pass">
+                    </label>
+                </div>  <br>
+
+                <button type="submit">
+                    Envoyer
+                </button>
+
+           </form>
+        </div>
+
 </template>
 
 <script>

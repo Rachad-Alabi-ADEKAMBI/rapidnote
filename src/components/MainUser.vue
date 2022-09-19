@@ -7,11 +7,11 @@
                                 <div class="note">
                                     Date: <span> 15/11/2022</span>
                                 </div>
-                                Total transactions:
+                               Wallet:
 
                                 <p>
                                    <strong>
-                                    5 000 ghc
+                                    30 ghc
                                    </strong>
 
                                 </p>

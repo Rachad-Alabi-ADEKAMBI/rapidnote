@@ -1,11 +1,72 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
 $blue: #4884B7;
-$bg: rgba(128, 152, 204, 0.534);
+$bg: #F3F3F5;
 $white: white;
 $grey: rgb(34, 26, 26);
 $grey-light: #40312C;
 $black: #202022;
+
+@keyframes greeen {
+    0% {
+     // transform:scaleX(0);
+     width: 120px;
+    }
+
+    100% {
+       // transform:scaleX(1);
+       width: 50px;
+    }
+    }
+
+@keyframes entrance {
+        0% {
+         opacity: 0;
+        }
+
+        100% {
+            opacity: 1;;
+
+        }
+}
+
+@keyframes moveL {
+        0% {
+          transform:scaleX(-1);
+        // width: 120px;
+        }
+
+        100% {
+            transform:scaleX(1);
+
+        }
+}
+
+@keyframes moveR {
+            0% {
+              transform:scaleX(-1);
+            // width: 120px;
+            }
+
+            100% {
+                transform:scaleX(1);
+
+            }
+}
+
+@keyframes moveB {
+    0% {
+        transform:scaleX(-1);
+      // width: 120px;
+      }
+
+      100% {
+          transform:scaleX(1);
+
+      }
+}
+
+
 
 @mixin flex($flex-direction: row){
     display: flex;
@@ -27,6 +88,7 @@ $black: #202022;
     border-color: $bdC;
     color: $white;
     background-color: $bgC;
+    cursor: pointer;
 }
 
 @mixin title{
@@ -92,12 +154,13 @@ a:hover{
 }
 
 
+
 html, body{
     box-sizing: border-box;
     line-height: 1.5em;
     font-size: 1.1em;
     font-family: 'Montserrat', sans-serif;
-
+    background-color: $bg;
 }
 
 .main{
@@ -105,10 +168,9 @@ html, body{
     width: 100%;
 }
 .form{
-    margin: 20px 30px auto auto;
-
-    padding-bottom: 20px;
+    margin: 20px auto 40px auto;
     width: 500px;
+    height: auto;
     text-align: center;
     border-radius: 15px;
     background-color: rgb(207, 205, 201);
@@ -293,21 +355,18 @@ nav ul li a{
     color: $white;
 }
 
-  .login-link{
+  .nav-link, .login-link{
     border-radius: 3px;
     height: 40px;
-    background-color: $grey-light;
     color: white;
+    font-weight: bold;
   }
 
   .login-link:hover{
-    color: $blue;
-    background-color: $blue;
+    font-weight: bold;
+    font-size: 1em;
   }
-  a.active,a:hover{
-    color: $blue;
-    transition: .5s;
-  }
+
   .checkbtn{
     font-size: 30px;
     color: white;
@@ -426,7 +485,7 @@ nav ul li a{
         width: 75%;
         border-radius: 10px;
         margin: auto;
-        padding-top: 0;
+        padding-bottom: 50px;
         background-color: rgb(122, 140, 179);;
 
         &__title{
@@ -572,17 +631,21 @@ nav ul li a{
         text-align: center;
         width: 70%;
         margin: auto;
+        opacity: 1;
+        animation: entrance 2s ease-in-out;
 
         &__title{
             color: $blue;
             font-size: 2.2em;
             font-weight: bold;
             margin: 20px auto;
+
         }
 
         &__text{
             font-size: 1em;
             margin: 20px auto;
+
         }
 
         &__subtitle{
@@ -642,6 +705,14 @@ nav ul li a{
                 display: table;
                 margin: 10px;
                 color: $white;
+
+                p{
+                    display: table-cell;
+                    vertical-align: middle;
+                    font-size: 0.7em;
+                    font-weight: bold;
+                }
+
             }
 
             .purple{
@@ -707,6 +778,15 @@ nav ul li a{
     }
     }
 
+    .item-left{
+        animation: moveL 2s ease-in-out;
+    }
+
+    .item-right{
+      //  transform-origin: right;
+        animation: moveR 2s ease-in-out;
+    }
+
 
 }
 
@@ -731,6 +811,7 @@ nav ul li a{
             flex: 1;
             text-align: center;
             margin: 15px auto;
+            animation: moveB 2s ease-in-out;
 
 
             .box-img{
@@ -782,6 +863,7 @@ nav ul li a{
 
     &__buttons{
         @include flex;
+        animation: entrance 3s ease-in-out;
         .link{
             margin: 15px;
             @include link();
@@ -825,6 +907,14 @@ nav ul li a{
             margin: auto;
         }
     }
+
+    .cardL{
+        animation: moveL 2s ease-in-out;
+    }
+
+    .cardR{
+        animation: moveR 2s ease-in-out;
+    }
 }
 
 .payments{
@@ -841,6 +931,7 @@ nav ul li a{
         text-align: center;
         @include flex;
         width: 100%;
+        animation: entrance 2s ease-in-out;
 
         &__item{
             margin: auto;
@@ -853,6 +944,45 @@ nav ul li a{
             }
         }
     }
+}
+
+.contact{
+    display: block;
+    margin: 20px auto;
+    height: 60vh;
+    width: 100%;
+    background-color: rgb(55, 71, 82);
+
+    &__title{
+        @include subtitle();
+    }
+
+    &__text{
+        text-align: justify;
+        width: 80%;
+        margin: auto;
+    }
+
+    form{
+        width: 80%;
+        margin: 20px auto;
+        height: auto;
+        display: block;
+
+        .contact__details{
+            width: 100%;
+            @include flex();
+
+            label{
+                width: 50%;
+                input{
+
+                }
+            }
+
+        }
+    }
+
 }
 
 .footer{

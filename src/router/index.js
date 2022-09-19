@@ -39,40 +39,6 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/DashboardAdminView.vue')
   },
-  {
-    path: '/wallet',
-    name: 'walletView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/WalletView.vue')
-  },
-  {
-    path: '/buy',
-    name: 'buyView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/BuyView.vue')
-  },
-  {
-    path: '/sell',
-    name: 'sellView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/SellView.vue')
-  },
-  {
-    path: '/transactions',
-    name: 'transactionsView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/TransactionsView.vue')
-  }
-
-
 ]
 
 const router = createRouter({

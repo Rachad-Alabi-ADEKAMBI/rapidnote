@@ -5,22 +5,17 @@
             <i class="fas fa-bars"></i>
         </label>
         <label class="logo">
-            <a href="index.php">
+            <a href="/">
                 <img src="../public/img/logo.png" alt="">
             </a>
         </label>
         <ul>
           <li>
-              <router-link to="/">Home</router-link>
+              <router-link to="/" class="nav-link">Home</router-link>
             </li>
 
-
-            <li>
-              <router-link to="/help">Support</router-link>
-            </li>
-
-            <li class="">
-              <router-link to="/login">Login/Create account</router-link>
+            <li >
+              <router-link to="/login" class="login-link" >Login/Register</router-link>
             </li>
 
 

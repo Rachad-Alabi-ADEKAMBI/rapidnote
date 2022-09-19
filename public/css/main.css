@@ -1,4 +1,84 @@
 @import url("http://fonts.cdnfonts.com/css/montserrat");
+@-webkit-keyframes greeen {
+  0% {
+    width: 120px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+@keyframes greeen {
+  0% {
+    width: 120px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+@-webkit-keyframes entrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes entrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes moveL {
+  0% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes moveL {
+  0% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@-webkit-keyframes moveR {
+  0% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes moveR {
+  0% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@-webkit-keyframes moveB {
+  0% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes moveB {
+  0% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
 li {
   list-style: none;
 }
@@ -23,6 +103,7 @@ a:hover {
   border-color: #4884B7;
   color: white;
   background-color: #4884B7;
+  cursor: pointer;
   transition: 500ms ease-in-out;
 }
 
@@ -39,6 +120,7 @@ html, body {
   line-height: 1.5em;
   font-size: 1.1em;
   font-family: "Montserrat", sans-serif;
+  background-color: #F3F3F5;
 }
 
 .main {
@@ -47,9 +129,9 @@ html, body {
 }
 
 .form {
-  margin: 20px 30px auto auto;
-  padding-bottom: 20px;
+  margin: 20px auto 40px auto;
   width: 500px;
+  height: auto;
   text-align: center;
   border-radius: 15px;
   background-color: rgb(207, 205, 201);
@@ -234,21 +316,16 @@ nav ul li a {
   color: white;
 }
 
-.login-link {
+.nav-link, .login-link {
   border-radius: 3px;
   height: 40px;
-  background-color: #40312C;
   color: white;
+  font-weight: bold;
 }
 
 .login-link:hover {
-  color: #4884B7;
-  background-color: #4884B7;
-}
-
-a.active, a:hover {
-  color: #4884B7;
-  transition: 0.5s;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .checkbtn {
@@ -357,7 +434,7 @@ a.active, a:hover {
   width: 75%;
   border-radius: 10px;
   margin: auto;
-  padding-top: 0;
+  padding-bottom: 50px;
   background-color: rgb(122, 140, 179);
 }
 .dashboard .content__title {
@@ -516,6 +593,9 @@ a.active, a:hover {
   text-align: center;
   width: 70%;
   margin: auto;
+  opacity: 1;
+  -webkit-animation: entrance 2s ease-in-out;
+          animation: entrance 2s ease-in-out;
 }
 .top__text__title {
   color: #4884B7;
@@ -626,6 +706,12 @@ a.active, a:hover {
   margin: 10px;
   color: white;
 }
+.about__item__boxes .box p {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 0.7em;
+  font-weight: bold;
+}
 .about__item__boxes .purple {
   background-color: purple;
   border-color: purple;
@@ -654,10 +740,19 @@ a.active, a:hover {
   border-color: #4884B7;
   color: white;
   background-color: #4884B7;
+  cursor: pointer;
   margin: 20px auto;
 }
 .about__item .link a {
   color: white;
+}
+.about .item-left {
+  -webkit-animation: moveL 2s ease-in-out;
+          animation: moveL 2s ease-in-out;
+}
+.about .item-right {
+  -webkit-animation: moveR 2s ease-in-out;
+          animation: moveR 2s ease-in-out;
 }
 
 .reasons {
@@ -690,6 +785,8 @@ a.active, a:hover {
   flex: 1;
   text-align: center;
   margin: 15px auto;
+  -webkit-animation: moveB 2s ease-in-out;
+          animation: moveB 2s ease-in-out;
 }
 .reasons__sections__box .box-img {
   background-color: rgb(212, 194, 212);
@@ -739,6 +836,8 @@ a.active, a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
+  -webkit-animation: entrance 3s ease-in-out;
+          animation: entrance 3s ease-in-out;
 }
 .simulator__buttons .link {
   margin: 15px;
@@ -753,6 +852,7 @@ a.active, a:hover {
   border-color: #4884B7;
   color: white;
   background-color: #4884B7;
+  cursor: pointer;
 }
 .simulator__buttons .link a {
   color: white;
@@ -791,6 +891,14 @@ a.active, a:hover {
   height: 250px;
   margin: auto;
 }
+.care .cardL {
+  -webkit-animation: moveL 2s ease-in-out;
+          animation: moveL 2s ease-in-out;
+}
+.care .cardR {
+  -webkit-animation: moveR 2s ease-in-out;
+          animation: moveR 2s ease-in-out;
+}
 
 .payments {
   display: flex;
@@ -815,6 +923,8 @@ a.active, a:hover {
   justify-content: space-between;
   margin: auto;
   width: 100%;
+  -webkit-animation: entrance 2s ease-in-out;
+          animation: entrance 2s ease-in-out;
 }
 .payments__items__item {
   margin: auto;
@@ -826,6 +936,40 @@ a.active, a:hover {
   margin: auto;
 }
 
+.contact {
+  display: block;
+  margin: 20px auto;
+  height: 60vh;
+  width: 100%;
+  background-color: rgb(55, 71, 82);
+}
+.contact__title {
+  color: #4884B7;
+  font-size: 1.8em;
+  text-align: center;
+}
+.contact__text {
+  text-align: justify;
+  width: 80%;
+  margin: auto;
+}
+.contact form {
+  width: 80%;
+  margin: 20px auto;
+  height: auto;
+  display: block;
+}
+.contact form .contact__details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+}
+.contact form .contact__details label {
+  width: 50%;
+}
 .footer {
   display: flex;
   flex-direction: row;

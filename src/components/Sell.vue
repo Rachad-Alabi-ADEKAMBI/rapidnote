@@ -68,13 +68,13 @@
  <form  v-if="showPayment" class="form">
 
       <div class="form__close">
-         <a href="/sell">
+         <a href="">
              Previous
              <i class="fas fa-times"></i>
          </a>
          |
          <a href="/dashboard">
-             Back
+             Cancel
              <i class="fas fa-times"></i>
          </a> <br>
       </div>
@@ -109,6 +109,8 @@
       </label>
 
  </form>
+
+ <br><br>
 </template>
 
 

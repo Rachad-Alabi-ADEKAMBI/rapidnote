@@ -75,13 +75,11 @@
    <form  v-if="showPayment" class="form">
 
         <div class="form__close">
-           <a href="/sell">
-               Previous
-               <i class="fas fa-times"></i>
-           </a>
+            back
+               <i class="fas fa-times" @click="displayBuy()"></i>
            |
            <a href="/dashboard">
-               Back
+              Close
                <i class="fas fa-times"></i>
            </a> <br>
         </div>
