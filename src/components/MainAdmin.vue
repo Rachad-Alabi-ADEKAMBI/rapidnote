@@ -22,7 +22,8 @@
 
                             <div class="box">
                                <div class="devise">
-                                Btc:  <div class="pen" @click="displayEditBtc()">!</div> <div class="small"> 1 600 ghc</div>
+                                Btc:  <div class="pen" @click="displayEditBtc()">
+                                </div> <div class="small"> 1 600 ghc</div> <i class="fas fa-pen"></i>
 
                                </div>
                                 <div class="note">

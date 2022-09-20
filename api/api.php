@@ -168,6 +168,17 @@ function login(){
     }
 }
 
+function getMyTransactions($user_id){
+    $pdo = getConnexion();
+        $req = $pdo->prepare('SELECT * FROM
+        transactions WHERE seller_id = ?
+        OR buyer_id = ?');
+        $req->execute(array($user_id, $user_id));
+        $datas = $req->fetchAll();
+        $req->closeCursor();
+        sendJSON($datas);
+}
+
 function contact(){
     $pdo = getConnexion();
       if (!empty ($_POST)){

@@ -20,10 +20,12 @@
 
          <div class="items">
                 <div class="link" @click="load()">
+                    <i class="fas fa-plus-circle"></i>
                     Load
                 </div>
 
                 <div class="link" @clik="withdraw()">
+                    <i class="fas fa-exchange-alt"></i>
                     Withdraw
                 </div>
             </div>

@@ -3,17 +3,17 @@
     <div class="menu">
       <li>
                                 <button @click="displayDashboard()">
-                                 Dashboard
+                                  <i class="fas fa-columns"></i> Dashboard
                                 </button>
                           </li>
       <li>
                                 <button @click="displaySell()">
-                                 Sell
+                                  <i class="fas fa-store"></i> Sell
                                 </button>
                           </li>
           <li>
                                 <button @click="displayBuy()">
-                                  Buy
+                                  <i class="far fa-cart-shopping"></i> Buy
                                 </button>
                           </li>
 
@@ -25,30 +25,25 @@
 
                           <li>
                             <button @click="displayMyTransactions()">
-                                My transactions
+                              <i class="fas fa-list"></i> My transactions
                               </button>
                           </li>
+
 
                       </div>
 
                       <div class="content">
                         <div class="content__infos">
                               <div class="icons">
-                                  <div class="icon">
-                                  <i class="fa-solid fa-magnifying-glass"></i>
-                                  search
-                                  </div>
-                                  <div class="icon">
-                                      <i class="fas fa-cogs"></i>
-                                  </div>
-                                  <div class="icon">
+                                      <div class="icon">
                                       <i class="fas fa-user"></i>
                                       user name
                                   </div>
-                                  <div class="icon" @click="logout();">
-                                      <i class="fas fa-sign-out-alt"></i>
-                                      logout
-                                  </div>
+
+                                  <div class="icon">
+                                    <i class="fas fa-cogs"></i>
+                                      Settings
+                                    </div>
                               </div>
                         </div>
         <MainUser v-if="showMainUser"></MainUser>

@@ -3,37 +3,37 @@
       <div class="menu">
         <li>
                                   <button @click="displayDashboard()">
-                                   Dashboard
+                                    <i class="fas fa-columns"></i> Dashboard
                                   </button>
                             </li>
             <li>
                                   <button @click="displayPendingValidations()">
-                                    Pending validations
+                                    <i class="fas fa-check"></i> Pending validations
                                   </button>
                             </li>
 
                             <li>
                                   <button @click="displayUsers()">
-                                    Users
+                                    <i class="fas fa-users"></i> Users
                                   </button>
                             </li>
 
                             <li>
                               <button @click="displayPayments()">
-                                  Payments
+                                <i class="fas fa-money-bill-wave"></i> Payments
                                 </button>
                             </li>
 
                             <li>
                               <button @click="displayTransactions()">
-                                    Transactions
+                                <i class="fas fa-list"></i> Transactions
                                   </button>
                             </li>
 
                             <li>
                               <button>
                                     <a href="">
-                                      Webmail
+                                      <i class="far fa-envelope"></i> Webmail
                                     </a>
                                   </button>
                             </li>
@@ -44,20 +44,15 @@
                         <div class="content">
                           <div class="content__infos">
                                 <div class="icons">
-                                    <div class="icon">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    search
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-cogs"></i>
-                                    </div>
+
+
                                     <div class="icon">
                                         <i class="fas fa-user"></i>
                                         user name
                                     </div>
                                     <div class="icon">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                        logout
+                                        <i class="fas fa-cogs"></i>
+                                      Settings
                                     </div>
                                 </div>
                           </div>

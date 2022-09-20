@@ -1,7 +1,7 @@
 <template>
     <div class="content">
                         <h2 class="content__title">
-                            My ransactions
+                            My Transactions
                         </h2>
 
                        <div class="content__table">
@@ -16,11 +16,15 @@
                                 </td>
 
                                 <td>
-                                    Operation
+                                    Seller
                                 </td>
 
                                 <td>
-                                    Seller
+                                    Amount
+                                </td>
+
+                                <td>
+                                    Buyer
                                 </td>
 
                                 <td>
@@ -28,25 +32,29 @@
                                 </td>
                             </thead>
 
-                            <tr>
+                            <tr v-for="detail in details" :key=detail.id>
                                 <td data-label="Reference">
-                                        547856
+                                        {{ detail.id }}
                                 </td>
 
                                 <td data-label='Date'>
-                                    21/08/2022
+                                    {{ detail.date_of_insertion }}
+                                </td>
+
+                                <td data-label="Seller_name" >
+                                    {{ detail.seller_name }}
                                 </td>
 
                                 <td data-label="Operation">
-                                    Operation
+                                    {{ detail.comment }}
                                 </td>
 
-                                <td data-label="Seller">
-                                    John Doe
+                                <td data-label="Buyer_name" >
+                                    {{ detail.buyer_name }}
                                 </td>
 
                                 <td data-label="Amount">
-                                    100
+                                     {{ detail.amount }}
                                 </td>
                             </tr>
                         </table>
@@ -64,15 +72,14 @@
         }
       },
       mounted: function(){
-        //  this.getUsers();
+          this.getMyTransactions();
       },
       methods:{
-    /*    getUsers() {
-                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
+        getMyTransactions() {;
+                axios.get('http://127.0.0.1/rapidnote/api/myTransactions/2').then(
                     response =>
-                    this.users = response.data)
+                    this.details = response.data);
             }
-            */
       }
     }
     </script>

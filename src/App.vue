@@ -11,11 +11,15 @@
         </label>
         <ul>
           <li>
-              <router-link to="/" class="nav-link">Home</router-link>
+              <router-link to="/" class="nav-link"> <i class="fas fa-home"></i> Home</router-link>
             </li>
 
             <li >
-              <router-link to="/login" class="login-link" >Login/Register</router-link>
+              <router-link to="/login" class="login-link" > <i class="fas fa-sign-in-alt"></i> Login/Register</router-link>
+          </li>
+
+            <li>
+              <router-link to="/logout" > <i class="fas fa-sign-out-alt"></i> Logout</router-link>
             </li>
 
 

@@ -21,6 +21,13 @@ try{
                         throw new Exception ("Vous n'avez pas renseigné l'id");
                     }
 
+
+                    case "myTransactions":
+                        if (!empty($url[1])){
+                            getMyTransactions($url[1]);
+                        } else{
+                            throw new Exception ("Vous n'avez pas renseigné l'id");
+                        }
                     break;
             default: throw new Exception ("La demande n'est pas valide");
         }
