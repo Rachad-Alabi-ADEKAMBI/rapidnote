@@ -14,6 +14,15 @@ try{
                     getUsers();
             break;
 
+
+            case "rates":
+                getRates();
+        break;
+
+        case "totalTransactionsValue":
+            getTotalTransactionsValue();
+    break;
+
                 case "myBalance":
                     if (!empty($url[1])){
                         getMyBalance($url[1]);

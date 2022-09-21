@@ -179,6 +179,60 @@ function getMyTransactions($user_id){
         sendJSON($datas);
 }
 
+function getRates(){
+    $pdo = getConnexion();
+        $req = $pdo->prepare('SELECT * FROM
+        rates');
+        $req->execute();
+        $datas = $req->fetchAll();
+        $req->closeCursor();
+        sendJSON($datas);
+}
+
+function getTotalTransactionsValue(){
+    $pdo = getConnexion();
+        $req = $pdo->prepare('SELECT * FROM
+        payments');
+        $req->execute();
+       $tab = array();
+       $value = 0;
+        while($datas = $req->fetch()){
+            $value += $datas['amount'];
+        }
+
+        sendJSON($value);
+}
+
+
+function editRate(){
+    $pdo = getConnexion();
+      if (!empty ($_POST)){
+
+                $errors = array ();
+
+                $id = verifyInput(($_POST['id']));
+                $req = $pdo->prepare('SELECT * FROM rates
+                WHERE id = ?');
+                $req->execute(array($id));
+
+                if (!empty ($_POST['selling_price'])) {
+                    $selling_price = verifyInput($_POST['selling_price']);
+                    $sql = $pdo->prepare('UPDATE rates SET selling_rate = ?
+                    WHERE id = ?');
+                    $sql->execute(array($selling_price, $id));
+
+                }
+
+                if (!empty ($_POST['buying_price'])) {
+                    $buying_price = verifyInput($_POST['buying_price']);
+                    $sql = $pdo->prepare('UPDATE rates SET buying_rate = ?
+                    WHERE id = ?');
+                    $sql->execute(array($buying_price, $id));
+                }
+      }
+}
+
+
 function contact(){
     $pdo = getConnexion();
       if (!empty ($_POST)){
@@ -288,4 +342,8 @@ function sendJSON($infos){
 /* actions*/
 if($action == 'login'){
     login();
+}
+
+if($action == 'editRate'){
+    editRate();
 }

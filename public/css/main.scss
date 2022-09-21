@@ -260,7 +260,8 @@ html, body{
         }
     }
 
-    &__close{
+    &__close,
+    form__close{
         float: right;
         height: 40px;
         margin: 10px 0 10px auto;

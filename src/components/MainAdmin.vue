@@ -11,7 +11,7 @@
 
                                 <p>
                                    <strong>
-                                    5 000 ghc
+                                   {{nbr }} ghc
                                    </strong>
 
                                 </p>
@@ -20,52 +20,44 @@
 
 
 
-                            <div class="box">
+                            <div class="box" v-for="detail in details" :key="detail.id"  >
                                <div class="devise">
-                                Btc:  <div class="pen" @click="displayEditBtc()">
-                                </div> <div class="small"> 1 600 ghc</div> <i class="fas fa-pen"></i>
+                                Btc:  <div class="pen">
+                                </div> <div class="small"> 1 600 ghc</div> <i class="fas fa-pen" @click="editRate(detail.id)"></i>
 
                                </div>
                                 <div class="note">
 
-                                     <span> Selling: <div class="important">9 i</div></span>
-                                     <span> Buying: <div class="important">10 i</div></span>
+                                     <span> Selling: <div class="important"> {{ detail.buying_price }} </div></span>
+                                     <span> Buying: <div class="important"> {{ detail.selling_price }} </div></span>
                                 </div>
-
-
                             </div>
-
-
-                            <div class="box">
-                                <div class="devise">
-                                    PM: <div class="pen" @click="displayEditPM()">!</div> <div class="small">900gh</div>
-                                </div>
-
-                                <div class="note">
-
-                                     <span> Selling: <div class="important">9 i</div></span>
-                                     <span> Buying: <div class="important">10 i</div></span>
-                                </div>                            </div>
                         </div>
 
-                        <div class="content__boxes" v-if="showEditBtc">
-                                    <div class="form box-form">
+                        <div class="content__boxes" v-if="showEditRate">
+                                    <div class="form box-form" v-for="detail in details" :key="detail.id">
                                     <div class="devise">
-                                        Edt Btc:   <div class="small"> 1 600 ghc</div>
+                                        Edit {{ detail.name }}:   <div class="small"> 1 600 ghc</div>
 
                                     </div>
-                                       <form action="" method="POST">
+                                       <form action="../../api/api.php?action=editRate" method="POST">
+                                            <div class="form__close">
+                                                <i class="fa-regular fa-circle-xmark"></i>
+                                            </div>
+
+                                        <input type="number" value="detail.id" class="hidden" name="id">
+
                                             <label for="">
                                                 Buy: <br>
-                                                <input type="text" placeholder="9">
+                                                <input type="number" placeholder="detail.buying_price">
                                             </label>
 
                                             <label for="">
                                                Sell: <br>
-                                                <input type="text" placeholder="11">
+                                                <input type="text" placeholder="11" name="selling_price">
                                             </label>
 
-                                            <button @click="displayInfos()">
+                                            <button type="submit">
                                                 Change
                                             </button>
                                        </form>
@@ -85,36 +77,38 @@
             details:[],
             showInfos: true,
             showEditBtc: false,
-            showEditPM: false
+            showEditPM: false,
+            nbr: ''
         }
       },
       mounted: function(){
-          //this.getCurrentMarketcap();
-         // this.getDetails();
+          this.getTotalTransactionsValue();
+          this.getRates();
       },
       methods:{
-      /*  getCurrentMarketcap() {
-                axios.get('https://fineblock.eu/api/tfbk').then(
+        getTotalTransactionsValue() {
+                axios.get('http://127.0.0.1/rapidnote/api/totalTransactionsValue').then(
                     response =>
-                    this.tfbk_marketcap = response.data), 1000
-            }*/
+                    this.nbr = response.data)
+            },
+            getRates() {
+                axios.get('http://127.0.0.1/rapidnote/api/rates').then(
+                    response =>
+                    this.details = response.data)
+            },
 
-      displayEditBtc(){
-        this.showEditBtc = true;
-        this.showEditPM = false;
-        this.showInfos = false;
-      },
-      displayEditPM(){
-        this.showEditPM = true;
-        this.showEditBtc = false;
+      displayEditRate(){
+        this.showEditRate = true;
         this.showInfos = false;
       },
       displayInfos(){
-        this.showEditPM = false;
-        this.showEditBtc = false;
+        this.showEditRate = false;;
         alert('operation enregistree')
         this.showInfos = true;
       },
+      getBuyprice(buying_price) {
+                return  buying_price;
+            },
     }
 
     }
