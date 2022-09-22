@@ -63,55 +63,42 @@ function login(){
     $pdo = getConnexion();
     if(!empty($_POST)){
 
-        $errors = array ();
-
         if(isset($_POST['email'], $_POST['pass'])
             &&!empty($_POST['email'] && !empty($_POST['pass']))
-            ){
-                if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                    $errors['email'] = 'Veuillez entrer un email correct';
-                }
-            $sql = "SELECT * FROM `users` WHERE `email` = ?";
+            )
+            $sql = "SELECT * FROM users WHERE email = ?
+            OR username = ?";
 
             $query = $pdo -> prepare($sql);
 
-            $query->execute([verifyInput($_POST['email'])]);
+            $query->execute([verifyInput($_POST['email']), verifyInput($_POST['email'])]);
 
             $user = $query->fetch();
 
-            if(!$user){
-                $req = "SELECT * FROM `users` WHERE `username` = ?";
+            if(!$user){ ?>
 
-                $queryy = $pdo -> prepare($req);
-
-                $queryy->execute([verifyInput($_POST['email'])]);
-
-                $user_username = $queryy->fetch();
-
-                if(!$user_username){
-                     ?>
                             <script>
-                                alert('Error')
-                            </script>
+                                alert('Please check your login details')
+                            window.location.replace('http://127.0.0.1:8080/login');
+                            exit();
+                        </script>
                      <?php
 
                 }
 
                 else{
-                    if(!password_verify($_POST['pass'], $user_username['pass'])){
-                        $errors['email'] = 'Utilisateur/mot de passe incorrect';
+                    if(!password_verify($_POST['pass'], $user['pass'])){
+                       ?>
+                             <script>
+                                alert('Please check your login details')
+                            window.location.replace('http://127.0.0.1:8080/login');
+                            exit();
+                        </script>
+                       <?php
 
                     }
 
                     else{
-                        $infos = "SELECT * FROM `users` WHERE `username` = ?";
-
-                        $infos_query = $pdo -> prepare($infos);
-
-                        $infos_query->execute([verifyInput($_POST['email'])]);
-
-                        $user = $infos_query->fetch();
-
                         session_start();
 
                         $_SESSION['user'] = [
@@ -122,50 +109,39 @@ function login(){
                             "token" => $user['token']
                         ];
 
-                       ?>
-                            <script>
-                                window.location.replace('http://127.0.0.1:8080/dashboard');
-                            </script>
-                       <?php
-                    }
-                }
+                        $role= $_SESSION['user']['role'];
 
-
-            }
-
-            else{
-                if(!password_verify($_POST['pass'], $user['pass'])){
-                    $errors['email'] = 'Utilisateur/mot de passe incorrect';
-
-                }
-
-                if(empty($errors)){
-
-                    session_start();
-
-                    $_SESSION['user'] = [
-                        "id" =>$user['id'],
-                        "username" => $user['username'],
-                        "email" => $user['email'],
-                        "role" => $user['role'],
-                        "token" => $user['token']
-                    ];
-
-                    ?>
+                    if($role=='admin'){
+                        ?>
                         <script>
-                                 window.location.replace('http://127.0.0.1:8080/dashboard');
-                            </script>
-                    <?php
-                } else{
-                    ?>
-                        <script>
-                            alert('Identifiant ou mot de passe invalide, merci de reesayer');
+                            window.location.replace('http://127.0.0.1:8080/dashboardAdmin');
                         </script>
-                    <?php
-                }
-            }
+                   <?php
+                    }
+
+                    if($role=='user'){
+                        ?>
+                        <script>
+                            window.location.replace('http://127.0.0.1:8080/dashboard');
+                        </script>
+                   <?php
+               }
+                    }
+
+
         }
     }
+}
+
+function logout(){
+    if(!isset($_SESSION['user'])){
+        header("Location: connexion.php");
+        exit;
+    }
+
+    unset($_SESSION['user']);
+
+    header("Location: http://127.0.0.1:8080");
 }
 
 function getMyTransactions($user_id){
@@ -287,7 +263,7 @@ function contact(){
 
                         ?>
 <script>
-alert("Votre message a été envoyé, nous vous répondrons dans les plus brefs délais");
+alert("Thanks for your message, a reply will be sent to you very soon");
 //window.location.replace("../index.php");
 </script>
 <?php

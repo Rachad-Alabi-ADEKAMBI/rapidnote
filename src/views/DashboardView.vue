@@ -40,7 +40,7 @@
                                       user name
                                   </div>
 
-                                  <div class="icon">
+                                  <div class="icon" @click="displaySettings()">
                                     <i class="fas fa-cogs"></i>
                                       Settings
                                     </div>
@@ -52,6 +52,7 @@
         <MyTransactions v-if="showMyTransactions"></MyTransactions>
         <Buy v-if="showBuy"></Buy>
         <Wallet v-if="showWallet"></Wallet>
+        <Settings v-if="showSettings" ></Settings>
         </div>
       </div>
 </template>
@@ -64,17 +65,19 @@ import Sell from '@/components/Sell'
 import GraphsUser from '../components/GraphsUser.vue'
 import MyTransactions from '@/components/MyTransactions.vue'
 import Wallet from '@/components/Wallet.vue'
+import Settings from '@/components/Settings.vue'
 
 export default {
   name: 'DashboardView',
   components: {
-  MainUser,
-  //    UserOptions,
-  Sell,
-  Buy,
-  GraphsUser,
-  MyTransactions,
-  Wallet,
+    MainUser,
+    //    UserOptions,
+    Sell,
+    Buy,
+    GraphsUser,
+    MyTransactions,
+    Wallet,
+    Settings,
 },
 data(){
   return{
@@ -85,7 +88,8 @@ data(){
       showGraphsUser: true,
       showSell: false,
       showMyTransactions: false,
-      showWallet: false
+      showWallet: false,
+      showSettings: false
   }
 },
   methods:{
@@ -96,6 +100,7 @@ data(){
           this.showSell= false;
           this.showWallet = false;
           this.showMyTransactions= false;
+          this.showSettings = true;
       },
       displayGraphsUser(){
         this.showGraphsUser = true;
@@ -104,6 +109,7 @@ data(){
         this.showSell= false;
         this.showWallet = false;
         this.showMyTransactions= false;
+        this.showSettings = true;
       },
       displayDashboard(){
         this.showGraphsUser = true;
@@ -112,6 +118,7 @@ data(){
         this.showMyTransactions= false;
         this.showSell= false;
         this.showWallet = false;
+        this.showSettings = true;
       },
       displaySell(){
         this.showGraphsUser = false;
@@ -120,6 +127,7 @@ data(){
         this.showSell= true;
         this.showMyTransactions= false;
         this.showWallet = false
+        this.showSettings = true;
       },
       displayMyTransactions(){
         this.showGraphsUser = false;
@@ -128,6 +136,7 @@ data(){
         this.showSell= false;
         this.showMyTransactions= true;
         this.showWallet = false
+        this.showSettings = true;
       },
       displayWallet(){
         this.showGraphsUser = false;
@@ -136,6 +145,16 @@ data(){
         this.showSell= false;
         this.showMyTransactions= false
         this.showWallet = true;
+        this.showSettings = false;
+      },
+      displaySettings(){
+        this.showGraphsUser = false;
+        this.showBuy = false;
+        this.showMainUser = false;
+        this.showSell= false;
+        this.showMyTransactions= false
+        this.showWallet = false;
+        this.showSettings = true;
       }
   }
 }

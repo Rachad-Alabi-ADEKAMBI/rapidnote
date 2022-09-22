@@ -8,7 +8,7 @@
 
 
                 <h2 class="top__text__subtitle">
-                   Buy and sell your crypto-currencies Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae veritatis vero at officiis dolor aliquid optio iure cupiditate autem, voluptatum quod dolorum quaerat ducimus consequatur, hic repellat quidem. Nam, eum.
+                   Buy and sell your crypto-currencies get paid quickly
                </h2>
 
                 <ul class="top__text__items">
@@ -21,7 +21,7 @@
                     </li>
 
                     <li>
-                        Get paid for referals
+                        Paid referals
                     </li>
                 </ul>
             </div>
@@ -77,7 +77,7 @@
 
         <div class="reasons">
             <h2 class="reasons__title">
-                How does it work ?
+                HOW DOES IT WORK ?
             </h2>
             <div class="reasons__sections">
                 <div class="reasons__sections__box">
@@ -125,11 +125,11 @@
         <div class="simulator">
             <img src="" alt="" class="simulator__image">
             <h2 class="simulator__title">
-                What if you try ?
+            GET A DEMO
             </h2>
 
             <p class="simulator__text">
-                Choose an option for your a trial
+                Select an option and try
             </p>
 
             <div class="simulator__buttons">
@@ -152,21 +152,18 @@
             <div class="card cardL">
 
                     <div class="card__text">
-                        <h3 class="card__text__title">
-                            Refer Rapid Note and get huge discounts
-                        </h3>
+                        <h2 class="card__text__title">
+                          HUGE DISCOUNTS
+                        </h2>
 
                         <p class="card__text__text">
-                           Refer to a friend and get 1 PV.
-                            Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit.
-                             Quibusdam, vero? Dolorum quis
-                             Dolorum quis
+                            Create your account today and get 20% discount
+                            for your first transaction
                              </p>
 
                         <div class="link">
-                            <a href="/refer">
-                                Refer Now
+                            <a href="/register">
+                                Sign up
                             </a>
                         </div>
                     </div>
@@ -179,7 +176,7 @@
 
         <div class="payments">
             <h2 class="payments__title">
-                Payments methods
+                PAYMENTS METHODS
             </h2>
 
             <div class="payments__items">
@@ -199,47 +196,43 @@
         </div>
 
         <div class="contact">
+            <br>
             <h2 class="contact__title">
-                Contact us
+                CONTACT US
             </h2>
 
-            <p>
-                Kindly send us a message,
-            </p>
-
-           <form action="" method="POST">
+           <form action="api/api.php?action=contact" method="POST">
                     <div class="contact__details">
-                        <label for=""> First_name <br>
-                        <input type="text" name="email" placeholder="John">
+                        <label for="">
+                        <input type="text" name="email" placeholder="Your first name" required>
                     </label>
 
 
-                    <label for=""> Last_name: <br>
-                        <input type="text" name="pass" placeholder="Doe">
-                    </label>
-                </div>  <br>
-
-                <div class="contact__details">
-                        <label for=""> Email <br>
-                        <input type="text" name="email" placehoder="johndoe@gmailcom">
-                    </label>
-
-
-                    <label for=""> Phone number: <br>
-                        <input type="text" name="pass"
-                        placeholder="+XXX XXXXXXXXX">
+                    <label for="">
+                        <input type="text" name="last_name" placeholder="Your last name" required>
                     </label>
                 </div>  <br>
 
                 <div class="contact__details">
+                        <label for="">
+                        <input type="text" name="email" placeholder="Your email" required>
+                    </label>
 
 
-                    <label for=""> Message: <br>
-                        <input type="text" name="pass">
+                    <label for="">
+                        <input type="text" name="phone_number"
+                        placeholder="Your phone number" required>
                     </label>
                 </div>  <br>
 
-                <button type="submit">
+
+
+
+                    <label for="">
+                        <textarea type="text" name="pass" class="message" placeholder="Your message"></textarea>
+                    </label> <br> <br>
+
+                <button type="submit" class="button">
                     Envoyer
                 </button>
 

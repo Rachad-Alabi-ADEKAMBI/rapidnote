@@ -110,22 +110,26 @@ $black: #202022;
     border: 1px solid;
     border-radius: 30px;
     height: 35px;
-
     width: auto;
     cursor: pointer;
     transition: 500ms ease-in-out;
 }
 
 @mixin input{
-    width: 220px;
-    height: 30px;
-    border: 1px solid $black;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: rgb(26, 21, 21);
 }
 
 @mixin select{
     width: 220px;
-    height: 30px;
-    border: 1px solid $black;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 5px;
 }
 
 li{
@@ -223,6 +227,22 @@ html, body{
 
     }
 
+    &__details{
+        @include flex(row);
+        justify-content: space-between;
+
+        label{
+            flex: 1;
+            margin: 10px;
+            background-color: purple;
+
+            input{
+                width: 150px;
+            }
+        }
+
+    }
+
     label{
         margin: 10px auto;
         width: 330px;
@@ -261,7 +281,7 @@ html, body{
     }
 
     &__close,
-    form__close{
+    .form__close{
         float: right;
         height: 40px;
         margin: 10px 0 10px auto;
@@ -442,7 +462,7 @@ nav ul li a{
 .dashboard{
     width: 95%;
     display: flex;
-    margin: auto;
+    margin: auto auto 70px auto;
     padding-top: 110px;
 
     .menu{
@@ -600,6 +620,7 @@ nav ul li a{
 
         &__graphs{
             @include flex();
+            height: auto;
 
             .graph{
                 width: 300px;
@@ -879,16 +900,20 @@ nav ul li a{
 .care{
     @include flex();
     width: 80%;
+    background-color: white;
+    margin: 10px auto;
 
     .card{
         flex: 1;
         margin: auto;
         @include flex;
+        border: none;
 
         &__text{
             width: 100%;
+            margin: auto;
             &__title{
-
+                @include subtitle();
             }
 
             &__text{
@@ -949,10 +974,11 @@ nav ul li a{
 
 .contact{
     display: block;
-    margin: 20px auto;
-    height: 60vh;
+    margin: 20px auto 0 auto;
+    height: 600px;
     width: 100%;
     background-color: rgb(55, 71, 82);
+    text-align: center;
 
     &__title{
         @include subtitle();
@@ -965,22 +991,48 @@ nav ul li a{
     }
 
     form{
-        width: 80%;
+        width: 60%;
         margin: 20px auto;
-        height: auto;
         display: block;
+
 
         .contact__details{
             width: 100%;
             @include flex();
 
             label{
-                width: 50%;
+                width: 49%;
                 input{
-
+                    width: 100%;
                 }
             }
 
+        }
+
+        label{
+            width: 100%;
+
+            input{
+                width: 100%;
+                background-color: #ddd;
+                border-radius: 10px;
+            }
+
+            .message{
+                width: 100%;
+                border-radius: 10px;
+                height: 250px;
+                background-color: #ddd;
+            }
+        }
+
+        button{
+            @include link;
+            transition: 500ms ease-in-out;
+        }
+
+        button:hover{
+            transform: scale(1.1);
         }
     }
 
@@ -990,9 +1042,8 @@ nav ul li a{
     @include flex();
     background-color: rgba(56, 54, 54, 0.952);
     padding-top: 20px;
-    margin: 80px auto 0 auto;
+    margin: 0px auto 0 auto;
     bottom: 0;
-    height: auto;
 
     &__item{
         flex: 1;
@@ -1073,8 +1124,53 @@ nav ul li a{
 	}
 }
 
+
 /*responsive*/
-@media(min-width: 768px) and(max-width: 1024px){
+@media(min-width: 1024px) and(max-width: 1279px){
+    .dashboard{
+        .menu{
+            display: none;
+        }
+
+        .content{
+            width: 100%;
+        }
+    }
+}
+
+
+@media(min-width: 768px) and(max-width: 1023px){
+    .dashboard{
+        .menu{
+            display: none;
+        }
+
+        .content{
+            width: 100%;
+
+            &__boxes{
+                .box{
+                    p{
+                        strong{
+                            font-size: 1.4em;
+                        }
+                    }
+
+                    .note{
+                        span{
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+
+            &__infos{
+
+            }
+        }
+    }
+
+
     .top{
         &__text{
             width: 85%;
@@ -1107,8 +1203,8 @@ nav ul li a{
 
         .card{
             img{
-                width: 270px;
-                height: 230px;
+                width: 230px;
+                height: 180px;
             }
         }
     }
@@ -1135,6 +1231,37 @@ nav ul li a{
 }
 
 @media(min-width: 480px) and(max-width: 767px){
+    .dashboard{
+        .menu{
+            display: none;
+        }
+
+        .content{
+            width: 100%;
+            margin: 50px auto;
+
+            &__boxes{
+                .box{
+                    p{
+                        strong{
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    .note{
+                        span{
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+
+            &__infos{
+
+            }
+        }
+    }
+
 .top{
     height: auto;
     margin-bottom: 5px;
@@ -1200,13 +1327,64 @@ nav ul li a{
     }
 }
 
+.form{
+    width: 400px;
+
+    label{
+        width: 300px;
+    }
+
+    .details{
+        width: 90%;
+    }
+}
+
 .footer{
     flex-direction: column;
 }
 }
 
 
-@media(min-width: 350px) and(max-width:480px){
+@media(min-width: 350px) and(max-width:479px){
+    .dashboard{
+        .menu{
+            display: none;
+        }
+
+        .content{
+            width: 100%;
+            margin: 30px auto;
+
+            &__boxes{
+                flex-direction: column;
+                .box{
+                    p{
+                        strong{
+                            font-size: 1em;
+                        }
+                    }
+
+                    .note{
+                        span{
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+
+            &__graphs{
+                flex-direction: column;
+                .graph{
+                    height: 200px;
+                }
+            }
+
+            &__infos{
+
+            }
+        }
+    }
+
     .top{
         height: auto;
         margin-bottom: 5px;
@@ -1217,9 +1395,29 @@ nav ul li a{
                 font-size: 1.8em;
             }
 
+            &__subtitle{
+
+            }
+
             &__text{
 
             }
+        }
+    }
+
+    .form{
+        width: 320px;
+
+        h1{
+            font-size: 1.9em;
+        }
+
+        .details{
+            width: 95%;
+        }
+
+        label{
+            width: 300px;
         }
     }
 
@@ -1227,33 +1425,64 @@ nav ul li a{
         height: auto;
         flex-direction: column-reverse;
         width: 100%;
-        margin: 0 auto;
+        margin: 20px auto;
 
         &__item{
+            margin: 15px auto;
+            h2{
+                font-size: 1.4em;
+            }
             &__text{
                 width: 90%;
             }
 
             &__boxes{
-                width: 70%;
+                width: 90%;
                 .box{
-                    width: 130px;
-                    height: 80px;
+                    width: 110px;
+                    height: 60px;
                     margin: 10px;
                 }
             }
         }
     }
 
+    .simulator{
+        h2{
+            font-size: 1.4em;
+        }
+    }
     .care{
-        flex-direction: column-reverse;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 10px 20px 10px;
 
         .card{
+            margin: 15px auto;
 
+            &__text{
+                &__title{
+                    font-size: 1.4em;
+                }
+            }
             img{
-                width: 300px;
-                height: 200px;
-                margin: 10px auto 10px auto;
+                width: 270px;
+                height: 180px;
+                margin: 10px auto;
+            }
+        }
+    }
+
+    .reasons{
+        h2{
+            font-size: 1.4em;
+            margin-top: 15px;
+        }
+
+        &__sections{
+            width: 98%;
+            &__box{
+
             }
         }
     }
@@ -1261,12 +1490,33 @@ nav ul li a{
     .payments{
         height: auto;
 
+        h2{
+            font-size: 1.4em;
+        }
+
         &__items{
-            width: 70%;
+            width: 100%;
             &__item{
                 img{
-                    width: 90px;
-                    height: 90px;
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+
+    .contact{
+        height: 500px;
+        h2{
+            font-size: 1.4em;
+        }
+
+        form{
+            width: 90%;
+
+            label{
+                .message{
+                    height: 150px;
                 }
             }
         }
@@ -1274,5 +1524,6 @@ nav ul li a{
 
     .footer{
         flex-direction: column;
+        height: 1000px;
     }
 }

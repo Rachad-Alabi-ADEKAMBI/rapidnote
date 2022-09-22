@@ -187,14 +187,34 @@ html, body {
   font-size: 1em;
   font-weight: 400;
 }
+.form__details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  justify-content: space-between;
+}
+.form__details label {
+  flex: 1;
+  margin: 10px;
+  background-color: purple;
+}
+.form__details label input {
+  width: 150px;
+}
 .form label {
   margin: 10px auto;
   width: 330px;
 }
 .form label input {
-  width: 220px;
-  height: 30px;
-  border: 1px solid #202022;
+  width: 250px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  padding-left: 10px;
+  color: rgb(26, 21, 21);
   position: relative;
 }
 .form label .blue {
@@ -220,12 +240,14 @@ html, body {
   height: 30px;
   width: 30px;
 }
-.form__close {
+.form__close,
+.form .form__close {
   float: right;
   height: 40px;
   margin: 10px 0 10px auto;
 }
-.form__close i {
+.form__close i,
+.form .form__close i {
   margin: auto 10px auto auto;
 }
 .form .items {
@@ -398,7 +420,7 @@ nav ul li a {
 .dashboard {
   width: 95%;
   display: flex;
-  margin: auto;
+  margin: auto auto 70px auto;
   padding-top: 110px;
 }
 .dashboard .menu {
@@ -561,6 +583,7 @@ nav ul li a {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
+  height: auto;
 }
 .dashboard .content__graphs .graph {
   width: 300px;
@@ -865,6 +888,8 @@ nav ul li a {
   justify-content: space-between;
   margin: auto;
   width: 80%;
+  background-color: white;
+  margin: 10px auto;
 }
 .care .card {
   flex: 1;
@@ -874,9 +899,16 @@ nav ul li a {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
+  border: none;
 }
 .care .card__text {
   width: 100%;
+  margin: auto;
+}
+.care .card__text__title {
+  color: #4884B7;
+  font-size: 1.8em;
+  text-align: center;
 }
 .care .card__text__text {
   width: 90%;
@@ -938,10 +970,11 @@ nav ul li a {
 
 .contact {
   display: block;
-  margin: 20px auto;
-  height: 60vh;
+  margin: 20px auto 0 auto;
+  height: 600px;
   width: 100%;
   background-color: rgb(55, 71, 82);
+  text-align: center;
 }
 .contact__title {
   color: #4884B7;
@@ -954,9 +987,8 @@ nav ul li a {
   margin: auto;
 }
 .contact form {
-  width: 80%;
+  width: 60%;
   margin: 20px auto;
-  height: auto;
   display: block;
 }
 .contact form .contact__details {
@@ -968,8 +1000,44 @@ nav ul li a {
   margin: auto;
 }
 .contact form .contact__details label {
-  width: 50%;
+  width: 49%;
 }
+.contact form .contact__details label input {
+  width: 100%;
+}
+.contact form label {
+  width: 100%;
+}
+.contact form label input {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.contact form label .message {
+  width: 100%;
+  border-radius: 10px;
+  height: 250px;
+  background-color: #ddd;
+}
+.contact form button {
+  height: 40px;
+  width: auto;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-weight: bold;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #4884B7;
+  color: white;
+  background-color: #4884B7;
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+}
+.contact form button:hover {
+  transform: scale(1.1);
+}
+
 .footer {
   display: flex;
   flex-direction: row;
@@ -978,9 +1046,8 @@ nav ul li a {
   margin: auto;
   background-color: rgba(56, 54, 54, 0.952);
   padding-top: 20px;
-  margin: 80px auto 0 auto;
+  margin: 0px auto 0 auto;
   bottom: 0;
-  height: auto;
 }
 .footer__item {
   flex: 1;
@@ -1054,7 +1121,27 @@ nav ul li a {
   }
 }
 /*responsive*/
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .dashboard .menu {
+    display: none;
+  }
+  .dashboard .content {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dashboard .menu {
+    display: none;
+  }
+  .dashboard .content {
+    width: 100%;
+  }
+  .dashboard .content__boxes .box p strong {
+    font-size: 1.4em;
+  }
+  .dashboard .content__boxes .box .note span {
+    font-size: 0.8em;
+  }
   .top__text {
     width: 85%;
   }
@@ -1076,8 +1163,8 @@ nav ul li a {
     width: 95%;
   }
   .care .card img {
-    width: 270px;
-    height: 230px;
+    width: 230px;
+    height: 180px;
   }
   .payments {
     margin: 50px auto;
@@ -1095,6 +1182,19 @@ nav ul li a {
   }
 }
 @media (min-width: 480px) and (max-width: 767px) {
+  .dashboard .menu {
+    display: none;
+  }
+  .dashboard .content {
+    width: 100%;
+    margin: 50px auto;
+  }
+  .dashboard .content__boxes .box p strong {
+    font-size: 1.2em;
+  }
+  .dashboard .content__boxes .box .note span {
+    font-size: 0.8em;
+  }
   .top {
     height: auto;
     margin-bottom: 5px;
@@ -1140,11 +1240,42 @@ nav ul li a {
     width: 90px;
     height: 90px;
   }
+  .form {
+    width: 400px;
+  }
+  .form label {
+    width: 300px;
+  }
+  .form .details {
+    width: 90%;
+  }
   .footer {
     flex-direction: column;
   }
 }
-@media (min-width: 350px) and (max-width: 480px) {
+@media (min-width: 350px) and (max-width: 479px) {
+  .dashboard .menu {
+    display: none;
+  }
+  .dashboard .content {
+    width: 100%;
+    margin: 30px auto;
+  }
+  .dashboard .content__boxes {
+    flex-direction: column;
+  }
+  .dashboard .content__boxes .box p strong {
+    font-size: 1em;
+  }
+  .dashboard .content__boxes .box .note span {
+    font-size: 0.8em;
+  }
+  .dashboard .content__graphs {
+    flex-direction: column;
+  }
+  .dashboard .content__graphs .graph {
+    height: 200px;
+  }
   .top {
     height: auto;
     margin-bottom: 5px;
@@ -1155,42 +1286,94 @@ nav ul li a {
   .top__text__title {
     font-size: 1.8em;
   }
+  .form {
+    width: 320px;
+  }
+  .form h1 {
+    font-size: 1.9em;
+  }
+  .form .details {
+    width: 95%;
+  }
+  .form label {
+    width: 300px;
+  }
   .about {
     height: auto;
     flex-direction: column-reverse;
     width: 100%;
-    margin: 0 auto;
+    margin: 20px auto;
+  }
+  .about__item {
+    margin: 15px auto;
+  }
+  .about__item h2 {
+    font-size: 1.4em;
   }
   .about__item__text {
     width: 90%;
   }
   .about__item__boxes {
-    width: 70%;
+    width: 90%;
   }
   .about__item__boxes .box {
-    width: 130px;
-    height: 80px;
+    width: 110px;
+    height: 60px;
     margin: 10px;
   }
+  .simulator h2 {
+    font-size: 1.4em;
+  }
   .care {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+  }
+  .care .card {
+    margin: 15px auto;
+  }
+  .care .card__text__title {
+    font-size: 1.4em;
   }
   .care .card img {
-    width: 300px;
-    height: 200px;
-    margin: 10px auto 10px auto;
+    width: 270px;
+    height: 180px;
+    margin: 10px auto;
+  }
+  .reasons h2 {
+    font-size: 1.4em;
+    margin-top: 15px;
+  }
+  .reasons__sections {
+    width: 98%;
   }
   .payments {
     height: auto;
   }
+  .payments h2 {
+    font-size: 1.4em;
+  }
   .payments__items {
-    width: 70%;
+    width: 100%;
   }
   .payments__items__item img {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
+  }
+  .contact {
+    height: 500px;
+  }
+  .contact h2 {
+    font-size: 1.4em;
+  }
+  .contact form {
+    width: 90%;
+  }
+  .contact form label .message {
+    height: 150px;
   }
   .footer {
     flex-direction: column;
+    height: 1000px;
   }
 }/*# sourceMappingURL=main.css.map */

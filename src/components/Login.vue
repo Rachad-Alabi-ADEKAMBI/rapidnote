@@ -1,23 +1,25 @@
 <template> <br><br> <br> <br>
 
         <form method="POST" class="form"
-        action="http://127.0.0.1/rapidnote/api/api.php?action=login">
+         action="http://127.0.0.1/rapidnote/api/api.php?action=login">
 
             <div class="form__close">
                 <i class="fas fa-times"></i>
             </div>
 
             <h1>
-                Login
+                Sign in
             </h1>
 
-            <label for=""> Email/Login: <br>
-                <input type="text" name="email">
+            <label for="">
+                <input type="text" name="email" placeholder="Username or Email"
+                required>
             </label>
 
 
-            <label for=""> Mot de passe: <br>
-                <input type="text" name="pass">
+            <label for="">
+                <input type="text" name="pass" placeholder="password"
+                required>
             </label>
 
             <label for="">
@@ -33,17 +35,17 @@
                </a>
                 </strong>
                 <br>
-               or
+             or
                <br>
-               <span>
+               <strong>
                 <a href="">
                     Create account
                 </a>
-               </span>
+               </strong>
             </p>
 
 
-        </form>
+        </form> <br> <br>
 </template>
 
 <script>
