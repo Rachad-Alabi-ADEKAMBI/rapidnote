@@ -4,11 +4,11 @@
                         <div class="content__boxes" v-if="showInfos">
 
                             <div class="box">
-                                <div class="note">
-                                    Date: <span> 15/11/2022</span>
-                                </div>
+
+                               <div class="devise">
                                 Total transactions:
 
+                               </div>
                                 <p>
                                    <strong>
                                    {{nbr }} ghc
@@ -18,53 +18,51 @@
 
                             </div>
 
-
-
-                            <div class="box" v-for="detail in details" :key="detail.id"  >
-                               <div class="devise">
-                                Btc:  <div class="pen">
-                                </div> <div class="small"> 1 600 ghc</div> <i class="fas fa-pen" @click="editRate(detail.id)"></i>
+                            <div class="box" v-for="detail in details" :key="detail.id">
+                               <div class="devise"> <img :src="getImgUrl(detail.image)" >
+                                {{ detail.name }}  <div class="pen" @click="displayEditRate(detail.id)"><i class="fas fa-pen"></i></div>
 
                                </div>
                                 <div class="note">
 
-                                     <span> Selling: <div class="important"> {{ detail.buying_price }} </div></span>
-                                     <span> Buying: <div class="important"> {{ detail.selling_price }} </div></span>
+                                     <span> Selling: <div class="important">{{ detail.selling_price }} ghc</div></span>
+                                     <span> Buying: <div class="important">{{ detail.buying_price }} ghc</div></span>
                                 </div>
                             </div>
+
+
                         </div>
 
                         <div class="content__boxes" v-if="showEditRate">
-                                    <div class="form box-form" v-for="detail in details" :key="detail.id">
-                                    <div class="devise">
-                                        Edit {{ detail.name }}:   <div class="small"> 1 600 ghc</div>
+                                    <div class="form box-form" v-for="info in infos" :key="info.id">
+                                        <div class="devise">
+                                            Edit {{ info.name }}:   <div class="small"> </div>
 
-                                    </div>
+                                        </div>
                                        <form action="../../api/api.php?action=editRate" method="POST">
                                             <div class="form__close">
                                                 <i class="fa-regular fa-circle-xmark"></i>
                                             </div>
 
-                                        <input type="number" value="detail.id" class="hidden" name="id">
+                                            <input type="number" value="detail.id" class="hidden" name="id">
 
                                             <label for="">
                                                 Buy: <br>
-                                                <input type="number" placeholder="detail.buying_price">
+                                                <input type="number" placeholder="detail.buying_price"
+                                                name="selling_price">
                                             </label>
 
                                             <label for="">
                                                Sell: <br>
                                                 <input type="text" placeholder="11" name="selling_price">
-                                            </label>
+                                            </label> <br>
 
-                                            <button type="submit">
+                                            <button type="submit" class="link">
                                                 Change
                                             </button>
                                        </form>
                                     </div>
                         </div>
-
-
                     </div>
 </template>
 
@@ -75,41 +73,51 @@
       data(){
         return{
             details:[],
+            infos: [],
             showInfos: true,
-            showEditBtc: false,
-            showEditPM: false,
+            showEditRate: false,
             nbr: ''
         }
       },
       mounted: function(){
-          this.getTotalTransactionsValue();
           this.getRates();
+       //   this.displayEditRate();
       },
       methods:{
-        getTotalTransactionsValue() {
+        getRates() {
                 axios.get('http://127.0.0.1/rapidnote/api/totalTransactionsValue').then(
                     response =>
-                    this.nbr = response.data)
-            },
-            getRates() {
-                axios.get('http://127.0.0.1/rapidnote/api/rates').then(
+                    this.nbr = response.data);
+             axios.get('http://127.0.0.1/rapidnote/api/rates').then(
                     response =>
-                    this.details = response.data)
-            },
+                    this.details = response.data
+
+            ),
+            this.showEditRate = false;
+            this.showInfos = true;
+        },
 
       displayEditRate(){
-        this.showEditRate = true;
-        this.showInfos = false;
+       axios.get('http://127.0.0.1/rapidnote/api/rateById/1').then(
+                    response =>
+                    this.infos = response.data);
+    this.showEditRate =true;
+  //  this.showInfos = false;
       },
       displayInfos(){
-        this.showEditRate = false;;
+     //   this.showEditRate = false;
         alert('operation enregistree')
         this.showInfos = true;
       },
       getBuyprice(buying_price) {
                 return  buying_price;
             },
-    }
+            getImgUrl(pic) {
+                return "http://127.0.0.1/rapidnote/public/images/" + pic;
+            }
+    },
+
+
 
     }
     </script>

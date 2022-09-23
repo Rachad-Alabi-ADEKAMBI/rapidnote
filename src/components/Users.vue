@@ -20,17 +20,17 @@
                                 </td>
                             </thead>
 
-                            <tr>
+                            <tr v-for="detail in details" :key="detail.id" >
                                 <td data-label="Name">
-                                    John Doe
+                                    {{ detail.first_name }} {{ detail.last_name}}
                                 </td>
 
                                 <td data-label="Email">
-                                        Johndoe@gmail.com
+                                        {{ detail.email}}
                                 </td>
 
                                 <td data-label="">
-                                    54 ghc
+                                    {{ detail.balance }} gh
                                 </td>
 
                                 <td>
@@ -96,10 +96,9 @@
       },
       methods:{
         getUsers() {
-             /*   axios.get('http:/127.0.0.1/rapidnote/api/users').then(
+                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
                     response =>
-                    this.showAllUsers= response.data)
-                    */
+                    this.users= response.data);
                     this.showAllUsers = true;
                     this.showUser = false;
                     this.showHistorical = false;

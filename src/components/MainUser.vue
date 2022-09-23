@@ -1,9 +1,7 @@
 <template>
     <div class="content">
-
-                        <div class="content__boxes" v-if="showInfos">
-
-                            <div class="box">
+        <div class="content__boxes" v-if="showInfos">
+                <div class="box" v-for="detail in details" :key="detail.id">
                                 <div class="note">
                                     Date: <span> 15/11/2022</span>
                                 </div>
@@ -11,109 +9,55 @@
 
                                 <p>
                                    <strong>
-                                    30 ghc
+                                     {{ detail.balance }}
                                    </strong>
 
                                 </p>
 
-                            </div>
+                </div>
 
-
-
-                            <div class="box">
-                               <div class="devise">
-                                Btc:  <div class="pen" @click="displayEditBtc()">!</div> <div class="small"> 1 600 ghc</div>
+                <div class="box" v-for="detail in rates" :key="detail.id">
+                               <div class="devise"> <img :src="getImgUrl(detail.image)" >
+                                {{ detail.name }}
 
                                </div>
                                 <div class="note">
 
-                                     <span> Selling: <div class="important">9 i</div></span>
-                                     <span> Buying: <div class="important">10 i</div></span>
+                                     <span> Selling: <div class="important">{{ detail.selling_price }} ghc</div></span>
+                                     <span> Buying: <div class="important">{{ detail.buying_price }} ghc</div></span>
                                 </div>
-
-
-                            </div>
-
-
-                            <div class="box">
-                                <div class="devise">
-                                    PM: <div class="pen" @click="displayEditPM()">!</div> <div class="small">900gh</div>
-                                </div>
-
-                                <div class="note">
-
-                                     <span> Selling: <div class="important">9 i</div></span>
-                                     <span> Buying: <div class="important">10 i</div></span>
-                                </div>                            </div>
-                        </div>
-
-                        <div class="content__boxes" v-if="showEditBtc">
-                                    <div class="form box-form">
-                                    <div class="devise">
-                                        Edt Btc:   <div class="small"> 1 600 ghc</div>
-
-                                    </div>
-                                       <form action="" method="POST">
-                                            <label for="">
-                                                Buy: <br>
-                                                <input type="text" placeholder="9">
-                                            </label>
-
-                                            <label for="">
-                                               Sell: <br>
-                                                <input type="text" placeholder="11">
-                                            </label>
-
-                                            <button @click="displayInfos()">
-                                                Change
-                                            </button>
-                                       </form>
-                                    </div>
-                        </div>
-
-
-                    </div>
+                </div>
+        </div>
+    </div>
 </template>
 
 
 <script>
     export default {
-        name: 'MainAdmin',
+        name: 'MainUser',
       data(){
         return{
             details:[],
-            showInfos: true,
-            showEditBtc: false,
-            showEditPM: false
+            rates: [],
+            showInfos: true
         }
       },
       mounted: function(){
-          //this.getCurrentMarketcap();
-         // this.getDetails();
+          this.displayInfos();
       },
       methods:{
-      /*  getCurrentMarketcap() {
-                axios.get('https://fineblock.eu/api/tfbk').then(
-                    response =>
-                    this.tfbk_marketcap = response.data), 1000
-            }*/
-
-      displayEditBtc(){
-        this.showEditBtc = true;
-        this.showEditPM = false;
-        this.showInfos = false;
-      },
-      displayEditPM(){
-        this.showEditPM = true;
-        this.showEditBtc = false;
-        this.showInfos = false;
-      },
       displayInfos(){
-        this.showEditPM = false;
-        this.showEditBtc = false;
-        alert('operation enregistree')
+        axios.get('http://127.0.0.1/rapidnote/api/rates').then(
+                    response =>
+                    this.rates = response.data);
+                    axios.get('http://127.0.0.1/rapidnote/api/userById/1').then(
+                    response =>
+                    this.details = response.data);
         this.showInfos = true;
       },
+      getImgUrl(pic) {
+                return "http://127.0.0.1/rapidnote/public/images/" + pic;
+            }
     }
 
     }

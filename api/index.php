@@ -19,6 +19,10 @@ try{
                 getRates();
         break;
 
+        case "transactions":
+            getTransactions();
+    break;
+
         case "totalTransactionsValue":
             getTotalTransactionsValue();
     break;
@@ -27,8 +31,25 @@ try{
                     if (!empty($url[1])){
                         getMyBalance($url[1]);
                     } else{
-                        throw new Exception ("Vous n'avez pas renseigné l'id");
+                        throw new Exception ("Please check the id");
                     }
+
+
+
+                    case "rateById":
+                        if (!empty($url[1])){
+                            getRateById($url[1]);
+                        } else{
+                            throw new Exception ("Please check the id");
+                        }
+
+                        case "userById":
+                            if (!empty($url[1])){
+                                getUserById($url[1]);
+                            } else{
+                                throw new Exception ("Please check the id");
+                            }
+
 
 
                     case "myTransactions":

@@ -482,6 +482,9 @@ nav ul li a {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
 }
 .dashboard .content__infos .icons .icon {
   margin: 10px;
@@ -541,18 +544,30 @@ nav ul li a {
   width: 100%;
 }
 .dashboard .content__boxes .box .devise {
-  width: 80%;
+  width: 95%;
   margin: auto 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: auto;
+  display: table;
+  font-weight: bold;
 }
 .dashboard .content__boxes .box .devise .small {
   color: #4884B7;
   font-size: 0.8em;
   font-weight: 400;
+}
+.dashboard .content__boxes .box .devise .pen {
+  display: table-cell;
+}
+.dashboard .content__boxes .box .devise .pen i {
+  color: #4884B7;
+  transition: 500ms ease-in-out;
+}
+.dashboard .content__boxes .box .devise .pen i:hover {
+  transform: scale(1.4);
+}
+.dashboard .content__boxes .box .devise img {
+  width: 50px;
+  display: table-cell;
+  width: 50px;
 }
 .dashboard .content__boxes .box .note {
   margin: 5px auto auto 5px;
@@ -562,16 +577,22 @@ nav ul li a {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
-  width: 80%;
+  width: 95%;
+  color: #202022;
+  font-size: 1em;
 }
 .dashboard .content__boxes .box .note span {
-  color: #4884B7;
+  color: #202022;
   font-weight: bold;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
+}
+.dashboard .content__boxes .box .note span .important {
+  color: #4884B7;
+  font-weight: bold;
 }
 .dashboard .content__boxes .box-form {
   width: 320px;

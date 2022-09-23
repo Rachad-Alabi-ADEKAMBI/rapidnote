@@ -25,15 +25,22 @@
                             </li>
 
                             <li>
+                              <button @click="displaySettings()">
+                                <i class="fas fa-cogs"></i> Settings
+                                </button>
+                            </li>
+
+                            <li>
                               <button @click="displayTransactions()">
                                 <i class="fas fa-list"></i> Transactions
-                                  </button>
+                                </button>
                             </li>
+
 
                             <li>
                               <button>
                                     <a href="">
-                                      <i class="far fa-envelope"></i> Webmail
+                                      <i class="fas fa-envelope"></i> Webmail
                                     </a>
                                   </button>
                             </li>
@@ -50,10 +57,7 @@
                                         <i class="fas fa-user"></i>
                                         user name
                                     </div>
-                                    <div class="icon">
-                                        <i class="fas fa-cogs"></i>
-                                      Settings
-                                    </div>
+
                                 </div>
                           </div>
           <MainAdmin v-if="showMainAdmin"></MainAdmin>

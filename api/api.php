@@ -165,6 +165,30 @@ function getRates(){
         sendJSON($datas);
 }
 
+
+
+function getTransactions(){
+    $pdo = getConnexion();
+        $req = $pdo->prepare('SELECT * FROM
+        transactions ORDER BY id DESC LIMIT 50');
+        $req->execute();
+        $datas = $req->fetchAll();
+        $req->closeCursor();
+        sendJSON($datas);
+}
+
+
+function getRateById($id){
+    $pdo = getConnexion();
+        $req = $pdo->prepare('SELECT * FROM
+        rates WHERE id = ?');
+        $req->execute(array($id));
+        $datas = $req->fetchAll();
+        $req->closeCursor();
+        sendJSON($datas);
+}
+
+
 function getTotalTransactionsValue(){
     $pdo = getConnexion();
         $req = $pdo->prepare('SELECT * FROM
@@ -274,6 +298,17 @@ alert("Thanks for your message, a reply will be sent to you very soon");
 function getMyBalance($user_id){
     $pdo = getConnexion();
      $stmt = $pdo->prepare("SELECT balance
+        FROM users
+        WHERE id = ?");
+    $stmt->execute(array($user_id));
+    $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    sendJSON($datas);
+}
+
+function getUserById($user_id){
+    $pdo = getConnexion();
+     $stmt = $pdo->prepare("SELECT *
         FROM users
         WHERE id = ?");
     $stmt->execute(array($user_id));

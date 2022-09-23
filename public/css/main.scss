@@ -527,6 +527,9 @@ nav ul li a{
             display: flex;
             justify-content: space-between;
             flex-direction: row;
+            color: $white;
+            font-weight: bold;
+            text-decoration: underline;
             .icon{
                 margin: 10px;
                 text-align: right;
@@ -589,25 +592,55 @@ nav ul li a{
                }
 
                .devise{
-                width: 80%;
+                width: 95%;
                 margin: auto 10px;
-                @include flex(row);
+                display: table;
+                font-weight: bold;
                     .small{
                         color: $blue;
                         font-size: 0.8em;
                         font-weight: 400;
                     }
+
+                    .pen{
+                        display: table-cell;
+                        i{
+                            color: $blue;
+                            transition: 500ms ease-in-out;
+                        }
+
+                        i:hover{
+                            transform: scale(1.4);
+                        }
+                    }
+
+                    img{
+                        width: 50px;
+                        display: table-cell;
+                        width: 50px;
+                    }
+
+
                }
 
                .note{
                 margin: 5px auto auto 5px;
                 text-align: left;
                 @include flex(row);
-                width: 80%;
+                width: 95%;
+                color: $black;
+                font-size: 1em;
+
+
                 span{
-                    color: $blue;
+                    color: $black;
                     font-weight: bold;
                     @include flex();
+
+                    .important{
+                        color: $blue;
+                        font-weight: bold;
+                    }
                 }
                }
             }

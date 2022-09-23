@@ -13,20 +13,28 @@
                           </li>
           <li>
                                 <button @click="displayBuy()">
-                                  <i class="far fa-cart-shopping"></i> Buy
+                                  <i class="fas fa-shopping-cart"></i> Buy
                                 </button>
                           </li>
 
-                          <li>
-                                <button @click="displayWallet()">
-                                  Wallet
-                                </button>
-                          </li>
 
                           <li>
                             <button @click="displayMyTransactions()">
                               <i class="fas fa-list"></i> My transactions
                               </button>
+                          </li>
+
+
+                          <li>
+                              <button @click="displaySettings()">
+                                <i class="fas fa-cogs"></i> Settings
+                                </button>
+                            </li>
+
+                          <li>
+                                <button @click="displayWallet()">
+                                  Wallet
+                                </button>
                           </li>
 
 
