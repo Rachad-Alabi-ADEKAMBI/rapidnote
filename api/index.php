@@ -23,6 +23,10 @@ try{
             getTransactions();
     break;
 
+    case "payments":
+        getPayments();
+break;
+
         case "totalTransactionsValue":
             getTotalTransactionsValue();
     break;

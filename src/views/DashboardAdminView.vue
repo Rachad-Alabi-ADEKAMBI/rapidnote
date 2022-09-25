@@ -97,7 +97,7 @@ import Payments from '@/components/Payments.vue'
     return{
         message: '',
         details: [],
-        showUsers: false,
+        showUsers: true,
         showMainAdmin: true,
         showGraphsAdmin: true,
         showPendingValidations: false,

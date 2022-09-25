@@ -504,95 +504,47 @@ nav ul li a {
   margin: auto;
   cursor: pointer;
   text-align: left;
+  width: 100%;
 }
 .dashboard .content__boxes .box {
-  width: 250px;
+  width: 150px;
   margin: 15px;
-  height: 150px;
   border-radius: 10px;
   position: relative;
   flex: 1;
   margin: 15px;
   background-color: whitesmoke;
-  padding-left: 5px;
-  padding-top: 5px;
-  display: grid;
-}
-.dashboard .content__boxes .box p {
-  text-align: center;
-  margin: 5px auto;
-  width: 100%;
-}
-.dashboard .content__boxes .box p strong {
-  color: #4884B7;
-  margin: auto;
-  text-align: center;
-  width: 100%;
-  font-size: 2em;
-}
-.dashboard .content__boxes .box p strong .gh {
-  font-weight: 400;
-  font-size: 1.5em;
-  margin: auto;
-  text-align: center;
-  color: #4884B7;
-}
-.dashboard .content__boxes .box span {
-  text-align: center;
-  margin: 5px auto;
-  color: #202022;
-  width: 100%;
+  display: block;
+  padding: 10px;
 }
 .dashboard .content__boxes .box .devise {
-  width: 95%;
-  margin: auto 10px;
-  display: table;
-  font-weight: bold;
-}
-.dashboard .content__boxes .box .devise .small {
-  color: #4884B7;
-  font-size: 0.8em;
-  font-weight: 400;
-}
-.dashboard .content__boxes .box .devise .pen {
-  display: table-cell;
-}
-.dashboard .content__boxes .box .devise .pen i {
-  color: #4884B7;
-  transition: 500ms ease-in-out;
-}
-.dashboard .content__boxes .box .devise .pen i:hover {
-  transform: scale(1.4);
+  margin: auto;
+  text-align: center;
 }
 .dashboard .content__boxes .box .devise img {
   width: 50px;
-  display: table-cell;
-  width: 50px;
+  height: 50px;
 }
 .dashboard .content__boxes .box .note {
-  margin: 5px auto auto 5px;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: auto;
-  width: 95%;
-  color: #202022;
+  display: block;
+}
+.dashboard .content__boxes .box .note h3 {
+  text-decoration: underline;
   font-size: 1em;
 }
-.dashboard .content__boxes .box .note span {
-  color: #202022;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: auto;
-}
-.dashboard .content__boxes .box .note span .important {
+.dashboard .content__boxes .box .note .important {
+  display: table;
   color: #4884B7;
-  font-weight: bold;
+  position: relative;
+  width: 100%;
+}
+.dashboard .content__boxes .box .note .important img {
+  width: 15px;
+  height: 15px;
+}
+.dashboard .content__boxes .box .note .important strong {
+  position: absolute;
+  right: 0px;
 }
 .dashboard .content__boxes .box-form {
   width: 320px;

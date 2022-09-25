@@ -183,7 +183,7 @@ function getRateById($id){
         $req = $pdo->prepare('SELECT * FROM
         rates WHERE id = ?');
         $req->execute(array($id));
-        $datas = $req->fetchAll();
+        $datas = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
         sendJSON($datas);
 }
@@ -323,6 +323,16 @@ function getUsers(){
      $stmt = $pdo->prepare("SELECT * FROM
       users WHERE account_status = 'actif' ORDER BY
      id ASC");
+    $stmt->execute();
+    $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    sendJSON($datas);
+}
+
+function getPayments(){
+    $pdo = getConnexion();
+     $stmt = $pdo->prepare("SELECT * FROM
+      payments ORDER BY id DESC");
     $stmt->execute();
     $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();

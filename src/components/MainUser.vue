@@ -1,32 +1,40 @@
 <template>
     <div class="content">
-        <div class="content__boxes" v-if="showInfos">
-                <div class="box" v-for="detail in details" :key="detail.id">
-                                <div class="note">
-                                    Date: <span> 15/11/2022</span>
-                                </div>
-                               Wallet:
+        <div class="content__boxes" >
 
-                                <p>
-                                   <strong>
-                                     {{ detail.balance }}
-                                   </strong>
 
-                                </p>
-
-                </div>
-
-                <div class="box" v-for="detail in rates" :key="detail.id">
-                               <div class="devise"> <img :src="getImgUrl(detail.image)" >
-                                {{ detail.name }}
+                <div class="box" v-for="rate in rates" :key="rate.id" v-if="showInfos">
+                               <div class="devise"> <img :src="getImgUrl(rate.image)" >
+                                {{ rate.name }}
 
                                </div>
                                 <div class="note">
+                                  <h3>
+                                    Selling
+                                  </h3>
 
-                                     <span> Selling: <div class="important">{{ detail.selling_price }} ghc</div></span>
-                                     <span> Buying: <div class="important">{{ detail.buying_price }} ghc</div></span>
+                                  <div class="important">
+                                    <img src="../../public/images/ghana-flag.png" alt="trade bitcoin in ghana"> {{ rate.selling_price }} gh | <img src="../../public/images/usd.png" alt=""> {{ rate.selling_price * 10}} Usd  <strong> <i class="fas fa-shopping-cart" @click="buyItem(rate.id)"></i></strong>
+                                  </div>
+
+                                  <h3>
+                                    Buying
+                                  </h3>
+
+                                  <div class="important">
+                                    <img src="../../public/images/ghana-flag.png" alt="trade bitcoin in ghana">  {{ rate.buying_price }} gh | <img src="../../public/images/usd.png" alt=""> {{ rate.buying_price * 10}} Usd <strong><i class="fas fa-store"></i></strong>
+                                  </div>
+
                                 </div>
+
                 </div>
+
+                <div class="box" v-if="showItems">
+                  <div class="" v-for="item in items" :key="item.id">
+                    numero  {{ item.id }}
+                  </div>
+                </div>
+
         </div>
     </div>
 </template>
@@ -39,7 +47,10 @@
         return{
             details:[],
             rates: [],
-            showInfos: true
+            items: [],
+            showItems: false,
+            showInfos: true,
+            infos: []
         }
       },
       mounted: function(){
@@ -50,14 +61,22 @@
         axios.get('http://127.0.0.1/rapidnote/api/rates').then(
                     response =>
                     this.rates = response.data);
-                    axios.get('http://127.0.0.1/rapidnote/api/userById/1').then(
+                  /*  axios.get('http://127.0.0.1/rapidnote/api/userById/1').then(
                     response =>
-                    this.details = response.data);
+                    this.details = response.data);*/
         this.showInfos = true;
       },
       getImgUrl(pic) {
                 return "http://127.0.0.1/rapidnote/public/images/" + pic;
-            }
+      },
+      buyItem(){
+       // console.log(detail_id);
+        axios.get('http://127.0.0.1/rapidnote/api/rateById/1').then(
+                    response =>
+                    this.items = response.data);
+        this.showItems = true;
+        this.showInfos = false;
+      }
     }
 
     }

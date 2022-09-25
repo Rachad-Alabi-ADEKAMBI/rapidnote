@@ -28,21 +28,21 @@
                                 </td>
                             </thead>
 
-                            <tr>
+                            <tr v-for="payment in payments"  :key="payment.id">
                                 <td data-label="Reference">
-                                        547856
+                                       {{ payment.id }}
                                 </td>
 
                                 <td data-label='Date'>
-                                    21/08/2022
+                                    {{ payment.date_of_insertion }}
                                 </td>
 
                                 <td data-label="Name">
-                                    John Doe
+                                    {{ payment.user_name }}
                                 </td>
 
                                 <td data-label="Amount">
-                                    100
+                                    {{ payment.amount }}
                                 </td>
                             </tr>
                         </table>
@@ -56,17 +56,17 @@
         name: 'Payments',
       data(){
         return{
-            details:[]
+            payments:[]
         }
       },
       mounted: function(){
-        //  this.getUsers();
+          this.getPayments();
       },
       methods:{
-        getUsers() {
-                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
+        getPayments() {
+                axios.get('http:/127.0.0.1/rapidnote/api/payments').then(
                     response =>
-                    this.users = response.data)
+                    this.payments = response.data)
             }
       }
     }

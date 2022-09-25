@@ -20,17 +20,17 @@
                                 </td>
                             </thead>
 
-                            <tr v-for="detail in details" :key="detail.id" >
+                            <tr v-for="user in users" :key="user.id" >
                                 <td data-label="Name">
-                                    {{ detail.first_name }} {{ detail.last_name}}
+                                    {{ user.first_name }} {{ user.last_name}}
                                 </td>
 
                                 <td data-label="Email">
-                                        {{ detail.email}}
+                                        {{ user.email}}
                                 </td>
 
                                 <td data-label="">
-                                    {{ detail.balance }} gh
+                                    {{ user.balance }} gh
                                 </td>
 
                                 <td>
@@ -92,18 +92,19 @@
         }
       },
       mounted: function(){
-        //  this.getUsers();
+          this.getAllUsers();
       },
       methods:{
-        getUsers() {
+        getAllUsers() {
                 axios.get('http:/127.0.0.1/rapidnote/api/users').then(
                     response =>
-                    this.users= response.data);
+                    this.users = response.data);
                     this.showAllUsers = true;
                     this.showUser = false;
                     this.showHistorical = false;
                     this.showContact = false;
                     this.showSuspend = false;
+
             },
         getUserById() {
               /*  axios.get('http:/127.0.0.1/rapidnote/api/userById').then(

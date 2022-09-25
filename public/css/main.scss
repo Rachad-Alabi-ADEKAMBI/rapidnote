@@ -549,101 +549,59 @@ nav ul li a{
             @include flex();
             cursor: pointer;
             text-align: left;
+            width: 100%;
 
             .box{
-                width: 250px;
+                width: 150px;
                 margin: 15px;
-                height: 150px;
                 border-radius: 10px;
                 position: relative;
                 flex: 1;
                 margin: 15px;
                 background-color: whitesmoke;
-                padding-left: 5px;
-                padding-top: 5px;
-                display: grid;
+                display: block;
+                padding: 10px;
 
-               p{
-                text-align: center;
-                margin: 5px auto;
-                width: 100%;
-                strong{
-                    color: $blue;
+                .devise{
                     margin: auto;
                     text-align: center;
-                    width: 100%;
-                    font-size: 2em;
-
-                    .gh{
-                        font-weight: 400;
-                        font-size: 1.5em;
-                        margin: auto;
-                        text-align: center;
-                        color: $blue;
-                    }
-                }
-               }
-
-               span{
-                text-align: center;
-                margin: 5px auto;
-                color: $black;
-                width: 100%;
-               }
-
-               .devise{
-                width: 95%;
-                margin: auto 10px;
-                display: table;
-                font-weight: bold;
-                    .small{
-                        color: $blue;
-                        font-size: 0.8em;
-                        font-weight: 400;
-                    }
-
-                    .pen{
-                        display: table-cell;
-                        i{
-                            color: $blue;
-                            transition: 500ms ease-in-out;
-                        }
-
-                        i:hover{
-                            transform: scale(1.4);
-                        }
-                    }
-
                     img{
                         width: 50px;
-                        display: table-cell;
-                        width: 50px;
-                    }
-
-
-               }
-
-               .note{
-                margin: 5px auto auto 5px;
-                text-align: left;
-                @include flex(row);
-                width: 95%;
-                color: $black;
-                font-size: 1em;
-
-
-                span{
-                    color: $black;
-                    font-weight: bold;
-                    @include flex();
-
-                    .important{
-                        color: $blue;
-                        font-weight: bold;
+                        height: 50px;
                     }
                 }
-               }
+
+                .note{
+                    display: block;
+
+                    h3{
+                        text-decoration: underline;
+                        font-size: 1em;
+
+                    }
+
+                    .important{
+                        display: table;
+                        color: $blue;
+                        position: relative;
+                        width: 100%;
+
+                        img{
+                            width: 15px;
+                            height: 15px;
+
+                        }
+
+                        strong{
+                            position: absolute;
+                            right: 0px;
+
+                        }
+                    }
+                }
+
             }
+
 
             .box-form{
                 width: 320px;

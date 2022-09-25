@@ -47,11 +47,6 @@
                                       <i class="fas fa-user"></i>
                                       user name
                                   </div>
-
-                                  <div class="icon" @click="displaySettings()">
-                                    <i class="fas fa-cogs"></i>
-                                      Settings
-                                    </div>
                               </div>
                         </div>
         <MainUser v-if="showMainUser"></MainUser>
