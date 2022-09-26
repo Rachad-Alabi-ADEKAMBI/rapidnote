@@ -1,6 +1,7 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
 $blue: #4884B7;
+$blue-dark: #1a5486;
 $bg: #F3F3F5;
 $white: white;
 $grey: rgb(34, 26, 26);
@@ -87,7 +88,7 @@ $black: #202022;
     border: 1px solid;
     border-color: $bdC;
     color: $white;
-    background-color: $bgC;
+    background-color: $blue;
     cursor: pointer;
 }
 
@@ -105,7 +106,7 @@ $black: #202022;
 }
 
 @mixin button{
-    background-color: $bg;
+    background-color: $blue;
     color: white;
     border: 1px solid;
     border-radius: 30px;
@@ -155,6 +156,7 @@ a:hover{
 
 .link:hover{
     transform: scale(1);
+    background-color: $blue-dark;
 }
 
 
@@ -473,13 +475,18 @@ nav ul li a{
         border: 1px $black solid;
         display: block;
         text-align: center;
+        overflow: hidden;
 
         padding-top: 0;
        li{
         margin: 0px auto 10px auto;
-        background-color: $blue;;
+        background-color: $blue;
 
             .link{
+                width: 100%;
+                background: $blue;
+                border-radius: 10px;
+                border: none;
                 a{
                     color: $white;
                     font-weight: bold;
@@ -493,6 +500,16 @@ nav ul li a{
                 color: $white;
                 border: 1px $blue solid;
                 font-weight: bold;
+                border-radius: 10px;
+                border: none;
+            }
+
+            .link:hover{
+                background-color: $blue-dark;
+            }
+
+            button:hover{
+                background-color: $blue-dark;
             }
 
 
@@ -503,11 +520,12 @@ nav ul li a{
 
     .content{
         @include flex(column);
-        width: 75%;
+        width: 90%;
         border-radius: 10px;
         margin: auto;
+        margin-left: 20px;
         padding-bottom: 50px;
-        background-color: rgb(122, 140, 179);;
+        background-color:$blue;
 
         &__title{
             margin: 20px auto auto 10px;
@@ -562,6 +580,14 @@ nav ul li a{
                 display: block;
                 padding: 10px;
 
+                .fa-wallet{
+                    font-size: 1.4em;
+                    margin: auto 40px auto 40px;
+                    text-align: center;
+                    color: $blue;
+                    margin: auto;
+                }
+
                 .devise{
                     margin: auto;
                     text-align: center;
@@ -578,6 +604,17 @@ nav ul li a{
                         text-decoration: underline;
                         font-size: 1em;
 
+                    }
+
+                    i{
+                       font-size: 1.4em;
+                        margin: auto;
+                        color: $blue;
+                    }
+
+                    .wallet{
+                        margin: auto;
+                        text-align: center;
                     }
 
                     .important{

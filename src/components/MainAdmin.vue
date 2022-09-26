@@ -2,67 +2,65 @@
     <div class="content">
 
                         <div class="content__boxes" v-if="showInfos">
+                            <div class="box"  v-if="showInfos">
+            <i class="fas fa-wallet"></i>
+                                Total transactions
+                                <div class="note">
+                                  <h3>
+                                    Balance
+                                  </h3>
 
-                            <div class="box">
-
-                               <div class="devise">
-                                Total transactions:
+                                  <div class="important">
+                                    <img src="../../public/images/ghana-flag.png" alt="trade bitcoin in ghana">
+                                  409 gh | <img src="../../public/images/usd.png" alt=""> 4.09 Usd  <strong> <i class="fas fa-plus-circle"></i> <br> <i class="fas fa-exchange-alt"></i></strong>
+                                  </div>
 
                                </div>
-                                <p>
-                                   <strong>
-                                   {{nbr }} ghc
-                                   </strong>
 
-                                </p>
+                </div>
 
-                            </div>
 
-                            <div class="box" v-for="detail in details" :key="detail.id">
-                               <div class="devise"> <img :src="getImgUrl(detail.image)" >
-                                {{ detail.name }}  <div class="pen" @click="displayEditRate(detail.id)"><i class="fas fa-pen"></i></div>
+
+                <div class="box" v-for="rate in rates" :key="rate.id" v-if="showInfos">
+                               <div class="devise"> <img :src="getImgUrl(rate.image)" >
+                                {{ rate.name }} <i class="fas fa-pen"></i>
 
                                </div>
                                 <div class="note">
+                                  <h3>
+                                    Selling
+                                  </h3>
 
-                                     <span> Selling: <div class="important">{{ detail.selling_price }} ghc</div></span>
-                                     <span> Buying: <div class="important">{{ detail.buying_price }} ghc</div></span>
+                                  <div class="important">
+                                    <img src="../../public/images/ghana-flag.png"
+                                    alt="trade bitcoin in ghana"> {{ rate.selling_price }} gh |
+                                    <img src="../../public/images/usd.png" alt=""> {{ rate.selling_price * 10}} Usd
+
+                                  </div>
+
+                                  <h3>
+                                    Buying
+                                  </h3>
+
+                                  <div class="important">
+                                    <img src="../../public/images/ghana-flag.png" alt="trade bitcoin in ghana">
+                                     {{ rate.buying_price }} gh | <img src="../../public/images/usd.png" alt="">
+                                      {{ rate.buying_price * 10}} Usd
+                                  </div>
+
                                 </div>
-                            </div>
 
+                </div>
+
+                <div class="box" v-if="showItems">
+                  <div class="" v-for="item in items" :key="item.id">
+                    numero  {{ item.id }}
+                  </div>
+                </div>
                         </div>
 
-                        <div class="content__boxes" v-if="showEditRate">
-                                    <div class="form box-form" v-for="info in infos" :key="info.id">
-                                        <div class="devise">
-                                            Edit {{ info.name }}:   <div class="small"> </div>
 
-                                        </div>
-                                       <form action="../../api/api.php?action=editRate" method="POST">
-                                            <div class="form__close">
-                                                <i class="fa-regular fa-circle-xmark"></i>
-                                            </div>
-
-                                            <input type="number" value="detail.id" class="hidden" name="id">
-
-                                            <label for="">
-                                                Buy: <br>
-                                                <input type="number" placeholder="detail.buying_price"
-                                                name="selling_price">
-                                            </label>
-
-                                            <label for="">
-                                               Sell: <br>
-                                                <input type="text" placeholder="11" name="selling_price">
-                                            </label> <br>
-
-                                            <button type="submit" class="link">
-                                                Change
-                                            </button>
-                                       </form>
-                                    </div>
-                        </div>
-                    </div>
+    </div>
 </template>
 
 
@@ -73,6 +71,7 @@
         return{
             details:[],
             infos: [],
+            rates: [],
             showInfos: true,
             showEditRate: false,
             nbr: ''
@@ -89,7 +88,7 @@
                     this.nbr = response.data);
              axios.get('http://127.0.0.1/rapidnote/api/rates').then(
                     response =>
-                    this.details = response.data
+                    this.rates = response.data
 
             ),
             this.showEditRate = false;

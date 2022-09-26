@@ -1,6 +1,23 @@
 <template>
     <div class="content">
         <div class="content__boxes" >
+          <div class="box"  v-if="showInfos">
+            <i class="fas fa-wallet"></i>
+                                Your wallet
+                                <div class="note">
+                                  <h3>
+                                    Your wallet
+                                  </h3>
+
+                                  <div class="important">
+                                    <img src="../../public/images/ghana-flag.png" alt="trade bitcoin in ghana">
+                                  49 gh | <img src="../../public/images/usd.png" alt=""> 4.9 Usd  <strong> <i class="fas fa-plus-circle"></i> <br> <i class="fas fa-exchange-alt"></i></strong>
+                                  </div>
+
+                               </div>
+
+                </div>
+
 
 
                 <div class="box" v-for="rate in rates" :key="rate.id" v-if="showInfos">

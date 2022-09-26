@@ -113,6 +113,7 @@ a:hover {
 
 .link:hover {
   transform: scale(1);
+  background-color: #1a5486;
 }
 
 html, body {
@@ -431,11 +432,18 @@ nav ul li a {
   border: 1px #202022 solid;
   display: block;
   text-align: center;
+  overflow: hidden;
   padding-top: 0;
 }
 .dashboard .menu li {
   margin: 0px auto 10px auto;
   background-color: #4884B7;
+}
+.dashboard .menu li .link {
+  width: 100%;
+  background: #4884B7;
+  border-radius: 10px;
+  border: none;
 }
 .dashboard .menu li .link a {
   color: white;
@@ -446,6 +454,14 @@ nav ul li a {
   color: white;
   border: 1px #4884B7 solid;
   font-weight: bold;
+  border-radius: 10px;
+  border: none;
+}
+.dashboard .menu li .link:hover {
+  background-color: #1a5486;
+}
+.dashboard .menu li button:hover {
+  background-color: #1a5486;
 }
 .dashboard .content {
   display: flex;
@@ -453,11 +469,12 @@ nav ul li a {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
-  width: 75%;
+  width: 90%;
   border-radius: 10px;
   margin: auto;
+  margin-left: 20px;
   padding-bottom: 50px;
-  background-color: rgb(122, 140, 179);
+  background-color: #4884B7;
 }
 .dashboard .content__title {
   margin: 20px auto auto 10px;
@@ -517,6 +534,13 @@ nav ul li a {
   display: block;
   padding: 10px;
 }
+.dashboard .content__boxes .box .fa-wallet {
+  font-size: 1.4em;
+  margin: auto 40px auto 40px;
+  text-align: center;
+  color: #4884B7;
+  margin: auto;
+}
 .dashboard .content__boxes .box .devise {
   margin: auto;
   text-align: center;
@@ -531,6 +555,15 @@ nav ul li a {
 .dashboard .content__boxes .box .note h3 {
   text-decoration: underline;
   font-size: 1em;
+}
+.dashboard .content__boxes .box .note i {
+  font-size: 1.4em;
+  margin: auto;
+  color: #4884B7;
+}
+.dashboard .content__boxes .box .note .wallet {
+  margin: auto;
+  text-align: center;
 }
 .dashboard .content__boxes .box .note .important {
   display: table;
