@@ -37,7 +37,7 @@ break;
                     } else{
                         throw new Exception ("Please check the id");
                     }
-
+                    break;
 
 
                     case "rateById":
@@ -46,13 +46,15 @@ break;
                         } else{
                             throw new Exception ("Please check the id");
                         }
+                        break;
 
-                        case "userById":
+                   /*     case "userById":
                             if (!empty($url[1])){
                                 getUserById($url[1]);
                             } else{
                                 throw new Exception ("Please check the id");
                             }
+                            */
 
 
 

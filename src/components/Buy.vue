@@ -1,6 +1,6 @@
 <template> <br><br><br><br>
     <form method="POST"
-        action="" class='form' v-if="showBuy">
+        action="" class='form' v-if="showBuy" >
 
         <div class="form__close">
            <a href="/dashboard">
@@ -9,11 +9,11 @@
            </a> <br>
         </div>
         <h1 class="form__title">
-           Buy
+           Buy {{ item_id}}
         </h1>
 
         <div class="details">
-
+<!--
           <label for="Mr" @click='btc()'>
                         <input type="radio" class='sm' id="genderChoice1" name="gender" value="Mr" required>
                         <img src="../../public/images/btc.png" alt="">
@@ -25,13 +25,13 @@
                         <p>
                           Perfect Money
                         </p>
-                    </label>
+                    </label>-->
         </div>
 
         <label for="">
           Buying Rate: <br>
-          <div class="black">
-            1 USD = {{ bRate}} ₵
+          <div class="black" v-for="info in infos" :key='info.id'>
+            {{ info.buying_price /10}} USD = {{ info.buying_price}} ₵
           </div>
         </label>
 
@@ -122,21 +122,34 @@
 <script>
    export default {
        name: 'Buy',
+       props: ['item_id'],
      data(){
        return{
-           details:[],
+           infos:[],
            amount: '',
            showPayment: false,
            showBuy: true,
            bRate: 10,
+           idd: '',
            asset: '',
-           need: ''
+           need: '',
+           errormsg:''
        }
      },
      mounted: function(){
-       //  this.getMyBalance();
+         this.getItem_id(item_id);
      },
      methods:{
+      getItem_id(item_id){
+        axios.get('http://127.0.0.1/rapidnote/api/rateById/' + item_id).then(
+                    response =>
+                    this.infos = response.data)
+                    .catch(error => {
+                      this.errormsg = 'Une erreur est survenue'
+                    }) ;
+                    console.log(item_id);
+
+      },
         displayPayment(){
             this.showBuy = false;
             this.showPayment = true;

@@ -178,17 +178,6 @@ function getTransactions(){
 }
 
 
-function getRateById($id){
-    $pdo = getConnexion();
-        $req = $pdo->prepare('SELECT * FROM
-        rates WHERE id = ?');
-        $req->execute(array($id));
-        $datas = $req->fetch(PDO::FETCH_ASSOC);
-        $req->closeCursor();
-        sendJSON($datas);
-}
-
-
 function getTotalTransactionsValue(){
     $pdo = getConnexion();
         $req = $pdo->prepare('SELECT * FROM
@@ -294,6 +283,18 @@ alert("Thanks for your message, a reply will be sent to you very soon");
     }
 }
 
+/*
+function getUserById($user_id){
+    $pdo = getConnexion();
+     $stmt = $pdo->prepare("SELECT *
+        FROM users
+        WHERE id = ?");
+    $stmt->execute(array($user_id));
+    $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    sendJSON($datas);
+}
+*/
 
 function getMyBalance($user_id){
     $pdo = getConnexion();
@@ -306,16 +307,6 @@ function getMyBalance($user_id){
     sendJSON($datas);
 }
 
-function getUserById($user_id){
-    $pdo = getConnexion();
-     $stmt = $pdo->prepare("SELECT *
-        FROM users
-        WHERE id = ?");
-    $stmt->execute(array($user_id));
-    $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt->closeCursor();
-    sendJSON($datas);
-}
 
 
 function getUsers(){
@@ -339,19 +330,16 @@ function getPayments(){
     sendJSON($datas);
 }
 
-function getFormationById($id){
+function getRateById($id){
     $pdo = getConnexion();
-    $req = "SELECT f.id, f.libelle, f.description, f.image,
-    c.libelle as 'categorie' FROM formation f inner join categorie c on  f.categorie_id = c.id
-     WHERE  c.id = :id";
-     $stmt  = $pdo->prepare($req);
-     $stmt ->bindvalue(":id", $id, PDO::PARAM_INT);
-    $stmt->execute();
-    $formation = $stmt->fetch(PDO::FETCH_ASSOC);
-    $formation['image'] = URL."images/cours/".$formation['image'];
-    $stmt->closeCursor();
-    sendJSON($formation);
+        $req = $pdo->prepare('SELECT * FROM
+        rates WHERE id = ?');
+        $req->execute(array($id));
+        $datas = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
 }
+
 
 function sendJSON($infos){
     header("Access-Control-Allow-Origin: *");
@@ -368,3 +356,5 @@ if($action == 'login'){
 if($action == 'editRate'){
     editRate();
 }
+
+
