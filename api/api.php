@@ -357,4 +357,10 @@ if($action == 'editRate'){
     editRate();
 }
 
+if($action == 'logout'){
+    unset($_SESSION['user']);
+
+    header("Location: ../");
+}
+
 

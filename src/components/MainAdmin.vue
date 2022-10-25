@@ -1,9 +1,9 @@
 <template>
     <div class="content">
 
-                        <div class="content__boxes" v-if="showInfos">
+                <div class="content__boxes" v-if="showInfos">
                             <div class="box"  v-if="showInfos">
-            <i class="fas fa-wallet"></i>
+                                   <i class="fas fa-wallet"></i>
                                 Total transactions
                                 <div class="note">
                                   <h3>
@@ -15,7 +15,7 @@
                                   409 gh | <img src="../../public/images/usd.png" alt=""> 4.09 Usd  <strong> <i class="fas fa-plus-circle"></i> <br> <i class="fas fa-exchange-alt"></i></strong>
                                   </div>
 
-                               </div>
+                            </div>
 
                 </div>
 
@@ -57,7 +57,7 @@
                     numero  {{ item.id }}
                   </div>
                 </div>
-                        </div>
+      </div>
 
 
     </div>

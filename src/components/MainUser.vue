@@ -6,7 +6,7 @@
                                 Your wallet
                                 <div class="note">
                                   <h3>
-                                    Your wallet
+                                    Your wallett
                                   </h3>
 
                                   <div class="important">

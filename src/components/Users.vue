@@ -20,7 +20,7 @@
                                 </td>
                             </thead>
 
-                            <tr v-for="user in users" :key="user.id" >
+                            <tr v-for="user in userss" :key="user.id" >
                                 <td data-label="Name">
                                     {{ user.first_name }} {{ user.last_name}}
                                 </td>
@@ -43,7 +43,7 @@
                        </div>
 
                        <div class="content__table"  v-if="showUser">
-                            <h2 class="sontent__title">
+                            <h2 class="content__title">
                                 Fiche de xoygfuv
                             </h2>
 
@@ -82,7 +82,7 @@
         name: 'Users',
       data(){
         return{
-            users:[],
+            userss:[],
             details: [],
             showAllUsers: true,
             showUser: false,
@@ -96,9 +96,9 @@
       },
       methods:{
         getAllUsers() {
-                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
+                axios.get('https:/127.0.0.1/rapidnote/api/users').then(
                     response =>
-                    this.users = response.data);
+                    this.userss = response.data);
                     this.showAllUsers = true;
                     this.showUser = false;
                     this.showHistorical = false;
