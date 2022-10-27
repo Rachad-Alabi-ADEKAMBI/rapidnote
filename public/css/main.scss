@@ -200,7 +200,7 @@ html, body{
 
     .details{
         @include flex(row);
-        width: 65%;
+        width: 80%;
         margin: auto;
 
         label{
@@ -236,7 +236,6 @@ html, body{
         label{
             flex: 1;
             margin: 10px;
-            background-color: purple;
 
             input{
                 width: 150px;

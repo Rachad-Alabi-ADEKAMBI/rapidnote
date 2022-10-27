@@ -20,33 +20,25 @@
                                 </td>
 
                                 <td>
-                                    Seller
-                                </td>
-
-                                <td>
                                     Amount
                                 </td>
                             </thead>
 
-                            <tr>
+                            <tr v-for="detail in transactions" :key='detail.id'>
                                 <td data-label="Reference">
-                                        547856
+                                        {{ detail.id}}
                                 </td>
 
                                 <td data-label='Date'>
-                                    21/08/2022
+                                    {{ detail.date_of_insertion }}
                                 </td>
 
                                 <td data-label="Operation">
-                                    Operation
-                                </td>
-
-                                <td data-label="Name">
-                                    John Doe
+                                    {{ detail.comment}}
                                 </td>
 
                                 <td data-label="Amount">
-                                    100
+                                    {{ detail.amount }}
                                 </td>
                             </tr>
                         </table>
@@ -60,17 +52,17 @@
         name: 'PendingValidations',
       data(){
         return{
-            details:[]
+            transactions:[]
         }
       },
       mounted: function(){
-        //  this.getUsers();
+          this.getPendingTransactions();
       },
       methods:{
-        getUsers() {
-                axios.get('http:/127.0.0.1/rapidnote/api/users').then(
+        getPendingTransactions() {
+                axios.get('https://127.0.0.1/rapidnote/api/pendingTransactions').then(
                     response =>
-                    this.users = response.data)
+                    this.transactions = response.data)
             }
       }
     }

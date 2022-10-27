@@ -20,10 +20,6 @@
                                 </td>
 
                                 <td>
-                                    Seller
-                                </td>
-
-                                <td>
                                     Amount
                                 </td>
                             </thead>
@@ -37,8 +33,8 @@
                                     {{ payment.date_of_insertion }}
                                 </td>
 
-                                <td data-label="Name">
-                                    {{ payment.user_name }}
+                                <td data-label="Comment">
+                                    {{ payment.comment }}
                                 </td>
 
                                 <td data-label="Amount">
@@ -64,7 +60,7 @@
       },
       methods:{
         getPayments() {
-                axios.get('http:/127.0.0.1/rapidnote/api/payments').then(
+                axios.get('https://127.0.0.1/rapidnote/api/payments').then(
                     response =>
                     this.payments = response.data)
             }

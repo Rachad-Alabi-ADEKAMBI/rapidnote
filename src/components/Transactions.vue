@@ -26,6 +26,10 @@
                                 <td>
                                     Amount
                                 </td>
+
+                                <td>
+                                    Status
+                                </td>
                             </thead>
 
                             <tr v-for="detail in details" :key="detail.id">
@@ -48,6 +52,10 @@
                                 <td data-label="Amount">
                                     {{ detail.amount }}
                                 </td>
+
+                                <td data-label="Status" >
+                                    {{ detail.status }}
+                                </td>
                             </tr>
                         </table>
                        </div>
@@ -69,7 +77,7 @@
       },
       methods:{
         getTransactions() {
-                axios.get('http:/127.0.0.1/rapidnote/api/transactions').then(
+                axios.get('https:/127.0.0.1/rapidnote/api/transactions').then(
                     response =>
                     this.details = response.data)
                     this.showTransactions = true;

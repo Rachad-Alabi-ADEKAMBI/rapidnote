@@ -38,7 +38,7 @@
              or
                <br>
                <strong>
-                <a href="">
+                <a href="/register">
                     Create account
                 </a>
                </strong>

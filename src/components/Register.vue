@@ -1,7 +1,7 @@
 <template> <br><br> <br> <br>
 
     <form method="POST" class="form"
-     action="http://127.0.0.1/rapidnote/api/api.php?action=login">
+     action="https://127.0.0.1/rapidnote/api/api.php?action=register">
 
         <div class="form__close">
             <i class="fas fa-times"></i>
@@ -17,8 +17,10 @@
             <input type="text" name="first_name" placeholder="First name"
             required>
              </label>
+        </div> <br>
 
-                <label for="">
+        <div class="form__details">
+            <label for="">
                     <input type="text" name="last_name" placeholder="last_name"
                     required>
                 </label>
@@ -29,13 +31,15 @@
             <input type="email" name="email" placeholder="Email"
             required>
              </label>
+        </div> <br>
 
-                <label for="">
+       <div class="form__details">
+        <label for="">
                     <input type="text" name="phone_number"
                     placeholder="phone_number"
                     required>
                 </label>
-        </div>
+       </div>
 
         <label for="">
             <button type="submit" class="link">

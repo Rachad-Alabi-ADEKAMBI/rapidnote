@@ -28,12 +28,12 @@
                     </label>-->
         </div>
 
-        <label for="">
+        <p>
           Buying Rate: <br>
-          <ul >
-              <li v-for="detail in infoss" key="detail.id">{{detail.id }}</li>
+          <ul v-for="detail in infoss" :key="detail.id">
+              <li >{{ detail.id }}  </li>
           </ul>
-        </label>
+        </p>
 
         <label for="">
            Amount you need: <br>
@@ -122,7 +122,6 @@
 <script>
    export default {
        name: 'Buy',
-       props: ['item_id'],
      data(){
        return{
            infoss:[],
@@ -133,7 +132,8 @@
            idd: '',
            asset: '',
            need: '',
-           errormsg:''
+           errormsg:'',
+           item_id: 1
        }
      },
      mounted: function(){
@@ -141,12 +141,12 @@
      },
      methods:{
       getItem_id(){
-        axios.get('http://127.0.0.1/rapidnote/api/rateById/2').then(
+        axios.get('https://127.0.0.1/rapidnote/api/rateById/2').then(
                     response =>
-                    this.infoss = response.data)
-                    .catch(error => {
+                    this.infoss = response.data);
+                  /*  .catch(error => {
                       this.errormsg = 'Une erreur est survenue'
-                    }) ;
+                    })*/ ;
                  //   console.log(item_id);
 
       },

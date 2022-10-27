@@ -16,7 +16,7 @@
                                 </td>
 
                                 <td>
-                                    Balance
+                                    Balanc
                                 </td>
                             </thead>
 

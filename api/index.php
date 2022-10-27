@@ -31,6 +31,10 @@ break;
             getTotalTransactionsValue();
     break;
 
+    case "pendingTransactions":
+        getPendingTransactions();
+break;
+
                 case "myBalance":
                     if (!empty($url[1])){
                         getMyBalance($url[1]);

@@ -163,7 +163,7 @@ html, body {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
-  width: 65%;
+  width: 80%;
   margin: auto;
 }
 .form .details label {
@@ -199,7 +199,6 @@ html, body {
 .form__details label {
   flex: 1;
   margin: 10px;
-  background-color: purple;
 }
 .form__details label input {
   width: 150px;
