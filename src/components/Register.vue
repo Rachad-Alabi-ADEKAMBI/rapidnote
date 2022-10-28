@@ -1,7 +1,7 @@
 <template> <br><br> <br> <br>
 
     <form method="POST" class="form"
-     action="https://127.0.0.1/rapidnote/api/api.php?action=register">
+     action="http://127.0.0.1/rapidnote/api/api.php?action=register">
 
         <div class="form__close">
             <i class="fas fa-times"></i>

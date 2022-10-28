@@ -81,6 +81,7 @@ export default {
     MyTransactions,
     Wallet,
     Settings,
+
 },
 data(){
   return{
@@ -139,7 +140,7 @@ data(){
         this.showSell= false;
         this.showMyTransactions= true;
         this.showWallet = false
-        this.showSettings = true;
+        this.showSettings = false;
       },
       displayWallet(){
         this.showGraphsUser = false;

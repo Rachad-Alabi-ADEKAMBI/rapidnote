@@ -1,7 +1,7 @@
 <template> <br><br> <br> <br>
 
     <form method="POST" class="form"
-     action="https://127.0.0.1/rapidnote/api/api.php?action=setAccount">
+     action="http://127.0.0.1/rapidnote/api/api.php?action=setAccount">
 
         <div class="form__close">
             <i class="fas fa-times"></i>
@@ -22,7 +22,7 @@
 
         <div class="form__details">
             <label for="">
-                    <input type="password" name="pass1"
+                    <input type="password" name="password1"
                      placeholder="Password"
                     required>
                 </label>
@@ -30,7 +30,7 @@
 
         <div class="form__details">
             <label for="">
-                    <input type="password" name="pass2"
+                    <input type="password" name="password2"
                      placeholder="Confirm password"
                     required>
                 </label>

@@ -9,7 +9,7 @@
            </a> <br>
         </div>
         <h1 class="form__title">
-           Buy {{ item_id}}
+           Buy
         </h1>
 
         <div class="details">
@@ -27,13 +27,10 @@
                         </p>
                     </label>-->
         </div>
-
-        <p>
           Buying Rate: <br>
-          <ul v-for="detail in infoss" :key="detail.id">
-              <li >{{ detail.id }}  </li>
-          </ul>
-        </p>
+          <div v-for="detail in infosss" key="detail.id">
+              <p > {{ detail.name }}  </p>
+          </div>
 
         <label for="">
            Amount you need: <br>
@@ -115,7 +112,7 @@
             </button>
         </label>
 
-   </form>
+   </form> <br> <br>
 </template>
 
 
@@ -124,7 +121,7 @@
        name: 'Buy',
      data(){
        return{
-           infoss:[],
+           infosss:[],
            amount: '',
            showPayment: false,
            showBuy: true,
@@ -141,9 +138,9 @@
      },
      methods:{
       getItem_id(){
-        axios.get('https://127.0.0.1/rapidnote/api/rateById/2').then(
+        axios.get('http://127.0.0.1/rapidnote/api/rateById/2').then(
                     response =>
-                    this.infoss = response.data);
+                    this.infosss = response.data);
                   /*  .catch(error => {
                       this.errormsg = 'Une erreur est survenue'
                     })*/ ;
