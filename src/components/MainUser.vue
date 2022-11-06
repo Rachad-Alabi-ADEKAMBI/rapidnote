@@ -100,6 +100,7 @@
                     response =>
                     this.details = response.data);*/
         this.showInfos = true;
+        this.showItems = true;
       },
       getImgUrl(pic) {
                 return "http://127.0.0.1/rapidnote/public/images/" + pic;

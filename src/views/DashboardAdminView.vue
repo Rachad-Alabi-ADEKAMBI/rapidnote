@@ -54,9 +54,9 @@
 
 
                                     <div class="icon">
-                                        <i class="fas fa-user"></i>
-                                        user name
-                                    </div>
+                                          <i class="fas fa-user"></i>
+                                          {{ username }}
+                                        </div>
 
                                 </div>
                           </div>
@@ -66,6 +66,7 @@
           <Transactions v-if="showTransactions"></Transactions>
           <Users v-if="showUsers"></Users>
           <Payments v-if="showPayments"></Payments>
+          <Settings v-if="showSettings"></Settings>
           </div>
         </div>
   </template>
@@ -79,6 +80,7 @@
 import GraphsAdmin from '../components/GraphsAdmin.vue'
 import Transactions from '@/components/Transactions.vue'
 import Payments from '@/components/Payments.vue'
+import Settings from '@/components/Settings.vue'
 
   export default {
     name: 'DashboardView',
@@ -91,21 +93,33 @@ import Payments from '@/components/Payments.vue'
     GraphsAdmin,
     Transactions,
     Payments,
-    Payments
+    Settings
 },
   data(){
     return{
         message: '',
         details: [],
-        showUsers: true,
-        showMainAdmin: true,
-        showGraphsAdmin: true,
+        infos: [],
+        username: 'oklm',
+        showUsers: false,
+        showMainAdmin: false,
+        showGraphsAdmin: false,
+        showSettings: false,
         showPendingValidations: false,
         showTransactions: false,
         showPayments: false
     }
   },
+  mounted: function(){
+    this.getUserInfos();
+  },
     methods:{
+      getUserInfos(){
+     /*   axios.get('https://127.0.0.1/rapidnote/api/username').then(
+                    response =>
+                    this.username = response.data);*/
+                    this.showMainAdmin = true;
+      },
         displayUsers(){
             this.showUsers = true;
             this.showMainAdmin = false;
@@ -113,6 +127,7 @@ import Payments from '@/components/Payments.vue'
             this.showPendingValidations= false;
             this.showPayments = false;
             this.showTransactions= false;
+            this.showSettings = false;
         },
         displayGraphsAdmin(){
           this.showGraphsAdmin = true;
@@ -121,6 +136,7 @@ import Payments from '@/components/Payments.vue'
           this.showPendingValidations= false;
           this.showPayments = false;
           this.showTransactions= false;
+          this.showSettings = false;
         },
         displayDashboard(){
           this.showGraphsAdmin = true;
@@ -129,6 +145,7 @@ import Payments from '@/components/Payments.vue'
           this.showTransactions= false;
           this.showPendingValidations= false;
           this.showPayments = false;
+          this.showSettings = false;
         },
         displayPendingValidations(){
           this.showGraphsAdmin = false;
@@ -137,6 +154,7 @@ import Payments from '@/components/Payments.vue'
           this.showPendingValidations= true;
           this.showTransactions= false;
           this.showPayments = false
+          this.showSettings = false;
         },
         displayTransactions(){
           this.showGraphsAdmin = false;
@@ -145,6 +163,7 @@ import Payments from '@/components/Payments.vue'
           this.showPendingValidations= false;
           this.showTransactions= true;
           this.showPayments = false
+          this.showSettings = false;
         },
         displayPayments(){
           this.showGraphsAdmin = false;
@@ -153,6 +172,21 @@ import Payments from '@/components/Payments.vue'
           this.showPendingValidations= false;
           this.showTransactions= false
           this.showPayments = true;
+        },
+        displaySettings(){
+          this.showGraphsAdmin = false;
+          this.showUsers = false;
+          this.showMainAdmin = false;
+          this.showPendingValidations= false;
+          this.showTransactions= false
+          this.showPayments = true;
+          this.showGraphsAdmin = false;
+          this.showUsers = false;
+          this.showMainAdmin = false;
+          this.showPendingValidations= false;
+          this.showTransactions= false
+          this.showPayments = false;
+          this.showSettings = true;
         }
     }
   }

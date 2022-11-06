@@ -284,7 +284,6 @@ function getPendingTransactions(){
         sendJSON($datas);
 }
 
-
 function getTotalTransactionsValue(){
     $pdo = getConnexion();
         $req = $pdo->prepare('SELECT * FROM
@@ -398,7 +397,7 @@ function register(){
                 $errors = array ();
 
                 if (empty ($_POST['first_name'])) {
-                    $errors['first_name'] = 'Prenom non valide';
+                    $errors['first_name'] = 'Please, check the first     name';
                 }
 
                 if (empty ($_POST['last_name'])) {
@@ -453,7 +452,7 @@ window.location.replace("http://127.0.0.1:8080/setAccount");
 }
 
 
-/*
+
 function getUserById($user_id){
     $pdo = getConnexion();
      $stmt = $pdo->prepare("SELECT *
@@ -464,7 +463,19 @@ function getUserById($user_id){
     $stmt->closeCursor();
     sendJSON($datas);
 }
-*/
+
+function getHistoricalOfUser($user_id){
+    $pdo = getConnexion();
+     $stmt = $pdo->prepare("SELECT *
+        FROM transactions
+        WHERE seller_id = ?
+        OR buyer_id = ?");
+    $stmt->execute(array($user_id, $user_id));
+    $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    sendJSON($datas);
+}
+
 
 function getMyBalance($user_id){
     $pdo = getConnexion();
@@ -500,6 +511,19 @@ function getPayments(){
     sendJSON($datas);
 }
 
+function getUserName(){
+    $pdo = getConnexion();
+     $stmt = $pdo->prepare("SELECT username FROM
+      users WHERE id = ?");
+    $stmt->execute(array($_SESSION['user']['id']));
+    $datas = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    $username = $datas['username'];
+    sendJSON($username);
+}
+
+
+
 function getRateById($id){
     $pdo = getConnexion();
         $req = $pdo->prepare('SELECT * FROM
@@ -510,6 +534,36 @@ function getRateById($id){
         sendJSON($datas);
 }
 
+function settings(){
+    $pdo = getConnexion();
+    echo 'olk';
+    if(!empty($_POST)){
+        $errors = array ();
+        echo 'ok';
+
+        if(empty($_POST['username'])){
+           $username = verifyInput($_POST['username']);
+           $req = $pdo->prepare('SELECT id FROM users WHERE username = ?');
+           $req->execute([$username]);
+           $email = $req->fetch();
+           $email->closeCursor();
+           if($email){
+               $errors['username'] = "Username alreay registered, please choose a new one";
+           } else{
+            $req = $pdo->prepare('UPDATE users SET username = ? WHERE id = ?');
+            $req->execute(array($_SESSION['user']['id']));
+           }
+        }
+
+        ?>
+            <script>
+             //   alert('Settings updated successfully');
+             //   window.location.replace('http://127.0.0.1:8080/dashboard')
+            </script>
+        <?php
+
+    }
+}
 
 /* actions*/
 if($action == 'login'){
@@ -527,6 +581,11 @@ if($action == 'register'){
 if($action == 'setAccount'){
     setAccount();
 }
+
+if($action == 'settings'){
+    settings();
+}
+
 
 if($action == 'logout'){
     unset($_SESSION['user']);

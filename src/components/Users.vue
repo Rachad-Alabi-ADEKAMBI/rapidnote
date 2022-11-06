@@ -5,63 +5,73 @@
                         </h2>
 
                        <div class="content__table"  v-if="showAllUsers">
-                        <table class="table">
-                            <thead>
-                                <td>
-                                    Name
-                                </td>
+                            <table class="table">
+                                <thead>
+                                    <td>
+                                        Name
+                                    </td>
 
-                                <td>
-                                    Email
-                                </td>
+                                    <td>
+                                        Id
+                                    </td>
 
-                                <td>
-                                    Balanc
-                                </td>
-                            </thead>
+                                    <td>
+                                        Email
+                                    </td>
 
-                            <tr v-for="user in userss" :key="user.id" >
-                                <td data-label="Name">
-                                    {{ user.first_name }} {{ user.last_name}}
-                                </td>
+                                    <td>
+                                        Balance
+                                    </td>
+                                </thead>
 
-                                <td data-label="Email">
-                                        {{ user.email}}
-                                </td>
+                                <tr v-for="user in userss" :key="user.id" >
+                                    <td data-label="Name">
+                                        {{ user.first_name }} {{ user.last_name}}
+                                    </td>
 
-                                <td data-label="">
-                                    {{ user.balance }} gh
-                                </td>
+                                    <td data-label="Id">
+                                        {{ user.id}}
+                                    </td>
 
-                                <td>
-                                    <button @click="getUserById()" class="btn">
-                                        More
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
+
+                                    <td data-label="Email">
+                                            {{ user.email}}
+                                    </td>
+
+                                    <td data-label="">
+                                        {{ user.balance }} gh
+                                    </td>
+
+                                    <td>
+                                        <button @click="getUserById(user.id)" class="btn">
+                                            More
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
                        </div>
 
                        <div class="content__table"  v-if="showUser">
-                            <h2 class="content__title">
-                                Fiche de xoygfuv
+                            <div class="" v-for="detail in infos" :key="detail.id">
+                                <h2 class="content__title">
+                                Fiche client de {{ detail.name }}
                             </h2>
 
                             <ul>
                                 <li>
-                                    Date of registration: <span>21222</span>
+                                    Date of registration: <span>{{ detail.date_of_insertion }}</span>
                                 </li>
 
                                 <li>
-                                    Email: <span>john!@lgyiy</span>
+                                    Email: <span>{{ detail.email }}</span>
                                 </li>
 
                                 <li>
-                                    Phone Number <span>6666666</span>
+                                    Phone Number <span> {{detail.phone_code }}  {{ detail.phone_number }}</span>
                                 </li>
 
                                 <li>
-                                    Balance <span> 10</span>
+                                    Balance <span> {{ detail.balance }}</span>
                                 </li>
 
                                 <li>
@@ -72,8 +82,60 @@
                                     </div>
                                 </li>
                             </ul>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="content__table"  v-if="showHistorical">
+                            <h2>
+                                Historical of user
+                            </h2>
+                            <table class="table">
+                                <thead>
+                                    <td>
+                                        Date of insertion
+                                    </td>
+
+                                    <td>
+                                        Seller
+                                    </td>
+
+                                    <td>
+                                        Amount
+                                    </td>
+
+                                    <td>
+                                        Buyer
+                                    </td>
+
+                                    <td>
+                                        Status
+                                    </td>
+                                </thead>
+
+                                <tr v-for="detail in detailss" :key="detail.id" >
+                                    <td data-label="Date">
+                                        {{ detail.date_of_insertion }}
+                                    </td>
+
+                                    <td data-label="Seller">
+                                            {{ detail.seller}}
+                                    </td>
+
+                                    <td data-label="Amount">
+                                        {{ detail.amount }}
+                                    </td>
+
+                                    <td data-label="Buyer">
+                                        {{ detail.buyer }}
+                                    </td>
+
+                                    <td data-label="Status">
+                                        {{ detail.status }}
+                                    </td>
+                                </tr>
+                            </table>
+                       </div>
+    </div>
 </template>
 
 
@@ -84,6 +146,8 @@
         return{
             userss:[],
             details: [],
+            details: [],
+            infos: [],
             showAllUsers: true,
             showUser: false,
             showContact: false,
@@ -96,7 +160,7 @@
       },
       methods:{
         getAllUsers() {
-                axios.get('https:/127.0.0.1/rapidnote/api/users').then(
+                axios.get('https://127.0.0.1/rapidnote/api/users').then(
                     response =>
                     this.userss = response.data);
                     this.showAllUsers = true;
@@ -106,21 +170,21 @@
                     this.showSuspend = false;
 
             },
-        getUserById() {
-              /*  axios.get('http:/127.0.0.1/rapidnote/api/userById').then(
+        getUserById(user_id) {
+                  axios.get('https://127.0.0.1/rapidnote/api/userById/' + user_id).then(
                     response =>
-                    this.details= response.data)*/
+                    this.infos= response.data);
                     this.showUser = true;
                     this.showAllUsers = false
                     this.showHistorical = false;
                     this.showContact = false;
                     this.showSuspend = false;
             },
-        getHistorical(){
-              /*  axios.get('http:/127.0.0.1/rapidnote/api/userById').then(
+        getHistorical(user_id){
+                axios.get('https://127.0.0.1/rapidnote/api/historicalOfUser/' + user_id ).then(
                     response =>
-                    this.details= response.data)*/
-                    this.showUser = true;
+                    this.detailss= response.data);
+                    this.showUser = false;
                     this.showAllUsers = false
                     this.showHistorical = true;
                     this.showContact = false;
@@ -146,6 +210,19 @@
                     this.showContact = false;
                     this.showSuspend = true;
         },
+        format(num){
+                let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(num);
+                return res;
+        },
+        convert(date){
+                        function addDaysToDate(date, days){
+                                var res = new Date(date);
+                                res.setDate(res.getDate() + days);
+                                return res;
+                            }
+                             date_formated = addDaysToDate(date, 0);
+                             return date_formated.toLocaleDateString('fr');
+            }
       }
     }
     </script>

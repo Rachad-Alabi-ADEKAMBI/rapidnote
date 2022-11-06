@@ -12,7 +12,7 @@
 
                                   <div class="important">
                                     <img src="../../public/images/ghana-flag.png" alt="trade bitcoin in ghana">
-                                  409 gh | <img src="../../public/images/usd.png" alt=""> 4.09 Usd  <strong> <i class="fas fa-plus-circle"></i> <br> <i class="fas fa-exchange-alt"></i></strong>
+                                  {{nbr }} gh | <img src="../../public/images/usd.png" alt=""> {{ nbr/10 }} Usd  <strong> <i class="fas fa-plus-circle"></i> <br> <i class="fas fa-exchange-alt"></i></strong>
                                   </div>
 
                             </div>
@@ -23,7 +23,7 @@
 
                 <div class="box" v-for="rate in rates" :key="rate.id" v-if="showInfos">
                                <div class="devise"> <img :src="getImgUrl(rate.image)" >
-                                {{ rate.name }} <i class="fas fa-pen"></i>
+                                {{ rate.name }} <i class="fas fa-pen" @click="displayEditRate(rate.id)" ></i>
 
                                </div>
                                 <div class="note">
@@ -57,7 +57,7 @@
                     numero  {{ item.id }}
                   </div>
                 </div>
-      </div>
+                </div>
 
 
     </div>
@@ -71,8 +71,10 @@
         return{
             details:[],
             infos: [],
+            items: [],
             rates: [],
             showInfos: true,
+            showItems: false,
             showEditRate: false,
             nbr: ''
         }
@@ -90,7 +92,7 @@
                     response =>
                     this.rates = response.data
 
-            ),
+            );
             this.showEditRate = false;
             this.showInfos = true;
         },
@@ -100,7 +102,7 @@
                     response =>
                     this.infos = response.data);
     this.showEditRate =true;
-  //  this.showInfos = false;
+    this.showInfos = false;
       },
       displayInfos(){
      //   this.showEditRate = false;
